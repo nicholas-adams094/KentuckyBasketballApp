@@ -2,9 +2,16 @@ name: Deploy to GitHub Pages
 
 # The archive is a static bundle with `base: './'` and hash routing, so it runs from the
 # `/KentuckyBasketballApp/` subpath GitHub Pages serves it from with no rewrite rules.
+#
+# Note on branches: the `github-pages` environment carries a deployment branch policy
+# that, by default, only permits the repository's default branch. Deploying from the
+# feature branch additionally requires that branch to be allowed under
+# Settings → Environments → github-pages → Deployment branches and tags.
 on:
   push:
-    branches: ['claude/codex-project-recreation-6y3fqf']
+    branches:
+      - main
+      - 'claude/codex-project-recreation-6y3fqf'
   workflow_dispatch:
 
 permissions:
