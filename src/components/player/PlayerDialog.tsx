@@ -69,6 +69,7 @@ export function PlayerDialog() {
           number={focusEntry?.number ?? ''}
           className="player-dialog__portrait"
           loading="eager"
+          showProvenance
         />
 
         <div>
@@ -304,13 +305,21 @@ export function PlayerDialog() {
                 <dt style={{ color: 'var(--text-subtle)' }}>Rights review</dt>
                 <dd>{photo.rights_review_status.replace(/-/g, ' ')}</dd>
               </dl>
+              {photo.confidence === 'verified-archival' && photo.photo_season_note ? (
+                <div className="callout callout--gold" style={{ marginTop: 'var(--space-3)' }}>
+                  <Icon name="alert" size={15} className="callout__icon" />
+                  <span>{photo.photo_note}</span>
+                </div>
+              ) : null}
               {photo.confidence !== 'verified-archival' ? (
                 <div className="callout callout--gold" style={{ marginTop: 'var(--space-3)' }}>
                   <Icon name="alert" size={15} className="callout__icon" />
                   <span>
                     {photo.confidence === 'placeholder'
-                      ? 'No verified Kentucky-uniform photograph of this player has been located. The image shown is a labelled placeholder, not a likeness.'
-                      : 'This portrait is a reconstruction derived from an official team photograph, not an individual archival headshot.'}
+                      ? 'No verified Kentucky-uniform photograph of this player has been located. The card shown is a labelled placeholder, not a likeness.'
+                      : photo.confidence === 'unverified-identification'
+                        ? `${photo.photo_note} A jersey card is drawn in its place.`
+                        : `This portrait is cropped from the ${photo.identified_in_season} team photograph, not an individual archival headshot. The subject is the player wearing jersey #${photo.jersey_number} — the number this archive records for ${profile.name} that season.`}
                   </span>
                 </div>
               ) : null}

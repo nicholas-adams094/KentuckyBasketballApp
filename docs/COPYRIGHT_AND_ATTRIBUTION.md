@@ -28,8 +28,8 @@ Do not remove those safeguards until the review below is complete.
 3. **Remove or replace what cannot be used.** An image whose status cannot be established
    is not cleared by default. Replace it, or fall back to the generated jersey card —
    which the archive already does for players with no verified image.
-4. **Confirm no implied endorsement.** The nine reconstructions and the placeholder must
-   remain visibly flagged, and nothing in the presentation may suggest official
+4. **Confirm no implied endorsement.** The four team-photograph crops, the one
+   jersey-card entry and the two out-of-era portraits must remain visibly flagged, and nothing in the presentation may suggest official
    University of Kentucky imagery or approval.
 5. **Update this document and the manifest**, then remove `robots.txt` and the `noindex`
    meta as a deliberate, separate change.

@@ -59,12 +59,14 @@ export interface PlayerProfile {
   weight: number;
   hometown: string;
   highSchool: string;
+  /**
+   * Manifest key. Image provenance lives in `photo-manifest.json`, never here — the
+   * archive used to duplicate a note and type onto each profile, which drifted the moment
+   * the pipeline changed and left the data asserting what the manifest contradicted.
+   */
   image?: string;
   bio: string;
   legacy: string;
-  photoNote?: string;
-  photoType?: string;
-  photoSeason?: string;
 }
 
 /** One player's statistical line for one season. */
@@ -158,14 +160,47 @@ export type PhotoKind = 'player' | 'team' | 'interface';
 
 /**
  * Provenance confidence for an image. The UI surfaces anything that is not
- * `verified-archival` so a reader is never shown a reconstruction presented as an
- * authentic archival headshot.
+ * `verified-archival` so a reader is never shown a crop of a group photograph presented
+ * as an authentic individual headshot.
+ *
+ * The last two values mean "do not render this as a portrait of this player": the
+ * derivation script emits no portrait variants for them, so every player-facing surface
+ * falls back to the generated jersey card.
  */
 export type PhotoConfidence =
   | 'verified-archival'
   | 'verified-official-team-photo'
-  | 'verified-source-derived-portrait'
-  | 'placeholder';
+  /** A crop of a group photograph, with the subject identified by jersey number. */
+  | 'verified-team-photograph-crop'
+  /** A designed placeholder graphic; no photograph of this player was located. */
+  | 'placeholder'
+  /**
+   * A real Kentucky photograph whose subject cannot be confirmed from this archive's own
+   * data — the jersey number visible in it contradicts the number the archive records.
+   * Retained as a source, never shown as a likeness.
+   */
+  | 'unverified-identification';
+
+/** One responsive derivative of a portrait. */
+export interface PortraitVariant {
+  width: number;
+  height: number;
+  path: string;
+}
+
+/**
+ * How a portrait was framed, recorded by `scripts/derive-portraits.py`.
+ *
+ * `derivation` is either `face-detected`, or — for a crop of a team photograph — a string
+ * naming the jersey number the identification rests on, so the claim is auditable rather
+ * than asserted.
+ */
+export interface PortraitDerivation {
+  variants: PortraitVariant[];
+  source_crop: { x: number; y: number; w: number; h: number };
+  native_width: number;
+  derivation: string;
+}
 
 export interface PhotoManifestItem {
   id: string;
@@ -187,6 +222,17 @@ export interface PhotoManifestItem {
   needs_resourcing: boolean;
   visual_review_status: string;
   rights_review_status: string;
+  /** Absent exactly when the image must not be rendered as a portrait of this player. */
+  portrait?: PortraitDerivation;
+  identified_by?: string;
+  jersey_number?: string;
+  identified_in_season?: string;
+  /**
+   * Set only when the portrait itself dates from outside 1997–2007. The player and the
+   * uniform are right, but the photograph is not contemporary with the seasons it is
+   * displayed beside, and the interface says so rather than letting a reader assume.
+   */
+  photo_season_note?: string;
 }
 
 export interface PhotoManifest {

@@ -29,10 +29,15 @@ key with no manifest record. It also reads PNG/JPEG/WebP headers directly and fa
 the dimensions on disk differ from the manifest, so provenance records cannot drift from
 the assets they describe.
 
-Warnings (non-blocking) cover the known open items: 68 low-resolution originals, 9
-reconstructions, 1 placeholder, 70 entries pending rights review.
+It additionally fails if a portrait variant exceeds 2x its native crop, if a
+team-photograph crop names a jersey number that disagrees with `archive.json` or one
+shared by two players that season, or if an entry marked `placeholder` /
+`unverified-identification` still has portrait variants.
 
-## Unit tests — Vitest (86 tests)
+Warnings (non-blocking) cover the known open items: 68 low-resolution originals, 9
+team-photograph crops, 1 placeholder, 70 entries pending rights review.
+
+## Unit tests — Vitest (97 tests)
 
 **`archive.test.ts`** pins the headline facts (10 seasons, 58 profiles, 145 roster
 entries, 346 games, 263–83, 120–40, 23–9 in the NCAA Tournament), asserts every roster

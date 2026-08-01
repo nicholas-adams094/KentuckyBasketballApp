@@ -1,0 +1,62 @@
+{
+  "_comment": [
+    "Re-sourced player originals. These are official University of Kentucky individual",
+    "headshots recovered from Internet Archive captures of ukathletics.com. Each replaces",
+    "a crop of a season team photograph — a strip containing two to five people that the",
+    "previous build presented as that player's portrait.",
+    "",
+    "Nothing under ../original/ was deleted. Both sources remain on disk so the",
+    "substitution can be audited, and scripts/derive-portraits.py records in the photo",
+    "manifest which one each portrait was derived from.",
+    "",
+    "'era' is the season the headshot itself dates from, which is not always a season this",
+    "archive covers. Where it falls outside 1997-2007 that is stated in the manifest note",
+    "and shown in the interface, because the archive must not imply a portrait is",
+    "contemporary with the seasons it is displayed beside."
+  ],
+  "retrieved": "2026-08-01",
+  "items": {
+    "uk_jules_camara": {
+      "image_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
+      "page_url": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html",
+      "identified_by": "published on this player's own official University of Kentucky biography page",
+      "era": "1999-2000",
+      "in_covered_era": true
+    },
+    "uk_jp_blevins": {
+      "image_url": "https://web.archive.org/web/20000918111842im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jpblevins_mug.jpg",
+      "page_url": "https://web.archive.org/web/20000822110609/http://www.ukathletics.com/bko/bkc/jpblevinsbio.html",
+      "identified_by": "published on this player's own official University of Kentucky biography page",
+      "era": "1999-2000",
+      "in_covered_era": true
+    },
+    "uk_josh_carrier": {
+      "image_url": "https://web.archive.org/web/20040626143657im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
+      "page_url": "https://web.archive.org/web/20040626143657/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
+      "identified_by": "filename in the official University of Kentucky men's basketball headshot directory",
+      "era": "2003-04",
+      "in_covered_era": true
+    },
+    "uk_lukasz_obrzut": {
+      "image_url": "https://web.archive.org/web/20040626155948im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
+      "page_url": "https://web.archive.org/web/20040626155948/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
+      "identified_by": "filename in the official University of Kentucky men's basketball headshot directory",
+      "era": "2003-04",
+      "in_covered_era": true
+    },
+    "uk_michael_porter": {
+      "image_url": "https://web.archive.org/web/20081004063233im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327559.jpeg",
+      "page_url": "https://web.archive.org/web/20081004063233/http://www.ukathletics.com/sports/m-baskbl/mtt/porter_michael00.html",
+      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
+      "era": "2008-09",
+      "in_covered_era": false
+    },
+    "uk_ramon_harris": {
+      "image_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
+      "page_url": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html",
+      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
+      "era": "2008-09",
+      "in_covered_era": false
+    }
+  }
+}

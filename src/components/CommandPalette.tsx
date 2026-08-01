@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { imageUrl, seasons } from '@/lib/archive';
+import { imageUrl, playerPortrait, seasons } from '@/lib/archive';
 import { search, SEARCH_KIND_LABEL, type SearchKind, type SearchResult } from '@/lib/search';
 import { seasonHash } from '@/lib/router';
 import { Icon } from '@/components/ui/Icon';
@@ -169,7 +169,10 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             results.map((result, index) => {
               const showHeading = result.kind !== lastKind;
               lastKind = result.kind;
-              const image = result.imageKey ? imageUrl(result.imageKey) : undefined;
+              // Players carry a responsive ladder; a 26px avatar takes the smallest rung
+              // rather than the full-size file.
+              const portrait = result.playerId ? playerPortrait(result.playerId) : undefined;
+              const image = portrait?.src ?? (result.imageKey ? imageUrl(result.imageKey) : undefined);
 
               return (
                 <div key={result.id}>
@@ -189,7 +192,14 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
                     onMouseMove={() => setActiveIndex(index)}
                   >
                     {image ? (
-                      <img src={image} alt="" className="avatar avatar--xs" loading="lazy" />
+                      <img
+                        src={image}
+                        srcSet={portrait?.srcSet}
+                        sizes={portrait ? '32px' : undefined}
+                        alt=""
+                        className="avatar avatar--xs"
+                        loading="lazy"
+                      />
                     ) : (
                       <span
                         className="avatar avatar--xs"

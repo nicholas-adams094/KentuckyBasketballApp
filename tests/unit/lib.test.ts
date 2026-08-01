@@ -24,6 +24,7 @@ import {
   seasonsReaching,
 } from '@/lib/tournament';
 import { isStringArray, readJson, writeJson, __resetStorageProbe } from '@/lib/storage';
+import { photoManifest, playerPortrait, profiles, seasons } from '@/lib/archive';
 
 describe('format', () => {
   it('formats statistics to one decimal and handles missing values', () => {
@@ -264,5 +265,134 @@ describe('storage', () => {
 
     spy.mockRestore();
     __resetStorageProbe();
+  });
+});
+
+
+describe('portraits', () => {
+  const players = photoManifest.items.filter((item) => item.kind === 'player');
+  const crops = players.filter((item) => item.confidence === 'verified-team-photograph-crop');
+  const notShown = players.filter(
+    (item) => item.confidence === 'placeholder' || item.confidence === 'unverified-identification',
+  );
+
+  it('gives every player a portrait except the one that must not have one', () => {
+    const missing = players.filter((item) => !item.portrait?.variants?.length).map((i) => i.image_key);
+    expect(missing).toEqual(['uk_eric_allen']);
+    expect(notShown.map((i) => i.image_key)).toEqual(missing);
+  });
+
+  it('prefers a re-sourced official headshot over a team-photograph crop', () => {
+    // Six players whose only inherited image was a strip of a team photograph now have
+    // the individual headshot the university itself published. Regression guard: none of
+    // them may quietly fall back to the group crop.
+    const resourced = players.filter((item) => item.photo_type === 'official-uk-headshot');
+    expect(resourced.map((i) => i.image_key).sort()).toEqual([
+      'uk_josh_carrier', 'uk_jp_blevins', 'uk_jules_camara',
+      'uk_lukasz_obrzut', 'uk_michael_porter', 'uk_ramon_harris',
+    ].sort());
+    for (const item of resourced) {
+      expect(item.confidence, item.image_key).toBe('verified-archival');
+      expect(item.identified_by, item.image_key).toBe('official-university-publication');
+      expect(item.original_path, item.image_key).toMatch(/^\/images\/players\/resourced\//);
+      expect(item.source_url, item.image_key).toMatch(/^https:\/\/web\.archive\.org\//);
+      expect(item.portrait?.derivation, item.image_key).toBe('official-uk-headshot');
+      expect(item.jersey_number, item.image_key).toBeUndefined();
+    }
+  });
+
+  it('says so when a re-sourced portrait post-dates the era the archive covers', () => {
+    // Porter and Harris are shown with 2008-09 headshots. That is the correct player in a
+    // Kentucky uniform, but it is not contemporary with the seasons it sits beside, and
+    // the archive must not let a reader assume otherwise.
+    const outOfEra = players.filter((i) => i.photo_season_note);
+    expect(outOfEra.map((i) => i.image_key).sort()).toEqual(['uk_michael_porter', 'uk_ramon_harris']);
+    for (const item of outOfEra) {
+      expect(item.photo_note, item.image_key).toMatch(/after the Tubby Smith era/);
+    }
+  });
+
+  it('never upscales a portrait beyond 2x its native crop', () => {
+    // The point of re-deriving from the originals was to stop claiming resolution the
+    // source does not hold. A blanket 3x upscale is what this replaced.
+    for (const item of players) {
+      for (const variant of item.portrait?.variants ?? []) {
+        expect(variant.width, item.image_key).toBeLessThanOrEqual(item.portrait!.native_width * 2);
+      }
+    }
+  });
+
+  it('keeps every variant on the 3:4 portrait frame', () => {
+    for (const item of players) {
+      for (const variant of item.portrait?.variants ?? []) {
+        expect(Math.abs(variant.width / variant.height - 3 / 4), item.image_key).toBeLessThan(0.01);
+      }
+    }
+  });
+
+  it('crops each portrait from inside its own original', () => {
+    for (const item of players) {
+      const crop = item.portrait?.source_crop;
+      if (!crop) continue;
+      expect(crop.x, item.image_key).toBeGreaterThanOrEqual(0);
+      expect(crop.y, item.image_key).toBeGreaterThanOrEqual(0);
+      expect(crop.x + crop.w, item.image_key).toBeLessThanOrEqual(item.original_dimensions.width);
+      expect(crop.y + crop.h, item.image_key).toBeLessThanOrEqual(item.original_dimensions.height);
+      expect(crop.w, item.image_key).toBe(item.portrait!.native_width);
+    }
+  });
+
+  it('identifies every team-photo crop by a jersey number the archive agrees with', () => {
+    // A crop of a photograph containing several people is only defensible if the subject
+    // can be identified, so each one is resolved by the number on the jersey. This is the
+    // check that caught uk_ramon_harris: a #5 jersey filed under a player the archive
+    // records as #22. Regression guard — an identification the roster contradicts must
+    // never be shown as that player again.
+    expect(crops.length).toBe(4);
+    for (const item of crops) {
+      expect(item.identified_by, item.image_key).toBe('jersey-number');
+      const season = seasons.find((s) => s.id === item.identified_in_season);
+      expect(season, item.image_key).toBeDefined();
+      const line = season!.roster.find((entry) => entry.id === item.entity_id);
+      expect(line, item.image_key).toBeDefined();
+      expect(line!.number, item.image_key).toBe(item.jersey_number);
+      // …and the number has to be unique that season, or it identifies nobody.
+      expect(season!.roster.filter((e) => e.number === item.jersey_number).length, item.image_key).toBe(1);
+    }
+  });
+
+  it('describes a crop as a crop, never as an archival headshot', () => {
+    for (const item of crops) {
+      expect(item.confidence, item.image_key).not.toBe('verified-archival');
+      expect(item.photo_note, item.image_key).toMatch(/not an individual archival headshot/);
+    }
+  });
+
+  it('renders a jersey card for anything whose subject is not verified', () => {
+    // No portrait variants is what forces the fallback, so this asserts the mechanism
+    // rather than the label.
+    for (const item of notShown) {
+      const playerId = Object.keys(profiles).find((id) => profiles[id]!.image === item.image_key);
+      expect(playerId, item.image_key).toBeDefined();
+      expect(playerPortrait(playerId!), item.image_key).toBeUndefined();
+      expect(item.photo_note.length, item.image_key).toBeGreaterThan(40);
+    }
+  });
+
+  it('builds a srcset whose largest entry is the src', () => {
+    const portrait = playerPortrait('tayshaun-prince');
+    expect(portrait).toBeDefined();
+    const widths = portrait!.srcSet
+      .split(', ')
+      .map((entry) => Number(entry.split(' ')[1]!.replace('w', '')));
+    expect(Math.max(...widths)).toBe(portrait!.width);
+    expect(portrait!.srcSet).toContain(portrait!.src);
+  });
+
+  it('gives the palette a player id for every player result, so avatars stay small', () => {
+    for (const doc of searchIndex.filter((d) => d.kind === 'player')) {
+      expect(doc.playerId, doc.id).toBeDefined();
+      expect(profiles[doc.playerId!], doc.id).toBeDefined();
+    }
   });
 });

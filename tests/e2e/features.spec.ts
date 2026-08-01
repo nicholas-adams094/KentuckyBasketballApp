@@ -245,17 +245,69 @@ test.describe('postseason', () => {
 });
 
 test.describe('sources', () => {
-  test('lists sources and flags reconstructions', async ({ page, problems }) => {
+  test('lists sources and flags every image not shown as a portrait', async ({ page, problems }) => {
     await goToRoute(page, '#/season/2002-03/sources');
 
     await expect(page.getByRole('heading', { name: 'Historical sources' })).toBeVisible();
     await expect(page.getByText('Image rights have not been cleared')).toBeVisible();
 
-    await page.getByRole('button', { name: /^Reconstructions — 9 images$/ }).click();
-    await expect(page.locator('.provenance-tile')).toHaveCount(9);
+    await page.getByRole('button', { name: /^Team-photo crops — 4 images$/ }).click();
+    await expect(page.locator('.provenance-tile')).toHaveCount(4);
+    // Each crop states the jersey number its identification rests on.
+    await expect(page.locator('.provenance-flag', { hasText: 'Team photo · #' })).toHaveCount(4);
 
-    await page.getByRole('button', { name: /^Placeholders — 1 image$/ }).click();
+    await page.getByRole('button', { name: /^Not shown as a portrait — 1 image$/ }).click();
     await expect(page.locator('.provenance-tile')).toHaveCount(1);
+    await expect(page.locator('.provenance-flag', { hasText: 'No photograph' })).toBeVisible();
+
+    expectClean(problems);
+  });
+});
+
+test.describe('portrait honesty', () => {
+  test('draws a jersey card, not a photograph, for the player with no verified image', async ({
+    page,
+    problems,
+  }) => {
+    await goToRoute(page, '#/player/eric-allen');
+
+    const portrait = page.locator('.player-dialog .portrait img').first();
+    await expect(portrait).toBeVisible();
+    // The jersey card is drawn as an inline data URI; a photograph would be a file path.
+    await expect(portrait).toHaveAttribute('src', /^data:/);
+    await expect(page.locator('.provenance-flag', { hasText: 'No photograph' })).toBeVisible();
+
+    expectClean(problems);
+  });
+
+  test('serves the re-sourced official headshot, not the team-photo crop', async ({ page, problems }) => {
+    await goToRoute(page, '#/player/jules-camara');
+    const portrait = page.locator('.player-dialog .portrait img').first();
+    await expect(portrait).toHaveAttribute('src', /uk_jules_camara-\d+w\.webp/);
+    // No jersey-number flag: the university published this portrait on his own page, so
+    // nothing is being inferred from a group photograph any more.
+    await expect(page.locator('.provenance-flag', { hasText: 'Team photo' })).toHaveCount(0);
+    expectClean(problems);
+  });
+
+  test('says when a portrait post-dates the era, rather than letting it pass as contemporary', async ({
+    page,
+    problems,
+  }) => {
+    await goToRoute(page, '#/player/ramon-harris');
+    await expect(page.locator('.provenance-flag', { hasText: /portrait dates from 2008-09/ })).toBeVisible();
+    await expect(
+      page.locator('.callout--gold', { hasText: /after the Tubby Smith era/ }),
+    ).toBeVisible();
+    expectClean(problems);
+  });
+
+  test('serves a responsive portrait rather than one oversized file', async ({ page, problems }) => {
+    await goToRoute(page, '#/player/tayshaun-prince');
+
+    const portrait = page.locator('.player-dialog .portrait img').first();
+    await expect(portrait).toHaveAttribute('srcset', /\d+w/);
+    await expect(portrait).toHaveAttribute('sizes', /.+/);
 
     expectClean(problems);
   });

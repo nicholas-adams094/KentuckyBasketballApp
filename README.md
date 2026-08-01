@@ -112,8 +112,10 @@ games, reconciled from the game log rather than taken on trust.
 `npm run audit:images` verifies every manifest path exists inside `public/`, that no file
 is truncated, that no path is referenced twice, and — importantly — that the dimensions
 recorded in the manifest **match the actual files on disk**. It warns (without failing) on
-the known open items: low-resolution originals, the nine reconstructions, the one
-placeholder, and pending rights review.
+the known open items: low-resolution originals, the four team-photograph crops, and
+pending rights review. It **fails** if a portrait claims more than 2x the resolution of
+its native crop, or if a crop names a jersey number the archive's own roster
+contradicts.
 
 ---
 
@@ -128,10 +130,18 @@ These are enforced by the validators and by the interface itself:
   statistic. The method is documented in [docs/ANALYTICS.md](docs/ANALYTICS.md) and
   restated in the Sources view.
 - Player imagery is Kentucky-uniform only.
-- **Nine portraits are reconstructions** derived from official team photographs, and one
-  player (Eric Allen) has **no verified image at all**. Both are flagged visibly wherever
-  they appear and are never described as archival headshots. Where no image exists the
-  archive draws a generated jersey card, not a stand-in face.
+- **Six portraits are official University of Kentucky headshots** recovered from Internet
+  Archive captures of `ukathletics.com`, replacing crops of team photographs. Every source
+  URL and retrieval date is recorded in `public/images/players/resourced/SOURCES.json`, and
+  the superseded originals stay on disk so the substitution can be audited.
+- **Four portraits remain crops of a team photograph**, each identified by the jersey
+  number the archive records for that player that season — a claim the build re-derives
+  from the data rather than takes on trust. They are flagged `Team photo · #N` wherever
+  they appear and are never described as archival headshots.
+- **One player (Eric Allen) is shown as a jersey card**, because no verified image of him
+  has been located. Where no image can be verified, the archive draws a generated jersey
+  card — never a stand-in face.
+- **Two portraits post-date the era** and say so on the card and in the dialog.
 - All-decade selections and lineup ratings are explicitly computed fan opinion.
 
 ## Rights

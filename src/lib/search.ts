@@ -24,6 +24,8 @@ export interface SearchDoc {
   weight: number;
   route: string;
   imageKey?: string;
+  /** Player id, so the palette can serve the small responsive portrait variant. */
+  playerId?: string;
 }
 
 export interface SearchResult extends SearchDoc {
@@ -139,6 +141,7 @@ function buildIndex(): SearchDoc[] {
       weight: 10 + Math.min(8, totalGames / 20),
       route: `#/player/${id}`,
       imageKey: profile.image,
+      playerId: id,
     });
   }
 

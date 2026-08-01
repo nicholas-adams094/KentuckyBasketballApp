@@ -4,8 +4,10 @@
   "project": "Kentucky Wildcats — Tubby Smith Era Archive",
   "notes": [
     "Original means the image extracted from the last stable monolithic archive, not necessarily the highest-resolution historical source.",
-    "Processed means the current enhanced derivative. Codex should re-source higher-resolution originals rather than repeatedly upscale derivatives.",
-    "Nine player portraits are source-derived reconstructions from official team photographs; Eric Allen remains a placeholder."
+    "Portrait variants are re-derived from the originals by scripts/derive-portraits.py: a face-centred 3:4 crop, resampled with Lanczos and sharpened at output size. No detail is generated or interpolated beyond 2x the native crop, so no portrait claims more resolution than its source actually holds.",
+    "Crops from the team photographs additionally get a 3x3 median at native size to remove the halftone dot pattern left by photographing a printed page. That deletes an artefact of reproduction; no detail is added, and no denoiser that reconstructs skin texture is used on a real person's face.",
+    "Nine portraits are crops of a season team photograph rather than individual headshots. Each subject is the player wearing the jersey number this archive records for that player in that season, and each is labelled as a team-photograph crop wherever it appears.",
+    "Two players are shown as a labelled jersey card rather than a photograph. Eric Allen has no verified image at all. The photograph filed under Ramon Harris shows a player in a #5 jersey, but this archive records Harris as #22 in 2006-07 and #5 that season as Derrick Jasper, so the identification cannot be verified from this archive's data and is not asserted."
   ],
   "items": [
     {
@@ -18,24 +20,46 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_adam_chiles.webp",
-      "processed_path": "/images/players/processed/uk_adam_chiles.webp",
+      "processed_path": "/images/players/portrait/uk_adam_chiles-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 320,
+        "height": 427
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_adam_chiles-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_adam_chiles-320w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 42,
+          "y": 83,
+          "w": 296,
+          "h": 394
+        },
+        "native_width": 296,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:adam-williams",
@@ -47,24 +71,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_adam_williams.webp",
-      "processed_path": "/images/players/processed/uk_adam_williams.webp",
+      "processed_path": "/images/players/portrait/uk_adam_williams-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_adam_williams-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_adam_williams-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_adam_williams-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:allen-edwards",
@@ -76,24 +127,46 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_allen_edwards.webp",
-      "processed_path": "/images/players/processed/uk_allen_edwards.webp",
+      "processed_path": "/images/players/portrait/uk_allen_edwards-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 320,
+        "height": 427
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_allen_edwards-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_allen_edwards-320w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 62,
+          "y": 83,
+          "w": 296,
+          "h": 394
+        },
+        "native_width": 296,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:antwain-barbour",
@@ -106,24 +179,44 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_antwain_barbour.webp",
-      "processed_path": "/images/players/processed/uk_antwain_barbour.webp",
+      "processed_path": "/images/players/portrait/uk_antwain_barbour-146w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 146,
+        "height": 195
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "photo_type": "team-photograph-crop",
+      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #33, the number this archive records for Antwain Barbour that season. This is a crop of a group photograph, not an individual archival headshot.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "confidence": "verified-team-photograph-crop",
+      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 146,
+            "height": 195,
+            "path": "/images/players/portrait/uk_antwain_barbour-146w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 137,
+          "y": 82,
+          "w": 73,
+          "h": 98
+        },
+        "native_width": 73,
+        "derivation": "jersey-number-33-in-2002-03-team-photograph"
+      },
+      "identified_by": "jersey-number",
+      "jersey_number": "33",
+      "identified_in_season": "2002-03"
     },
     {
       "id": "player:bernard-cote",
@@ -136,24 +229,46 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_bernard_cote.webp",
-      "processed_path": "/images/players/processed/uk_bernard_cote.webp",
+      "processed_path": "/images/players/portrait/uk_bernard_cote-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 320,
+        "height": 427
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_bernard_cote-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_bernard_cote-320w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 59,
+          "y": 83,
+          "w": 296,
+          "h": 394
+        },
+        "native_width": 296,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:bobby-perry",
@@ -168,24 +283,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_bobby_perry.webp",
-      "processed_path": "/images/players/processed/uk_bobby_perry.webp",
+      "processed_path": "/images/players/portrait/uk_bobby_perry-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_bobby_perry-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_bobby_perry-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_bobby_perry-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:brandon-stockton",
@@ -200,24 +342,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_brandon_stockton.webp",
-      "processed_path": "/images/players/processed/uk_brandon_stockton.webp",
+      "processed_path": "/images/players/portrait/uk_brandon_stockton-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_brandon_stockton-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_brandon_stockton-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_brandon_stockton-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 17,
+          "y": 14,
+          "w": 385,
+          "h": 513
+        },
+        "native_width": 385,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:cameron-mills",
@@ -229,24 +398,51 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_cameron_mills.webp",
-      "processed_path": "/images/players/processed/uk_cameron_mills.webp",
+      "processed_path": "/images/players/portrait/uk_cameron_mills-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_cameron_mills-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_cameron_mills-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_cameron_mills-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 29,
+          "y": 55,
+          "w": 338,
+          "h": 450
+        },
+        "native_width": 338,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:chuck-hayes",
@@ -261,24 +457,51 @@
         "2004-05"
       ],
       "original_path": "/images/players/original/uk_chuck_hayes.webp",
-      "processed_path": "/images/players/processed/uk_chuck_hayes.webp",
+      "processed_path": "/images/players/portrait/uk_chuck_hayes-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_chuck_hayes-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_chuck_hayes-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_chuck_hayes-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:cliff-hawkins",
@@ -293,24 +516,51 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_cliff_hawkins.webp",
-      "processed_path": "/images/players/processed/uk_cliff_hawkins.webp",
+      "processed_path": "/images/players/portrait/uk_cliff_hawkins-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_cliff_hawkins-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_cliff_hawkins-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_cliff_hawkins-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:cory-sears",
@@ -323,24 +573,51 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_cory_sears.webp",
-      "processed_path": "/images/players/processed/uk_cory_sears.webp",
+      "processed_path": "/images/players/portrait/uk_cory_sears-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_cory_sears-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_cory_sears-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_cory_sears-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 30,
+          "y": 14,
+          "w": 359,
+          "h": 479
+        },
+        "native_width": 359,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:derrick-jasper",
@@ -352,24 +629,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_derrick_jasper.webp",
-      "processed_path": "/images/players/processed/uk_derrick_jasper.webp",
+      "processed_path": "/images/players/portrait/uk_derrick_jasper-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_derrick_jasper-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_derrick_jasper-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_derrick_jasper-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 29,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:desmond-allison",
@@ -382,24 +686,51 @@
         "1999-00"
       ],
       "original_path": "/images/players/original/uk_desmond_allison.webp",
-      "processed_path": "/images/players/processed/uk_desmond_allison.webp",
+      "processed_path": "/images/players/portrait/uk_desmond_allison-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_desmond_allison-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_desmond_allison-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_desmond_allison-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 15,
+          "y": 27,
+          "w": 389,
+          "h": 519
+        },
+        "native_width": 389,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:dwight-perry",
@@ -411,24 +742,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_dwight_perry.webp",
-      "processed_path": "/images/players/processed/uk_dwight_perry.webp",
+      "processed_path": "/images/players/portrait/uk_dwight_perry-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_dwight_perry-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_dwight_perry-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_dwight_perry-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:eric-allen",
@@ -440,21 +798,21 @@
         "2004-05"
       ],
       "original_path": "/images/players/original/uk_eric_allen.webp",
-      "processed_path": "/images/players/processed/uk_eric_allen.webp",
+      "processed_path": "/images/players/no-portrait/uk_eric_allen.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 420,
+        "height": 560
       },
       "photo_type": "labeled-placeholder",
-      "photo_note": "Enhanced Kentucky-themed archival placeholder; no verified UK-uniform portrait was located.",
+      "photo_note": "Designed Kentucky-themed placeholder graphic, not a photograph. No verified UK-uniform image of Eric Allen was located.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "placeholder",
-      "derivative_method": "designed placeholder; replacement required",
+      "derivative_method": "native-resolution re-encode; no portrait derived",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication"
@@ -472,24 +830,51 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_erik_daniels.webp",
-      "processed_path": "/images/players/processed/uk_erik_daniels.webp",
+      "processed_path": "/images/players/portrait/uk_erik_daniels-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_erik_daniels-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_erik_daniels-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_erik_daniels-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 36,
+          "y": 14,
+          "w": 354,
+          "h": 472
+        },
+        "native_width": 354,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:gerald-fitch",
@@ -504,24 +889,51 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_gerald_fitch.webp",
-      "processed_path": "/images/players/processed/uk_gerald_fitch.webp",
+      "processed_path": "/images/players/portrait/uk_gerald_fitch-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_gerald_fitch-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_gerald_fitch-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_gerald_fitch-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 23,
+          "y": 14,
+          "w": 367,
+          "h": 489
+        },
+        "native_width": 367,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:heshimu-evans",
@@ -534,24 +946,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_heshimu_evans.webp",
-      "processed_path": "/images/players/processed/uk_heshimu_evans.webp",
+      "processed_path": "/images/players/portrait/uk_heshimu_evans-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_heshimu_evans-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_heshimu_evans-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_heshimu_evans-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 31,
+          "y": 22,
+          "w": 357,
+          "h": 476
+        },
+        "native_width": 357,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:jp-blevins",
@@ -565,25 +1004,43 @@
         "2000-01",
         "2001-02"
       ],
-      "original_path": "/images/players/original/uk_jp_blevins.webp",
-      "processed_path": "/images/players/processed/uk_jp_blevins.webp",
+      "original_path": "/images/players/resourced/uk_jp_blevins.jpg",
+      "processed_path": "/images/players/portrait/uk_jp_blevins-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 145
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people.",
+      "source_url": "https://web.archive.org/web/20000918111842im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jpblevins_mug.jpg",
+      "source_reference": "https://web.archive.org/web/20000822110609/http://www.ukathletics.com/bko/bkc/jpblevinsbio.html",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jp_blevins-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 0,
+          "y": 4,
+          "w": 105,
+          "h": 140
+        },
+        "native_width": 105,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication"
     },
     {
       "id": "player:jamaal-magloire",
@@ -597,24 +1054,51 @@
         "1999-00"
       ],
       "original_path": "/images/players/original/uk_jamaal_magloire.webp",
-      "processed_path": "/images/players/processed/uk_jamaal_magloire.webp",
+      "processed_path": "/images/players/portrait/uk_jamaal_magloire-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jamaal_magloire-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jamaal_magloire-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jamaal_magloire-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 24,
+          "y": 14,
+          "w": 372,
+          "h": 496
+        },
+        "native_width": 372,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:jared-carter",
@@ -627,24 +1111,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_jared_carter.webp",
-      "processed_path": "/images/players/processed/uk_jared_carter.webp",
+      "processed_path": "/images/players/portrait/uk_jared_carter-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jared_carter-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jared_carter-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jared_carter-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:jason-parker",
@@ -657,24 +1168,51 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_jason_parker.webp",
-      "processed_path": "/images/players/processed/uk_jason_parker.webp",
+      "processed_path": "/images/players/portrait/uk_jason_parker-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jason_parker-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jason_parker-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jason_parker-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 30,
+          "y": 14,
+          "w": 359,
+          "h": 479
+        },
+        "native_width": 359,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:jeff-sheppard",
@@ -686,24 +1224,46 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_jeff_sheppard.webp",
-      "processed_path": "/images/players/processed/uk_jeff_sheppard.webp",
+      "processed_path": "/images/players/portrait/uk_jeff_sheppard-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 320,
+        "height": 427
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jeff_sheppard-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jeff_sheppard-320w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 42,
+          "y": 85,
+          "w": 292,
+          "h": 390
+        },
+        "native_width": 292,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:jodie-meeks",
@@ -715,24 +1275,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_jodie_meeks.webp",
-      "processed_path": "/images/players/processed/uk_jodie_meeks.webp",
+      "processed_path": "/images/players/portrait/uk_jodie_meeks-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jodie_meeks-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jodie_meeks-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jodie_meeks-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:joe-crawford",
@@ -746,24 +1333,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_joe_crawford.webp",
-      "processed_path": "/images/players/processed/uk_joe_crawford.webp",
+      "processed_path": "/images/players/portrait/uk_joe_crawford-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_joe_crawford-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_joe_crawford-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_joe_crawford-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 25,
+          "y": 14,
+          "w": 363,
+          "h": 484
+        },
+        "native_width": 363,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:josh-carrier",
@@ -777,25 +1391,43 @@
         "2003-04",
         "2004-05"
       ],
-      "original_path": "/images/players/original/uk_josh_carrier.webp",
-      "processed_path": "/images/players/processed/uk_josh_carrier.webp",
+      "original_path": "/images/players/resourced/uk_josh_carrier.jpg",
+      "processed_path": "/images/players/portrait/uk_josh_carrier-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 158
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people.",
+      "source_url": "https://web.archive.org/web/20040626143657im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
+      "source_reference": "https://web.archive.org/web/20040626143657/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_josh_carrier-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 3,
+          "y": 23,
+          "w": 101,
+          "h": 135
+        },
+        "native_width": 101,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication"
     },
     {
       "id": "player:jules-camara",
@@ -809,25 +1441,43 @@
         "2001-02",
         "2002-03"
       ],
-      "original_path": "/images/players/original/uk_jules_camara.webp",
-      "processed_path": "/images/players/processed/uk_jules_camara.webp",
+      "original_path": "/images/players/resourced/uk_jules_camara.jpg",
+      "processed_path": "/images/players/portrait/uk_jules_camara-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 145
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people.",
+      "source_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
+      "source_reference": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_jules_camara-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 0,
+          "y": 0,
+          "w": 105,
+          "h": 140
+        },
+        "native_width": 105,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication"
     },
     {
       "id": "player:keith-bogans",
@@ -842,24 +1492,51 @@
         "2002-03"
       ],
       "original_path": "/images/players/original/uk_keith_bogans.webp",
-      "processed_path": "/images/players/processed/uk_keith_bogans.webp",
+      "processed_path": "/images/players/portrait/uk_keith_bogans-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_keith_bogans-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_keith_bogans-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_keith_bogans-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 31,
+          "y": 14,
+          "w": 358,
+          "h": 477
+        },
+        "native_width": 358,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:kelenna-azubuike",
@@ -873,24 +1550,51 @@
         "2004-05"
       ],
       "original_path": "/images/players/original/uk_kelenna_azubuike.webp",
-      "processed_path": "/images/players/processed/uk_kelenna_azubuike.webp",
+      "processed_path": "/images/players/portrait/uk_kelenna_azubuike-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_kelenna_azubuike-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_kelenna_azubuike-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_kelenna_azubuike-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:lukasz-obrzut",
@@ -904,25 +1608,43 @@
         "2005-06",
         "2006-07"
       ],
-      "original_path": "/images/players/original/uk_lukasz_obrzut.webp",
-      "processed_path": "/images/players/processed/uk_lukasz_obrzut.webp",
+      "original_path": "/images/players/resourced/uk_lukasz_obrzut.jpg",
+      "processed_path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 158
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people.",
+      "source_url": "https://web.archive.org/web/20040626155948im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
+      "source_reference": "https://web.archive.org/web/20040626155948/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 4,
+          "y": 24,
+          "w": 97,
+          "h": 129
+        },
+        "native_width": 97,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication"
     },
     {
       "id": "player:mark-coury",
@@ -934,24 +1656,44 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_mark_coury.webp",
-      "processed_path": "/images/players/processed/uk_mark_coury.webp",
+      "processed_path": "/images/players/portrait/uk_mark_coury-160w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "photo_type": "team-photograph-crop",
+      "photo_note": "Cropped from the 2006-07 Kentucky team photograph. The subject is the player wearing jersey #42, the number this archive records for Mark Coury that season. This is a crop of a group photograph, not an individual archival headshot.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "confidence": "verified-team-photograph-crop",
+      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_mark_coury-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 239,
+          "y": 86,
+          "w": 83,
+          "h": 111
+        },
+        "native_width": 83,
+        "derivation": "jersey-number-42-in-2006-07-team-photograph"
+      },
+      "identified_by": "jersey-number",
+      "jersey_number": "42",
+      "identified_in_season": "2006-07"
     },
     {
       "id": "player:marquis-estill",
@@ -966,24 +1708,51 @@
         "2002-03"
       ],
       "original_path": "/images/players/original/uk_marquis_estill.webp",
-      "processed_path": "/images/players/processed/uk_marquis_estill.webp",
+      "processed_path": "/images/players/portrait/uk_marquis_estill-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_marquis_estill-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_marquis_estill-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_marquis_estill-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 16,
+          "y": 14,
+          "w": 387,
+          "h": 516
+        },
+        "native_width": 387,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:marvin-stone",
@@ -997,24 +1766,51 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_marvin_stone.webp",
-      "processed_path": "/images/players/processed/uk_marvin_stone.webp",
+      "processed_path": "/images/players/portrait/uk_marvin_stone-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_marvin_stone-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_marvin_stone-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_marvin_stone-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 27,
+          "y": 14,
+          "w": 366,
+          "h": 488
+        },
+        "native_width": 366,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:matt-heissenbuttel",
@@ -1029,24 +1825,44 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_matt_heissenbuttel.webp",
-      "processed_path": "/images/players/processed/uk_matt_heissenbuttel.webp",
+      "processed_path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "photo_type": "team-photograph-crop",
+      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #15, the number this archive records for Matt Heissenbuttel that season. This is a crop of a group photograph, not an individual archival headshot.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "confidence": "verified-team-photograph-crop",
+      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 133,
+          "y": 30,
+          "w": 87,
+          "h": 116
+        },
+        "native_width": 87,
+        "derivation": "jersey-number-15-in-2002-03-team-photograph"
+      },
+      "identified_by": "jersey-number",
+      "jersey_number": "15",
+      "identified_in_season": "2002-03"
     },
     {
       "id": "player:michael-bradley",
@@ -1059,24 +1875,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_michael_bradley.webp",
-      "processed_path": "/images/players/processed/uk_michael_bradley.webp",
+      "processed_path": "/images/players/portrait/uk_michael_bradley-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_michael_bradley-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_michael_bradley-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_michael_bradley-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 13,
+          "y": 18,
+          "w": 392,
+          "h": 523
+        },
+        "native_width": 392,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:michael-porter",
@@ -1087,25 +1930,44 @@
       "seasons": [
         "2006-07"
       ],
-      "original_path": "/images/players/original/uk_michael_porter.webp",
-      "processed_path": "/images/players/processed/uk_michael_porter.webp",
+      "original_path": "/images/players/resourced/uk_michael_porter.jpg",
+      "processed_path": "/images/players/portrait/uk_michael_porter-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 145
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none.",
+      "source_url": "https://web.archive.org/web/20081004063233im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327559.jpeg",
+      "source_reference": "https://web.archive.org/web/20081004063233/http://www.ukathletics.com/sports/m-baskbl/mtt/porter_michael00.html",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_michael_porter-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 1,
+          "y": 15,
+          "w": 98,
+          "h": 130
+        },
+        "native_width": 98,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication",
+      "photo_season_note": "portrait dates from 2008-09"
     },
     {
       "id": "player:myron-anthony",
@@ -1118,24 +1980,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_myron_anthony.webp",
-      "processed_path": "/images/players/processed/uk_myron_anthony.webp",
+      "processed_path": "/images/players/portrait/uk_myron_anthony-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_myron_anthony-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_myron_anthony-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_myron_anthony-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 31,
+          "y": 48,
+          "w": 357,
+          "h": 476
+        },
+        "native_width": 357,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:nate-knight",
@@ -1147,24 +2036,51 @@
         "1999-00"
       ],
       "original_path": "/images/players/original/uk_nate_knight.webp",
-      "processed_path": "/images/players/processed/uk_nate_knight.webp",
+      "processed_path": "/images/players/portrait/uk_nate_knight-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_nate_knight-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_nate_knight-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_nate_knight-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 22,
+          "y": 45,
+          "w": 375,
+          "h": 500
+        },
+        "native_width": 375,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:nazr-mohammed",
@@ -1176,24 +2092,51 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_nazr_mohammed.webp",
-      "processed_path": "/images/players/processed/uk_nazr_mohammed.webp",
+      "processed_path": "/images/players/portrait/uk_nazr_mohammed-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_nazr_mohammed-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_nazr_mohammed-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_nazr_mohammed-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 13,
+          "y": 26,
+          "w": 381,
+          "h": 508
+        },
+        "native_width": 381,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:patrick-sparks",
@@ -1207,24 +2150,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_patrick_sparks.webp",
-      "processed_path": "/images/players/processed/uk_patrick_sparks.webp",
+      "processed_path": "/images/players/portrait/uk_patrick_sparks-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_patrick_sparks-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_patrick_sparks-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_patrick_sparks-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:perry-stevenson",
@@ -1236,24 +2206,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_perry_stevenson.webp",
-      "processed_path": "/images/players/processed/uk_perry_stevenson.webp",
+      "processed_path": "/images/players/portrait/uk_perry_stevenson-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_perry_stevenson-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_perry_stevenson-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_perry_stevenson-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 31,
+          "y": 14,
+          "w": 357,
+          "h": 476
+        },
+        "native_width": 357,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:preston-lemaster",
@@ -1268,24 +2265,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_preston_lemaster.webp",
-      "processed_path": "/images/players/processed/uk_preston_lemaster.webp",
+      "processed_path": "/images/players/portrait/uk_preston_lemaster-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_preston_lemaster-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_preston_lemaster-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_preston_lemaster-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 21,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:rajon-rondo",
@@ -1298,24 +2322,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_rajon_rondo.webp",
-      "processed_path": "/images/players/processed/uk_rajon_rondo.webp",
+      "processed_path": "/images/players/portrait/uk_rajon_rondo-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_rajon_rondo-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_rajon_rondo-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_rajon_rondo-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 25,
+          "y": 14,
+          "w": 363,
+          "h": 484
+        },
+        "native_width": 363,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:ramel-bradley",
@@ -1329,24 +2380,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_ramel_bradley.webp",
-      "processed_path": "/images/players/processed/uk_ramel_bradley.webp",
+      "processed_path": "/images/players/portrait/uk_ramel_bradley-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_ramel_bradley-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_ramel_bradley-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_ramel_bradley-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 363,
+          "h": 484
+        },
+        "native_width": 363,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:ramon-harris",
@@ -1357,25 +2435,44 @@
       "seasons": [
         "2006-07"
       ],
-      "original_path": "/images/players/original/uk_ramon_harris.webp",
-      "processed_path": "/images/players/processed/uk_ramon_harris.webp",
+      "original_path": "/images/players/resourced/uk_ramon_harris.jpg",
+      "processed_path": "/images/players/portrait/uk_ramon_harris-160w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 145
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none.",
+      "source_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
+      "source_reference": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_ramon_harris-160w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 0,
+          "y": 12,
+          "w": 100,
+          "h": 133
+        },
+        "native_width": 100,
+        "derivation": "official-uk-headshot"
+      },
+      "identified_by": "official-university-publication",
+      "photo_season_note": "portrait dates from 2008-09"
     },
     {
       "id": "player:randolph-morris",
@@ -1389,24 +2486,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_randolph_morris.webp",
-      "processed_path": "/images/players/processed/uk_randolph_morris.webp",
+      "processed_path": "/images/players/portrait/uk_randolph_morris-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_randolph_morris-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_randolph_morris-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_randolph_morris-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:rashaad-carruth",
@@ -1418,24 +2542,44 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_rashaad_carruth.webp",
-      "processed_path": "/images/players/processed/uk_rashaad_carruth.webp",
+      "processed_path": "/images/players/portrait/uk_rashaad_carruth-134w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 134,
+        "height": 179
       },
-      "photo_type": "enhanced-team-photo-portrait",
-      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "photo_type": "team-photograph-crop",
+      "photo_note": "Cropped from the 2001-02 Kentucky team photograph. The subject is the player wearing jersey #2, the number this archive records for Rashaad Carruth that season. This is a crop of a group photograph, not an individual archival headshot.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-source-derived-portrait",
-      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "confidence": "verified-team-photograph-crop",
+      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 134,
+            "height": 179,
+            "path": "/images/players/portrait/uk_rashaad_carruth-134w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 139,
+          "y": 17,
+          "w": 67,
+          "h": 89
+        },
+        "native_width": 67,
+        "derivation": "jersey-number-2-in-2001-02-team-photograph"
+      },
+      "identified_by": "jersey-number",
+      "jersey_number": "2",
+      "identified_in_season": "2001-02"
     },
     {
       "id": "player:ravi-moss",
@@ -1450,24 +2594,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_ravi_moss.webp",
-      "processed_path": "/images/players/processed/uk_ravi_moss.webp",
+      "processed_path": "/images/players/portrait/uk_ravi_moss-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_ravi_moss-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_ravi_moss-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_ravi_moss-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:rekalin-sims",
@@ -1479,24 +2650,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_rekalin_sims.webp",
-      "processed_path": "/images/players/processed/uk_rekalin_sims.webp",
+      "processed_path": "/images/players/portrait/uk_rekalin_sims-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_rekalin_sims-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_rekalin_sims-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_rekalin_sims-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:ryan-hogan",
@@ -1509,24 +2707,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_ryan_hogan.webp",
-      "processed_path": "/images/players/processed/uk_ryan_hogan.webp",
+      "processed_path": "/images/players/portrait/uk_ryan_hogan-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_ryan_hogan-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_ryan_hogan-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_ryan_hogan-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 22,
+          "y": 41,
+          "w": 375,
+          "h": 500
+        },
+        "native_width": 375,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:saul-smith",
@@ -1541,24 +2766,51 @@
         "2000-01"
       ],
       "original_path": "/images/players/original/uk_saul_smith.webp",
-      "processed_path": "/images/players/processed/uk_saul_smith.webp",
+      "processed_path": "/images/players/portrait/uk_saul_smith-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_saul_smith-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_saul_smith-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_saul_smith-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 29,
+          "y": 14,
+          "w": 362,
+          "h": 483
+        },
+        "native_width": 362,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:scott-padgett",
@@ -1571,24 +2823,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_scott_padgett.webp",
-      "processed_path": "/images/players/processed/uk_scott_padgett.webp",
+      "processed_path": "/images/players/portrait/uk_scott_padgett-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_scott_padgett-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_scott_padgett-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_scott_padgett-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 23,
+          "y": 14,
+          "w": 374,
+          "h": 499
+        },
+        "native_width": 374,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:shagari-alleyne",
@@ -1602,24 +2881,51 @@
         "2005-06"
       ],
       "original_path": "/images/players/original/uk_shagari_alleyne.webp",
-      "processed_path": "/images/players/processed/uk_shagari_alleyne.webp",
+      "processed_path": "/images/players/portrait/uk_shagari_alleyne-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_shagari_alleyne-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_shagari_alleyne-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_shagari_alleyne-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:sheray-thomas",
@@ -1634,24 +2940,51 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_sheray_thomas.webp",
-      "processed_path": "/images/players/processed/uk_sheray_thomas.webp",
+      "processed_path": "/images/players/portrait/uk_sheray_thomas-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_sheray_thomas-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_sheray_thomas-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_sheray_thomas-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 32,
+          "y": 14,
+          "w": 356,
+          "h": 475
+        },
+        "native_width": 356,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:steve-masiello",
@@ -1665,24 +2998,51 @@
         "1999-00"
       ],
       "original_path": "/images/players/original/uk_steve_masiello.webp",
-      "processed_path": "/images/players/processed/uk_steve_masiello.webp",
+      "processed_path": "/images/players/portrait/uk_steve_masiello-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_steve_masiello-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_steve_masiello-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_steve_masiello-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 24,
+          "y": 14,
+          "w": 372,
+          "h": 496
+        },
+        "native_width": 372,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:tayshaun-prince",
@@ -1697,24 +3057,51 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_tayshaun_prince.webp",
-      "processed_path": "/images/players/processed/uk_tayshaun_prince.webp",
+      "processed_path": "/images/players/portrait/uk_tayshaun_prince-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_tayshaun_prince-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_tayshaun_prince-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_tayshaun_prince-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 30,
+          "y": 14,
+          "w": 360,
+          "h": 480
+        },
+        "native_width": 360,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:todd-tackett",
@@ -1728,24 +3115,51 @@
         "2000-01"
       ],
       "original_path": "/images/players/original/uk_todd_tackett.webp",
-      "processed_path": "/images/players/processed/uk_todd_tackett.webp",
+      "processed_path": "/images/players/portrait/uk_todd_tackett-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_todd_tackett-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_todd_tackett-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_todd_tackett-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 8,
+          "y": 18,
+          "w": 396,
+          "h": 528
+        },
+        "native_width": 396,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "player:wayne-turner",
@@ -1758,24 +3172,51 @@
         "1998-99"
       ],
       "original_path": "/images/players/original/uk_wayne_turner.webp",
-      "processed_path": "/images/players/processed/uk_wayne_turner.webp",
+      "processed_path": "/images/players/portrait/uk_wayne_turner-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 1260,
-        "height": 1680
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "portrait": {
+        "variants": [
+          {
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_wayne_turner-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_wayne_turner-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_wayne_turner-640w.webp"
+          }
+        ],
+        "source_crop": {
+          "x": 13,
+          "y": 26,
+          "w": 381,
+          "h": 508
+        },
+        "native_width": 381,
+        "derivation": "face-detected"
+      }
     },
     {
       "id": "team:1997-98",

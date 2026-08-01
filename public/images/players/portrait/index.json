@@ -1,0 +1,1856 @@
+{
+  "uk_adam_chiles": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 296,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 394,
+      "w": 296,
+      "x": 42,
+      "y": 83
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_adam_chiles-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_adam_chiles-320w.webp",
+        "width": 320
+      }
+    ]
+  },
+  "uk_adam_williams": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_adam_williams-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_adam_williams-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_adam_williams-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_allen_edwards": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 296,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 394,
+      "w": 296,
+      "x": 62,
+      "y": 83
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_allen_edwards-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_allen_edwards-320w.webp",
+        "width": 320
+      }
+    ]
+  },
+  "uk_antwain_barbour": {
+    "identification": "jersey-number-33-in-2002-03-team-photograph",
+    "jersey": "33",
+    "native_width": 73,
+    "resourced": null,
+    "season": "2002-03",
+    "source_crop": {
+      "h": 98,
+      "w": 73,
+      "x": 137,
+      "y": 82
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 195,
+        "path": "/images/players/portrait/uk_antwain_barbour-146w.webp",
+        "width": 146
+      }
+    ]
+  },
+  "uk_bernard_cote": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 296,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 394,
+      "w": 296,
+      "x": 59,
+      "y": 83
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_bernard_cote-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_bernard_cote-320w.webp",
+        "width": 320
+      }
+    ]
+  },
+  "uk_bobby_perry": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_bobby_perry-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_bobby_perry-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_bobby_perry-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_brandon_stockton": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 385,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 513,
+      "w": 385,
+      "x": 17,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_brandon_stockton-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_brandon_stockton-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_brandon_stockton-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_cameron_mills": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 338,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 450,
+      "w": 338,
+      "x": 29,
+      "y": 55
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_cameron_mills-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_cameron_mills-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_cameron_mills-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_chuck_hayes": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_chuck_hayes-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_chuck_hayes-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_chuck_hayes-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_cliff_hawkins": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_cliff_hawkins-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_cliff_hawkins-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_cliff_hawkins-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_cory_sears": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 359,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 479,
+      "w": 359,
+      "x": 30,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_cory_sears-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_cory_sears-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_cory_sears-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_derrick_jasper": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 29
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_derrick_jasper-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_derrick_jasper-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_derrick_jasper-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_desmond_allison": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 389,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 519,
+      "w": 389,
+      "x": 15,
+      "y": 27
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_desmond_allison-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_desmond_allison-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_desmond_allison-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_dwight_perry": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_dwight_perry-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_dwight_perry-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_dwight_perry-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_erik_daniels": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 354,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 472,
+      "w": 354,
+      "x": 36,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_erik_daniels-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_erik_daniels-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_erik_daniels-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_gerald_fitch": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 367,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 489,
+      "w": 367,
+      "x": 23,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_gerald_fitch-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_gerald_fitch-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_gerald_fitch-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_heshimu_evans": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 357,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 476,
+      "w": 357,
+      "x": 31,
+      "y": 22
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_heshimu_evans-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_heshimu_evans-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_heshimu_evans-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_jamaal_magloire": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 372,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 496,
+      "w": 372,
+      "x": 24,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jamaal_magloire-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jamaal_magloire-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jamaal_magloire-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_jared_carter": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jared_carter-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jared_carter-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jared_carter-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_jason_parker": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 359,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 479,
+      "w": 359,
+      "x": 30,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jason_parker-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jason_parker-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jason_parker-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_jeff_sheppard": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 292,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 390,
+      "w": 292,
+      "x": 42,
+      "y": 85
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jeff_sheppard-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jeff_sheppard-320w.webp",
+        "width": 320
+      }
+    ]
+  },
+  "uk_jodie_meeks": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jodie_meeks-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jodie_meeks-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jodie_meeks-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_joe_crawford": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 363,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 484,
+      "w": 363,
+      "x": 25,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_joe_crawford-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_joe_crawford-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_joe_crawford-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_josh_carrier": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 101,
+    "resourced": {
+      "era": "2003-04",
+      "identified_by": "filename in the official University of Kentucky men's basketball headshot directory",
+      "image_url": "https://web.archive.org/web/20040626143657im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
+      "in_covered_era": true,
+      "page_url": "https://web.archive.org/web/20040626143657/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 135,
+      "w": 101,
+      "x": 3,
+      "y": 23
+    },
+    "source_size": {
+      "height": 158,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_josh_carrier-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_jp_blevins": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 105,
+    "resourced": {
+      "era": "1999-2000",
+      "identified_by": "published on this player's own official University of Kentucky biography page",
+      "image_url": "https://web.archive.org/web/20000918111842im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jpblevins_mug.jpg",
+      "in_covered_era": true,
+      "page_url": "https://web.archive.org/web/20000822110609/http://www.ukathletics.com/bko/bkc/jpblevinsbio.html"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 140,
+      "w": 105,
+      "x": 0,
+      "y": 4
+    },
+    "source_size": {
+      "height": 145,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jp_blevins-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_jules_camara": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 105,
+    "resourced": {
+      "era": "1999-2000",
+      "identified_by": "published on this player's own official University of Kentucky biography page",
+      "image_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
+      "in_covered_era": true,
+      "page_url": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 140,
+      "w": 105,
+      "x": 0,
+      "y": 0
+    },
+    "source_size": {
+      "height": 145,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_jules_camara-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_keith_bogans": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 358,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 477,
+      "w": 358,
+      "x": 31,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_keith_bogans-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_keith_bogans-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_keith_bogans-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_kelenna_azubuike": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_kelenna_azubuike-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_kelenna_azubuike-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_kelenna_azubuike-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_lukasz_obrzut": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 97,
+    "resourced": {
+      "era": "2003-04",
+      "identified_by": "filename in the official University of Kentucky men's basketball headshot directory",
+      "image_url": "https://web.archive.org/web/20040626155948im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
+      "in_covered_era": true,
+      "page_url": "https://web.archive.org/web/20040626155948/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 129,
+      "w": 97,
+      "x": 4,
+      "y": 24
+    },
+    "source_size": {
+      "height": 158,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_mark_coury": {
+    "identification": "jersey-number-42-in-2006-07-team-photograph",
+    "jersey": "42",
+    "native_width": 83,
+    "resourced": null,
+    "season": "2006-07",
+    "source_crop": {
+      "h": 111,
+      "w": 83,
+      "x": 239,
+      "y": 86
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_mark_coury-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_marquis_estill": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 387,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 516,
+      "w": 387,
+      "x": 16,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_marquis_estill-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_marquis_estill-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_marquis_estill-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_marvin_stone": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 366,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 488,
+      "w": 366,
+      "x": 27,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_marvin_stone-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_marvin_stone-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_marvin_stone-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_matt_heissenbuttel": {
+    "identification": "jersey-number-15-in-2002-03-team-photograph",
+    "jersey": "15",
+    "native_width": 87,
+    "resourced": null,
+    "season": "2002-03",
+    "source_crop": {
+      "h": 116,
+      "w": 87,
+      "x": 133,
+      "y": 30
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_michael_bradley": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 392,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 523,
+      "w": 392,
+      "x": 13,
+      "y": 18
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_michael_bradley-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_michael_bradley-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_michael_bradley-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_michael_porter": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 98,
+    "resourced": {
+      "era": "2008-09",
+      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
+      "image_url": "https://web.archive.org/web/20081004063233im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327559.jpeg",
+      "in_covered_era": false,
+      "page_url": "https://web.archive.org/web/20081004063233/http://www.ukathletics.com/sports/m-baskbl/mtt/porter_michael00.html"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 130,
+      "w": 98,
+      "x": 1,
+      "y": 15
+    },
+    "source_size": {
+      "height": 145,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_michael_porter-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_myron_anthony": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 357,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 476,
+      "w": 357,
+      "x": 31,
+      "y": 48
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_myron_anthony-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_myron_anthony-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_myron_anthony-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_nate_knight": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 375,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 500,
+      "w": 375,
+      "x": 22,
+      "y": 45
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_nate_knight-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_nate_knight-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_nate_knight-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_nazr_mohammed": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 381,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 508,
+      "w": 381,
+      "x": 13,
+      "y": 26
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_nazr_mohammed-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_nazr_mohammed-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_nazr_mohammed-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_patrick_sparks": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_patrick_sparks-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_patrick_sparks-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_patrick_sparks-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_perry_stevenson": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 357,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 476,
+      "w": 357,
+      "x": 31,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_perry_stevenson-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_perry_stevenson-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_perry_stevenson-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_preston_lemaster": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 21
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_preston_lemaster-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_preston_lemaster-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_preston_lemaster-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_rajon_rondo": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 363,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 484,
+      "w": 363,
+      "x": 25,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_rajon_rondo-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_rajon_rondo-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_rajon_rondo-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_ramel_bradley": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 363,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 484,
+      "w": 363,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_ramel_bradley-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_ramel_bradley-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_ramel_bradley-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_ramon_harris": {
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 100,
+    "resourced": {
+      "era": "2008-09",
+      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
+      "image_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
+      "in_covered_era": false,
+      "page_url": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html"
+    },
+    "season": null,
+    "source_crop": {
+      "h": 133,
+      "w": 100,
+      "x": 0,
+      "y": 12
+    },
+    "source_size": {
+      "height": 145,
+      "width": 105
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_ramon_harris-160w.webp",
+        "width": 160
+      }
+    ]
+  },
+  "uk_randolph_morris": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_randolph_morris-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_randolph_morris-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_randolph_morris-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_rashaad_carruth": {
+    "identification": "jersey-number-2-in-2001-02-team-photograph",
+    "jersey": "2",
+    "native_width": 67,
+    "resourced": null,
+    "season": "2001-02",
+    "source_crop": {
+      "h": 89,
+      "w": 67,
+      "x": 139,
+      "y": 17
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 179,
+        "path": "/images/players/portrait/uk_rashaad_carruth-134w.webp",
+        "width": 134
+      }
+    ]
+  },
+  "uk_ravi_moss": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_ravi_moss-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_ravi_moss-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_ravi_moss-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_rekalin_sims": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_rekalin_sims-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_rekalin_sims-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_rekalin_sims-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_ryan_hogan": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 375,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 500,
+      "w": 375,
+      "x": 22,
+      "y": 41
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_ryan_hogan-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_ryan_hogan-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_ryan_hogan-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_saul_smith": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 362,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 483,
+      "w": 362,
+      "x": 29,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_saul_smith-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_saul_smith-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_saul_smith-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_scott_padgett": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 374,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 499,
+      "w": 374,
+      "x": 23,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_scott_padgett-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_scott_padgett-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_scott_padgett-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_shagari_alleyne": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_shagari_alleyne-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_shagari_alleyne-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_shagari_alleyne-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_sheray_thomas": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 356,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 475,
+      "w": 356,
+      "x": 32,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_sheray_thomas-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_sheray_thomas-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_sheray_thomas-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_steve_masiello": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 372,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 496,
+      "w": 372,
+      "x": 24,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_steve_masiello-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_steve_masiello-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_steve_masiello-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_tayshaun_prince": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 360,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 480,
+      "w": 360,
+      "x": 30,
+      "y": 14
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_tayshaun_prince-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_tayshaun_prince-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_tayshaun_prince-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_todd_tackett": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 396,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 528,
+      "w": 396,
+      "x": 8,
+      "y": 18
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_todd_tackett-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_todd_tackett-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_todd_tackett-640w.webp",
+        "width": 640
+      }
+    ]
+  },
+  "uk_wayne_turner": {
+    "identification": "face-detected",
+    "jersey": null,
+    "native_width": 381,
+    "resourced": null,
+    "season": null,
+    "source_crop": {
+      "h": 508,
+      "w": 381,
+      "x": 13,
+      "y": 26
+    },
+    "source_size": {
+      "height": 560,
+      "width": 420
+    },
+    "variants": [
+      {
+        "height": 213,
+        "path": "/images/players/portrait/uk_wayne_turner-160w.webp",
+        "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_wayne_turner-320w.webp",
+        "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_wayne_turner-640w.webp",
+        "width": 640
+      }
+    ]
+  }
+}
