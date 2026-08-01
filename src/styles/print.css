@@ -1,0 +1,174 @@
+/**
+ * Print stylesheet — turns any view into a clean media-guide page.
+ *
+ * Interactive chrome is removed, colours are forced to ink on paper, and cards are
+ * kept from splitting across a page break.
+ */
+
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root {
+    --canvas: #fff;
+    --surface: #fff;
+    --surface-raised: #fff;
+    --surface-sunken: #fff;
+    --surface-accent: #f3f3f3;
+    --surface-inverse: #fff;
+    --text: #000;
+    --text-strong: #000;
+    --text-muted: #333;
+    --text-subtle: #555;
+    --text-inverse: #000;
+    --border: #bbb;
+    --border-strong: #999;
+    --border-subtle: #ddd;
+    --accent: #0033a0;
+    --accent-soft: #eef2fb;
+    --accent-text: #0033a0;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --shadow-xl: none;
+  }
+
+  body {
+    background: #fff;
+    font-size: 10.5pt;
+  }
+
+  /* Chrome and controls have no meaning on paper. */
+  .topbar,
+  .mainnav,
+  .season-rail,
+  .toolbar,
+  .court-toolbar,
+  .skip-link,
+  .toast-region,
+  .palette-backdrop,
+  .favorite-btn,
+  .dialog__close,
+  .btn,
+  .chip,
+  .segmented,
+  .field,
+  [data-print='hide'] {
+    display: none !important;
+  }
+
+  .hero {
+    color: #000;
+    background: #fff !important;
+    border-bottom: 2pt solid #0033a0;
+  }
+
+  .hero::before,
+  .hero::after,
+  .hero__image {
+    display: none !important;
+  }
+
+  .hero__inner {
+    padding-block: 0 12pt;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__title {
+    color: #000;
+    font-size: 28pt;
+  }
+
+  .hero__title-sub,
+  .hero__summary,
+  .hero__eyebrow {
+    color: #333;
+  }
+
+  .hero__badge,
+  .scoreboard {
+    background: #fff !important;
+    border: 0.5pt solid #999 !important;
+    color: #000;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .scoreboard__head,
+  .scoreboard__cell span,
+  .scoreboard__finish span {
+    color: #555;
+  }
+
+  .team-photo-card__copy,
+  .vault-cover,
+  .player-dialog__hero,
+  .footer {
+    background: #fff !important;
+    color: #000 !important;
+    border: 0.5pt solid #999;
+  }
+
+  .vault-cover__bg,
+  .vault-cover::before {
+    display: none !important;
+  }
+
+  .card,
+  .metric,
+  .bracket-game,
+  .moment,
+  .award {
+    border: 0.5pt solid #bbb !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .table-wrap {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .table thead th {
+    position: static;
+    background: #eee !important;
+  }
+
+  .table tbody tr {
+    break-inside: avoid;
+  }
+
+  /* Show link targets so a printed page stays traceable. */
+  .source-item a::after {
+    content: ' (' attr(href) ')';
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  .view {
+    animation: none;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  .dialog-backdrop {
+    position: static;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+    display: block;
+  }
+
+  .dialog {
+    max-height: none;
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+  }
+}

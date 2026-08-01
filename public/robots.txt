@@ -1,0 +1,5 @@
+# This archive contains images whose rights review is not complete.
+# Indexing is disallowed until that review is finished and the notice in
+# docs/COPYRIGHT_AND_ATTRIBUTION.md is updated.
+User-agent: *
+Disallow: /

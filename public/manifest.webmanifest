@@ -1,0 +1,19 @@
+{
+  "name": "Big Blue Archive — Kentucky Basketball, the Tubby Smith Era",
+  "short_name": "Big Blue Archive",
+  "description": "An interactive archive of Kentucky men's basketball under Tubby Smith, 1997–2007.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#060a14",
+  "theme_color": "#0033a0",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
