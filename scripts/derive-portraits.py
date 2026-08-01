@@ -21,10 +21,21 @@ upscaling would fix:
 
 What this script does
 ---------------------
-Crops a properly framed head-and-shoulders portrait from each original, then emits
-responsive WebP derivatives. Every pixel comes from the source photograph: nothing is
-generated, hallucinated or invented, and no derivative is upscaled beyond 2x its native
-crop, so the archive never claims more resolution than actually exists.
+Crops a properly framed head-and-shoulders portrait from each original, passes the crop
+through Real-ESRGAN ×4, then emits responsive WebP derivatives.
+
+**The upscale is generative.** Real-ESRGAN is a GAN: it does not recover detail that was
+lost, it synthesises detail that is plausible. Pores, hair strands and fabric weave in the
+output were computed, not photographed. Measured by round-tripping each result back down
+to source resolution, a reconstructive model (EDSR) lands within ~1 RMSE of the original
+while Real-ESRGAN drifts 7–10.5 — that gap is invented content, and it is why every
+reconstructed image is labelled as one wherever it renders.
+
+This was a deliberate choice by the archive's owner, made after reviewing side-by-side
+comparisons at both display size and 3× zoom. It supersedes the earlier rule that no
+generative upscaler may touch a real person's face. What it does not supersede: an
+upscaled portrait is never described as an archival photograph, and the four crops where
+the model demonstrably fabricates a face are marked as fabrications rather than portraits.
 
 Identifying the team-photo crops
 --------------------------------
@@ -55,6 +66,9 @@ import cv2
 import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import upscale  # noqa: E402  (needs the path insert above)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGINAL_DIR = os.path.join(ROOT, "public/images/players/original")
 RESOURCED_DIR = os.path.join(ROOT, "public/images/players/resourced")
@@ -65,9 +79,20 @@ CASCADE_DIR = os.path.join(ROOT, ".cache/cascades")
 CASCADES = ("haarcascade_frontalface_default", "haarcascade_frontalface_alt2")
 
 # Responsive widths. A variant is only emitted when it stays within MAX_UPSCALE of the
-# native crop width, so a small crop simply yields fewer, smaller files.
+# native crop width. With a ×4 generative upscale in the chain that ceiling is 4.0 — the
+# model's own scale factor, beyond which even synthesised detail is just resampling.
 TARGET_WIDTHS = (160, 320, 640)
-MAX_UPSCALE = 2.0
+MAX_UPSCALE = 4.0
+
+UPSCALE_MODEL = "esrgan"
+UPSCALE_LABEL = "Real-ESRGAN x4plus (RRDBNet, 23 blocks)"
+UPSCALE_SCALE = 4
+
+# Below this native crop width the model has too little to work from and stops
+# reconstructing a face: it invents one. Barbour, Heissenbuttel, Coury and Carruth are all
+# under it. They are still processed — the archive's owner asked for the whole set — but
+# they are recorded and rendered as fabrications, not as portraits of these players.
+FABRICATION_WIDTH = 90
 
 # Portrait framing: the face spans this fraction of the crop width, with the eye line
 # this far down the frame. Chosen to match a media-guide headshot.
@@ -255,37 +280,40 @@ def crop_box(cx: int, eye_y: int, face_w: int, bounds: tuple[int, int, int, int]
     return int(round(left)), int(round(top)), int(round(crop_w)), int(round(crop_h))
 
 
-def finish(im: Image.Image, width: int, descreen: bool = False) -> Image.Image:
+def reconstruct(im: Image.Image, descreen: bool = False) -> Image.Image:
     """
-    Resize to an output width, then normalise levels and sharpen at that size.
+    Descreen at native pitch, then run the crop through Real-ESRGAN ×4.
 
-    `descreen` is for crops taken from the scanned team photographs. Those are pictures
-    of a *printed* page, so they carry a halftone rosette — a regular dot grid at roughly
-    the same 1–2px pitch as the facial detail itself. Upscaling magnifies it and the
-    unsharp pass then amplifies it further, which is why those crops read as noisier the
-    harder they are sharpened.
+    Order matters. `descreen` is for crops taken from the scanned team photographs: those
+    are pictures of a *printed* page, so they carry a halftone rosette — a regular dot grid
+    at roughly the same 1–2px pitch as the facial detail itself. A 3x3 median at native
+    size removes the grid while leaving edges intact. It has to happen *before* the
+    upscale, because Real-ESRGAN reads a halftone rosette as texture and will faithfully
+    reconstruct a magnified dot pattern across the face.
 
-    A 3x3 median at native size removes the dot grid while leaving edges — eyes, hairline,
-    jaw, collar — intact, because a median rejects isolated outliers rather than averaging
-    them in. This deletes an artefact of reproduction; it does not add detail. Denoisers
-    that scored better on paper (non-local means, and median+NLM) were rejected: they
-    smooth skin into a waxy, plausible-looking surface, which is exactly the kind of
-    invented appearance this archive must not put on a real person's face.
+    What comes back is a reconstruction. The model synthesises detail consistent with its
+    training distribution rather than recovering what the camera recorded, so the output
+    is a plausible face, not a measured one.
     """
     if descreen:
         im = im.filter(ImageFilter.MedianFilter(3))
+    bgr = np.ascontiguousarray(np.array(im.convert("RGB"))[:, :, ::-1])
+    return Image.fromarray(upscale.MODELS[UPSCALE_MODEL][1](bgr)[:, :, ::-1])
 
+
+def finish(im: Image.Image, width: int) -> Image.Image:
+    """Resize a reconstructed crop to an output width and normalise levels."""
     height = round(width / ASPECT)
     out = im.resize((width, height), Image.LANCZOS)
     # Gentle autocontrast: recovers the faded scans without crushing skin tones.
     out = ImageOps.autocontrast(out, cutoff=(0.4, 0.4), preserve_tone=True)
-    # Unsharp at output size restores the acutance lost to resampling. It sharpens
-    # detail that is present; it does not synthesise detail that is not. Descreened crops
-    # take less of it — there is less genuine detail left to bring out, and pushing
-    # harder only resurrects the dot pattern the median just removed.
-    radius = max(0.6, width / 500)
-    percent = 80 if descreen else 95
-    out = out.filter(ImageFilter.UnsharpMask(radius=radius, percent=percent, threshold=3))
+    # Real-ESRGAN already returns hard, high-contrast edges; the old 95% unsharp on top of
+    # that produces visible halos along the jaw and collar. Only enough to restore what
+    # the downsample to output width costs.
+    if width < im.width:
+        out = out.filter(
+            ImageFilter.UnsharpMask(radius=max(0.6, width / 500), percent=35, threshold=3)
+        )
     return out
 
 
@@ -339,16 +367,24 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
             "source_crop": entry["source_crop"],
             "native_width": entry["native_width"],
             "derivation": basis,
+            # Every portrait now passes through a generative model, so every portrait
+            # carries the record of it. `class` separates a reconstruction — a real face
+            # with synthesised texture on it — from a fabrication, where the crop was too
+            # small for the model to reconstruct anything and it invented the face.
+            "reconstruction": {
+                "model": UPSCALE_LABEL,
+                "scale": UPSCALE_SCALE,
+                "generative": True,
+                "class": "fabricated" if entry["fabricated"] else "reconstructed",
+            },
         }
         # The canonical display derivative is now the largest portrait variant.
         item["processed_path"] = largest["path"]
         item["processed_dimensions"] = {"width": largest["width"], "height": largest["height"]}
         item["derivative_method"] = (
-            "face-centred-crop-from-original-descreen-lanczos-unsharp"
+            "face-centred-crop-descreen-realesrgan-x4-lanczos"
             if basis.startswith("jersey-number")
-            else "face-centred-crop-from-official-uk-headshot-lanczos-unsharp"
-            if basis == "official-uk-headshot"
-            else "face-centred-crop-from-original-lanczos-unsharp"
+            else "face-centred-crop-realesrgan-x4-lanczos"
         )
 
         if basis == "official-uk-headshot":
@@ -403,26 +439,58 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
                 "to a consistent 3:4 head-and-shoulders frame."
             )
 
+        # Disclosure, appended whatever the image's provenance. `confidence` still records
+        # how the *subject* was identified — that is a separate question from how the
+        # pixels were produced, and the jersey-number audit still depends on it.
+        if item["portrait"]["reconstruction"]["class"] == "fabricated":
+            item["photo_type"] = "ai-fabricated-face"
+            item["visual_review_status"] = "required"
+            item["photo_note"] += (
+                " This image is NOT a photograph of this player. The underlying crop is "
+                f"only {entry['native_width']}px wide — far too little for the upscaler to "
+                "reconstruct a face from — so what it renders was synthesised by "
+                f"{UPSCALE_LABEL}. It is published at the archive owner's request and is "
+                "labelled a fabrication everywhere it appears."
+            )
+        else:
+            item["photo_note"] += (
+                f" Reconstructed with {UPSCALE_LABEL}, a generative model that synthesises "
+                "plausible detail rather than recovering what was recorded: fine texture "
+                "in this image was computed, not photographed."
+            )
+
+    # Counts are derived, not written by hand — the previous wording drifted out of date
+    # the moment six portraits were re-sourced and stopped being team-photograph crops.
+    crops = sum(1 for e in report.values() if e["identification"].startswith("jersey-number"))
+    fabricated = sorted(k for k, e in report.items() if e["fabricated"])
+
     manifest["notes"] = [
         "Original means the image extracted from the last stable monolithic archive, not "
         "necessarily the highest-resolution historical source.",
         "Portrait variants are re-derived from the originals by scripts/derive-portraits.py: "
-        "a face-centred 3:4 crop, resampled with Lanczos and sharpened at output size. No "
-        "detail is generated or interpolated beyond 2x the native crop, so no portrait "
-        "claims more resolution than its source actually holds.",
-        "Crops from the team photographs additionally get a 3x3 median at native size to "
-        "remove the halftone dot pattern left by photographing a printed page. That "
-        "deletes an artefact of reproduction; no detail is added, and no denoiser that "
-        "reconstructs skin texture is used on a real person's face.",
-        "Nine portraits are crops of a season team photograph rather than individual "
+        f"a face-centred 3:4 crop, upscaled with {UPSCALE_LABEL}, then resampled to each "
+        "output width with Lanczos.",
+        "The upscaler is generative. Real-ESRGAN synthesises detail consistent with its "
+        "training data rather than recovering detail the camera recorded, so fine texture — "
+        "skin, hair, fabric — in every portrait here was computed rather than photographed. "
+        "Round-tripping each result back to source resolution puts the drift at 7-10.5 RMSE "
+        "against 1.0 for a reconstructive model, which is the measure of how much is "
+        "invented. Every portrait is labelled as a reconstruction where it renders.",
+        f"{len(fabricated)} portraits are fabrications rather than reconstructions: "
+        f"{', '.join(fabricated)}. Their crops are under {FABRICATION_WIDTH}px wide, which "
+        "leaves the model nothing to reconstruct from, and the faces it returns are "
+        "invented. They are published at the archive owner's explicit request, and each is "
+        "marked as a fabrication in this manifest and on every surface that renders it.",
+        "Crops from the team photographs additionally get a 3x3 median at native size, "
+        "before the upscale, to remove the halftone dot pattern left by photographing a "
+        "printed page — otherwise the upscaler reads the rosette as texture and "
+        "reconstructs a magnified dot grid across the face.",
+        f"{crops} portraits are crops of a season team photograph rather than individual "
         "headshots. Each subject is the player wearing the jersey number this archive "
         "records for that player in that season, and each is labelled as a team-photograph "
         "crop wherever it appears.",
-        "Two players are shown as a labelled jersey card rather than a photograph. Eric "
-        "Allen has no verified image at all. The photograph filed under Ramon Harris shows "
-        "a player in a #5 jersey, but this archive records Harris as #22 in 2006-07 and #5 "
-        "that season as Derrick Jasper, so the identification cannot be verified from this "
-        "archive's data and is not asserted.",
+        f"{len(skipped)} player is shown as a labelled jersey card rather than a "
+        "photograph: Eric Allen, for whom no verified UK-uniform image was located.",
     ]
 
     with open(MANIFEST_PATH, "w") as fh:
@@ -434,7 +502,15 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true",
                         help="report what would change without writing files")
+    parser.add_argument("--only", default=None,
+                        help="comma-separated image keys to reconstruct; the manifest and "
+                             "the stale-file prune are left alone so parallel shards "
+                             "cannot delete each other's output")
+    parser.add_argument("--force", action="store_true",
+                        help="re-reconstruct even where the output files already exist")
     args = parser.parse_args()
+
+    shard = set(filter(None, args.only.split(","))) if args.only else None
 
     cascades = load_cascades()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -443,6 +519,7 @@ def main() -> int:
     report: dict[str, dict] = {}
     skipped: dict[str, dict] = {}
     undetected: list[str] = []
+    written: list[str] = []
     resourced = load_resourced()
 
     for filename in sorted(os.listdir(ORIGINAL_DIR)):
@@ -502,24 +579,35 @@ def main() -> int:
         left, top, cw, ch = crop_box(cx, eye_y, face_w, bounds, fraction)
         cropped = pil.crop((left, top, left + cw, top + ch))
 
-        # Never emit a variant wider than MAX_UPSCALE x the native crop. Where even the
-        # smallest target would overshoot — the tightest team-photograph crops are only
-        # ~70px wide — fall back to exactly 2x native rather than inventing resolution.
+        # Never emit a variant wider than MAX_UPSCALE x the native crop — the upscaler's
+        # own scale factor, past which even synthesised detail is just resampling. Where
+        # even the smallest target would overshoot, fall back to exactly that ceiling.
         widths = [w for w in TARGET_WIDTHS if w <= cw * MAX_UPSCALE]
         if not widths:
             widths = [int(cw * MAX_UPSCALE)]
-        variants = []
-        for width in widths:
-            out_name = f"{key}-{width}w.webp"
-            if not args.check:
-                # Only the team-photograph crops are scans of a printed page, so only
-                # they get the descreen. Running it on the clean studio portraits would
-                # soften real detail for no reason.
-                finish(cropped, width, descreen=manual is not None).save(
-                    os.path.join(OUTPUT_DIR, out_name), "WEBP", quality=88, method=6
+        variants = [
+            {"width": w, "height": round(w / ASPECT),
+             "path": f"/images/players/portrait/{key}-{w}w.webp"}
+            for w in widths
+        ]
+
+        # Writing the images is the expensive half — minutes per crop on CPU — so it is
+        # gated separately from computing the crop geometry, which is instant. That lets
+        # several processes each write a slice of the set (--only) while a final pass with
+        # everything already on disk assembles the manifest without redoing the work.
+        mine = shard is None or key in shard
+        done = all(os.path.exists(os.path.join(ROOT, "public" + v["path"])) for v in variants)
+        if not args.check and mine and not (done and not args.force):
+            # Only the team-photograph crops are scans of a printed page, so only they get
+            # the descreen; on a clean studio portrait it would soften real detail for no
+            # reason. The upscale runs once and every width is resized off that result.
+            rebuilt = reconstruct(cropped, descreen=manual is not None)
+            for variant in variants:
+                finish(rebuilt, variant["width"]).save(
+                    os.path.join(ROOT, "public" + variant["path"]),
+                    "WEBP", quality=88, method=6,
                 )
-            variants.append({"width": width, "height": round(width / ASPECT),
-                             "path": f"/images/players/portrait/{out_name}"})
+            written.append(key)
 
         report[key] = {
             "source_crop": {"x": left, "y": top, "w": cw, "h": ch},
@@ -530,6 +618,10 @@ def main() -> int:
             "season": manual.season if manual else None,
             "resourced": entry,
             "source_size": {"width": W, "height": H},
+            # Below FABRICATION_WIDTH the model has nothing to reconstruct from and
+            # invents a face outright. Recorded here so the manifest, the audit and the
+            # interface all treat those four differently from a reconstruction.
+            "fabricated": cw < FABRICATION_WIDTH,
         }
 
     # Prune outputs from a previous run that this one no longer produces, so the derived
@@ -543,14 +635,15 @@ def main() -> int:
     stale = [f for f in os.listdir(OUTPUT_DIR) if f not in expected]
     keep_np = {f"{k}.webp" for k in skipped}
     stale += [f for f in os.listdir(NO_PORTRAIT_DIR) if f not in keep_np]
-    if not args.check:
+
+    # A shard sees only its own slice, so from its point of view every other shard's
+    # output is stale and the manifest is half-written. Both are therefore whole-run only.
+    if not args.check and shard is None:
         for name in stale:
             for d in (OUTPUT_DIR, NO_PORTRAIT_DIR):
                 p = os.path.join(d, name)
                 if os.path.exists(p):
                     os.remove(p)
-
-    if not args.check:
         update_manifest(report, skipped)
         with open(os.path.join(OUTPUT_DIR, "index.json"), "w") as fh:
             json.dump(report, fh, indent=2, sort_keys=True)
@@ -563,7 +656,10 @@ def main() -> int:
     print(f"  jersey-identified    {manual_count}")
     print(f"  face-detected        {len(report) - manual_count - resourced_count - len(fallback)}")
     print(f"  centred fallback     {len(fallback)}{' ' + ', '.join(fallback) if fallback else ''}")
-    print(f"  variants written     {sum(len(v['variants']) for v in report.values())}")
+    print(f"  variants declared    {sum(len(v['variants']) for v in report.values())}")
+    print(f"  reconstructed here   {len(written)}{' (shard)' if shard else ''}")
+    fab = sorted(k for k, e in report.items() if e["fabricated"])
+    print(f"  FABRICATED faces     {len(fab)}{' — ' + ', '.join(fab) if fab else ''}")
     for key, entry in sorted(skipped.items()):
         print(f"  no portrait          {key} — {entry['rule'].confidence}")
     if stale:

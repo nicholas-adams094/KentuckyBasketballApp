@@ -312,13 +312,53 @@ describe('portraits', () => {
     }
   });
 
-  it('never upscales a portrait beyond 2x its native crop', () => {
-    // The point of re-deriving from the originals was to stop claiming resolution the
-    // source does not hold. A blanket 3x upscale is what this replaced.
+  it('never upscales a portrait beyond the upscaler’s own scale factor', () => {
+    // Portraits go through a x4 generative model, so x4 is the ceiling: past it even
+    // synthesised detail is only resampling, and the file claims resolution nothing in
+    // the chain produced.
     for (const item of players) {
+      const ceiling = item.portrait?.reconstruction?.scale ?? 2;
       for (const variant of item.portrait?.variants ?? []) {
-        expect(variant.width, item.image_key).toBeLessThanOrEqual(item.portrait!.native_width * 2);
+        expect(variant.width, item.image_key).toBeLessThanOrEqual(
+          item.portrait!.native_width * ceiling,
+        );
       }
+    }
+  });
+
+  it('records the generative upscale on every portrait it serves', () => {
+    // An image that went through Real-ESRGAN with no record of it would read, in the
+    // manifest and in the dialog, as an untouched archival photograph.
+    for (const item of players) {
+      if (!item.portrait?.variants?.length) continue;
+      const recon = item.portrait.reconstruction;
+      expect(recon, item.image_key).toBeDefined();
+      expect(recon!.generative, item.image_key).toBe(true);
+      expect(recon!.model, item.image_key).toMatch(/Real-ESRGAN/);
+      expect(['reconstructed', 'fabricated'], item.image_key).toContain(recon!.class);
+    }
+  });
+
+  it('marks a portrait fabricated exactly when its crop was too small to reconstruct', () => {
+    // Below ~90px the model stops reconstructing a face and invents one. The boundary is
+    // re-derived here rather than trusted, because it is the entire basis on which the
+    // interface decides whether to call an image a photograph.
+    for (const item of players) {
+      if (!item.portrait?.variants?.length) continue;
+      const fabricated = item.portrait.reconstruction?.class === 'fabricated';
+      expect(fabricated, item.image_key).toBe(item.portrait.native_width < 90);
+      if (fabricated) {
+        expect(item.photo_type, item.image_key).toBe('ai-fabricated-face');
+        expect(item.photo_note, item.image_key).toMatch(/NOT a photograph of this player/);
+      }
+    }
+  });
+
+  it('reconstructs the team photographs too, and says so', () => {
+    for (const item of photoManifest.items.filter((i) => i.kind === 'team')) {
+      expect(item.reconstruction?.generative, item.image_key).toBe(true);
+      expect(item.reconstruction?.class, item.image_key).toBe('reconstructed');
+      expect(item.photo_note, item.image_key).toMatch(/computed, not photographed/);
     }
   });
 

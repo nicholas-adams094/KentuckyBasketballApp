@@ -200,6 +200,25 @@ export interface PortraitDerivation {
   source_crop: { x: number; y: number; w: number; h: number };
   native_width: number;
   derivation: string;
+  /** Absent only on entries predating the generative pipeline. */
+  reconstruction?: ImageReconstruction;
+}
+
+/**
+ * The generative upscale every displayed image now passes through.
+ *
+ * `class` is the distinction that matters to a reader. A `reconstructed` image is the
+ * photographed person with synthesised texture laid over them — the likeness is real, the
+ * pore detail is not. A `fabricated` one came from a crop too small for the model to
+ * reconstruct anything from, so the face it renders was invented outright and is not a
+ * likeness of that player at all.
+ */
+export interface ImageReconstruction {
+  model: string;
+  scale: number;
+  generative: boolean;
+  class: 'reconstructed' | 'fabricated';
+  native_width?: number;
 }
 
 export interface PhotoManifestItem {
@@ -233,6 +252,8 @@ export interface PhotoManifestItem {
    * displayed beside, and the interface says so rather than letting a reader assume.
    */
   photo_season_note?: string;
+  /** Team photographs carry the record at item level; portraits carry it on `portrait`. */
+  reconstruction?: ImageReconstruction;
 }
 
 export interface PhotoManifest {

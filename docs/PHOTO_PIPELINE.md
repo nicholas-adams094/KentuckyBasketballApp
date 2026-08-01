@@ -43,21 +43,57 @@ Do not use NBA or later-career images.
    *printed* page and carry a halftone rosette at roughly the same 1–2px pitch as the
    facial detail. A 3×3 median at native size removes the dot grid while leaving edges
    intact. This deletes an artefact of reproduction; it adds nothing.
-5. **Resample with Lanczos**, then autocontrast (cutoff 0.4, tone-preserving) and unsharp
-   at output size — 95%, or 80% on descreened crops where pushing harder only resurrects
-   the dot pattern.
-6. **Emit responsive WebP variants** at 160/320/640w, *skipping any width above 2× the
+5. **Upscale ×4 with Real-ESRGAN.** Once per crop, after the descreen — the order matters,
+   because the model reads a halftone rosette as texture and will reconstruct a magnified
+   dot grid across the face. Large inputs are tiled with a 32px overlap and cross-faded, so
+   peak memory stays bounded and no join is visible.
+6. **Resample with Lanczos** to each output width, then autocontrast (cutoff 0.4,
+   tone-preserving). Unsharp is now 35% and only when downsampling: Real-ESRGAN already
+   returns hard edges, and the old 95% pass on top of them produced halos along the jaw
+   and collar.
+7. **Emit responsive WebP variants** at 160/320/640w, *skipping any width above 4× the
    native crop*. A small crop simply yields fewer, smaller files; the browser picks the
    smallest adequate one from `srcset`.
-7. **Prune.** Any file in `portrait/` or `no-portrait/` that this run did not produce is
-   deleted, so a retracted portrait cannot survive on disk.
+8. **Prune.** Any file in `portrait/` or `no-portrait/` that this run did not produce is
+   deleted, so a retracted portrait cannot survive on disk. Skipped when running a shard
+   (`--only`), which sees only its own slice.
 
-### The 2× rule
+### The ×4 ceiling
 
-No variant may exceed twice its native crop width. This is enforced in the script, again
-in `npm run audit:images`, and again in `tests/unit/lib.test.ts`. It is the rule that
-replaced the previous build's blanket 3× upscale, which tripled both the stated dimensions
-and the byte size while adding no real detail.
+No variant may exceed the upscaler's own scale factor over its native crop width. Enforced
+in the script, again in `npm run audit:images`, and again in `tests/unit/lib.test.ts`.
+Past ×4 the model contributes nothing and the extra pixels are plain resampling, so the
+file would be claiming resolution that nothing in the chain ever produced.
+
+### The upscale is generative — and is labelled as such
+
+Real-ESRGAN is a GAN. It does not recover detail that was lost; it synthesises detail that
+is plausible. Round-tripping each result back down to source resolution and comparing with
+the original puts the drift at **7–10.5 RMSE**, against **1.0** for a reconstructive model
+(EDSR) on the same inputs. That gap is invented content.
+
+This is a deliberate choice by the archive's owner, taken on 2026-08-01 after reviewing
+side-by-side comparisons at true card size and at 3× zoom. It replaced an earlier rule
+forbidding generative upscaling on a real person's face. The disclosure obligations that
+came with it are enforced, not optional:
+
+- every portrait carries a `reconstruction` block naming the model, its scale and its
+  class, and the audit fails without one;
+- every team photograph carries the same block at item level;
+- the sources page states it standing, and each player dialog names the model.
+
+### Reconstruction vs fabrication
+
+Below a **90px native crop** the model has too little to work from and stops reconstructing
+a face — it invents one. Four portraits are in this state: Barbour, Heissenbuttel, Coury
+and Carruth. They are published at the owner's explicit request and are marked
+`class: "fabricated"` with `photo_type: "ai-fabricated-face"`.
+
+A fabrication is flagged *whether or not* provenance display is requested — on the card, in
+the alt text, in the dialog and on the sources page — because unlike every other provenance
+note, it corrects what the picture itself appears to assert. The 90px boundary is
+re-derived independently by the audit and by the unit tests rather than trusted from the
+generating script.
 
 ## 4. Re-sourcing beats every processing trick
 
@@ -101,11 +137,13 @@ jersey card instead. See `NO_PORTRAIT` in the script.
 
 ## 5. What is never done
 
-- **No generative upscaling, face restoration or detail synthesis on a real person.**
-  Non-local-means denoising and median+NLM both produced visibly cleaner skin than the
-  median descreen and were rejected for exactly that reason: they invent a plausible
-  surface on a real face. Removing a halftone artefact is restoration; inventing pores is
-  not.
+- **No unlabelled generative output.** Generative upscaling *is* now used, on every
+  displayed image. What is never done is presenting the result as an untouched archival
+  photograph: the manifest, the audit, the unit tests and four separate interface surfaces
+  all exist to prevent exactly that.
+- **No face-restoration model** (GFPGAN, CodeFormer or similar) on a real person. Those
+  re-synthesise facial *structure* toward a learned prior of what a face should look like,
+  which is a different and larger claim than upscaling the structure already present.
 - **No stand-in faces.** Where no image can be verified as a given player, the archive
   draws a labelled jersey card.
 - **No professional, high-school or later-career photographs.** Kentucky uniforms only.
@@ -128,7 +166,14 @@ the manifest, so a provenance record can never drift from the asset it describes
 
 It additionally fails if:
 
-- a portrait variant exceeds 2× its recorded native crop;
+- a portrait variant exceeds ×4 its recorded native crop — the upscaler's scale factor;
+- a portrait has no `reconstruction` record, names no model, or gives a class other than
+  `reconstructed` / `fabricated`;
+- a team photograph has no `reconstruction` record;
+- an entry's `class` disagrees with the 90px floor the audit re-derives from the native
+  crop width, in either direction;
+- a `fabricated` entry does not also carry `photo_type: "ai-fabricated-face"` and say
+  plainly in its `photo_note` that it is not a photograph of that player;
 - a team-photograph crop has no `jersey_number`, or one that disagrees with
   `archive.json`, or one shared by two players that season;
 - an entry marked `placeholder` or `unverified-identification` still has portrait
@@ -144,12 +189,14 @@ re-sourced headshot superseded are recognised and not reported as orphans.
 | | Count |
 | --- | --- |
 | Manifest entries | 70 (58 players, 10 teams, 2 interface) |
-| Portrait variants served | 147 |
+| Portrait variants served | 159 |
 | Verified archival portraits | 53 players (47 inherited + 6 re-sourced) |
 | Official team photographs | 10 |
 | **Team-photograph crops** | **4** |
+| **AI-fabricated faces** | **4** |
 | **Shown as a jersey card, not a photograph** | **1** |
 | Originals below the resolution target | 68 |
+| Images passed through Real-ESRGAN ×4 | 67 (57 portraits + 10 team photographs) |
 
 The four remaining team-photograph crops are Antwain Barbour, Matt Heissenbuttel, Mark
 Coury and Rashaad Carruth. Each is flagged `Team photo · #N` wherever it appears, and the
@@ -160,12 +207,15 @@ Eric Allen is the one player with no photograph at all and is drawn as a jersey 
 Michael Porter's and Ramon Harris's headshots date from 2008-09, after the covered era.
 Both carry a `portrait dates from 2008-09` flag and say so in the profile dialog.
 
-Native crop widths run from 67px to 396px, median 356px. The nine team-photograph crops
-are the small end — 67–87px — and are the only portraits that look soft at card size.
-That is the real ceiling of the available sources, and it was checked: the full team
+Native crop widths run from 67px to 396px, median 356px. The four team-photograph crops
+are the small end — 67–87px — and all four fall below the 90px floor, which is why they are
+classed as fabrications rather than reconstructions.
+
+That floor is the real ceiling of the available sources, and it was checked: the full team
 photographs hold *fewer* pixels per face (median 30px, and 45px for 2006–07) than the
-strips do, so cropping from them would be a downgrade. **The fix is re-sourcing, not
-another upscale.**
+strips do, so cropping from them would be a downgrade. Upscaling does not move it either —
+Real-ESRGAN produces a sharp, confident, wrong face from a 73px crop, which is worse than a
+soft one. **The fix for these four is still re-sourcing, not another upscale.**
 
 ## 9. Replacing an image
 

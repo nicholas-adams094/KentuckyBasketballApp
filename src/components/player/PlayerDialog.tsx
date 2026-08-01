@@ -35,6 +35,9 @@ export function PlayerDialog() {
   const career = useMemo(() => (openPlayerId ? careerOf(openPlayerId) : []), [openPlayerId]);
   const summary = useMemo(() => (openPlayerId ? careerSummary(openPlayerId) : null), [openPlayerId]);
   const photo = openPlayerId ? playerPhoto(openPlayerId) : undefined;
+  // Portraits record the upscale on `portrait`; entries with no portrait (jersey cards)
+  // never went through it at all.
+  const reconstruction = photo?.portrait?.reconstruction;
 
   if (!openPlayerId || !profile) return null;
 
@@ -300,11 +303,31 @@ export function PlayerDialog() {
               >
                 <dt style={{ color: 'var(--text-subtle)' }}>Method</dt>
                 <dd>{photo.derivative_method.replace(/-/g, ' ')}</dd>
+                {reconstruction ? (
+                  <>
+                    <dt style={{ color: 'var(--text-subtle)' }}>Upscaler</dt>
+                    <dd>
+                      {reconstruction.model} — generative, ×{reconstruction.scale}
+                    </dd>
+                  </>
+                ) : null}
                 <dt style={{ color: 'var(--text-subtle)' }}>Source</dt>
                 <dd>{photo.original_dimensions.width}×{photo.original_dimensions.height} extracted original</dd>
                 <dt style={{ color: 'var(--text-subtle)' }}>Rights review</dt>
                 <dd>{photo.rights_review_status.replace(/-/g, ' ')}</dd>
               </dl>
+              {reconstruction?.class === 'fabricated' ? (
+                <div className="callout callout--gold" style={{ marginTop: 'var(--space-3)' }}>
+                  <Icon name="alert" size={15} className="callout__icon" />
+                  <span>
+                    <strong>This is not a photograph of {profile.name}.</strong> The crop it
+                    was made from is {photo.portrait?.native_width}px wide — too little for
+                    the upscaler to reconstruct a face from — so {reconstruction.model}{' '}
+                    generated the face shown. It is published at the archive owner&rsquo;s
+                    request and is not evidence of this player&rsquo;s appearance.
+                  </span>
+                </div>
+              ) : null}
               {photo.confidence === 'verified-archival' && photo.photo_season_note ? (
                 <div className="callout callout--gold" style={{ marginTop: 'var(--space-3)' }}>
                   <Icon name="alert" size={15} className="callout__icon" />

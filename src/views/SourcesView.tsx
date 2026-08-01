@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { archive, gameCount, imageUrl, photoManifest, playerPortrait, profileCount, rosterEntryCount, seasons } from '@/lib/archive';
+import { archive, gameCount, imageUrl, photoManifest, playerPortrait, profileCount, reconstructionOf, rosterEntryCount, seasons } from '@/lib/archive';
 import { eraDistributions, rotationSeasons } from '@/lib/analytics';
 import { Icon } from '@/components/ui/Icon';
 import { useNavigation } from '@/state/navigation';
@@ -13,13 +13,21 @@ const CONFIDENCE_LABEL: Record<string, string> = {
   'unverified-identification': 'Subject unverified — not shown as this player',
 };
 
-const FILTERS = ['All', 'Needs review', 'Team-photo crops', 'Not shown as a portrait'] as const;
+const FILTERS = [
+  'All',
+  'Needs review',
+  'AI-generated faces',
+  'Team-photo crops',
+  'Not shown as a portrait',
+] as const;
 type Filter = (typeof FILTERS)[number];
 
 function matches(item: PhotoManifestItem, filter: Filter): boolean {
   switch (filter) {
     case 'Needs review':
       return item.needs_resourcing || item.visual_review_status !== 'complete';
+    case 'AI-generated faces':
+      return reconstructionOf(item)?.class === 'fabricated';
     case 'Team-photo crops':
       return item.confidence === 'verified-team-photograph-crop';
     case 'Not shown as a portrait':
@@ -57,6 +65,9 @@ export function SourcesView() {
   );
   const notShown = photoManifest.items.filter(
     (item) => item.confidence === 'placeholder' || item.confidence === 'unverified-identification',
+  );
+  const fabricated = photoManifest.items.filter(
+    (item) => reconstructionOf(item)?.class === 'fabricated',
   );
 
   return (
@@ -240,6 +251,27 @@ export function SourcesView() {
           <span>{items.length} shown</span>
         </div>
 
+        <div className="callout callout--gold" style={{ marginBottom: 'var(--space-4)' }}>
+          <Icon name="alert" size={15} className="callout__icon" />
+          <span>
+            <strong>Every image here has been AI-upscaled.</strong> Each portrait and team
+            photograph was passed through Real-ESRGAN ×4, a generative model: it synthesises
+            plausible detail rather than recovering what the camera recorded, so fine texture —
+            skin, hair, fabric — was computed rather than photographed. Measured by
+            round-tripping each result back to its source resolution, the drift is 7–10.5 RMSE
+            against 1.0 for a non-generative upscaler.{' '}
+            {fabricated.length > 0 ? (
+              <>
+                In {fabricated.length} cases the source crop was under 90px wide, leaving the
+                model nothing to reconstruct from; those faces are invented outright and are
+                flagged individually below.
+              </>
+            ) : null}{' '}
+            The underlying originals are unmodified and every derivation is reproducible from
+            <code> scripts/derive-portraits.py</code> and <code> scripts/derive-team-photos.py</code>.
+          </span>
+        </div>
+
         <div className="chips" style={{ marginBottom: 'var(--space-4)' }} role="group" aria-label="Filter images">
           {FILTERS.map((option) => (
             <button
@@ -289,6 +321,12 @@ export function SourcesView() {
                     {item.original_dimensions.width}×{item.original_dimensions.height} original ·{' '}
                     {item.derivative_method.replace(/-/g, ' ')}
                   </span>
+                  {reconstructionOf(item)?.class === 'fabricated' ? (
+                    <span className="provenance-flag" style={{ alignSelf: 'flex-start', marginTop: 4 }}>
+                      <Icon name="alert" size={10} />
+                      AI-generated face — not a photograph
+                    </span>
+                  ) : null}
                   {item.confidence !== 'verified-archival' && item.kind === 'player' ? (
                     <span className="provenance-flag" style={{ alignSelf: 'flex-start', marginTop: 4 }}>
                       <Icon name="alert" size={10} />

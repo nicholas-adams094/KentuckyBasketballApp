@@ -10,6 +10,7 @@ import photoManifestJson from '@/data/photo-manifest.json';
 import type {
   Archive,
   Game,
+  ImageReconstruction,
   PhotoManifest,
   PhotoManifestItem,
   PlayerProfile,
@@ -247,3 +248,14 @@ export const eraSecTournamentRecord: readonly [number, number] = allGames
 export const profileCount = Object.keys(profiles).length;
 export const rosterEntryCount = allPlayerSeasons.length;
 export const gameCount = allGames.length;
+
+/**
+ * The generative-upscale record for an image, wherever the entry keeps it.
+ *
+ * Portraits carry it on `portrait` because it describes the derived crop; team
+ * photographs have no portrait block and carry it at item level. Callers that need to ask
+ * "was this image generated, and how" should not have to know which.
+ */
+export function reconstructionOf(item: PhotoManifestItem): ImageReconstruction | undefined {
+  return item.portrait?.reconstruction ?? item.reconstruction;
+}
