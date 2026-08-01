@@ -1,5 +1,6 @@
 {
   "uk_adam_chiles": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 296,
@@ -25,10 +26,16 @@
         "height": 427,
         "path": "/images/players/portrait/uk_adam_chiles-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_adam_chiles-640w.webp",
+        "width": 640
       }
     ]
   },
   "uk_adam_williams": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -63,6 +70,7 @@
     ]
   },
   "uk_allen_edwards": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 296,
@@ -88,10 +96,16 @@
         "height": 427,
         "path": "/images/players/portrait/uk_allen_edwards-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_allen_edwards-640w.webp",
+        "width": 640
       }
     ]
   },
   "uk_antwain_barbour": {
+    "fabricated": true,
     "identification": "jersey-number-33-in-2002-03-team-photograph",
     "jersey": "33",
     "native_width": 73,
@@ -109,13 +123,14 @@
     },
     "variants": [
       {
-        "height": 195,
-        "path": "/images/players/portrait/uk_antwain_barbour-146w.webp",
-        "width": 146
+        "height": 213,
+        "path": "/images/players/portrait/uk_antwain_barbour-160w.webp",
+        "width": 160
       }
     ]
   },
   "uk_bernard_cote": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 296,
@@ -141,10 +156,16 @@
         "height": 427,
         "path": "/images/players/portrait/uk_bernard_cote-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_bernard_cote-640w.webp",
+        "width": 640
       }
     ]
   },
   "uk_bobby_perry": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -179,6 +200,7 @@
     ]
   },
   "uk_brandon_stockton": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 385,
@@ -213,6 +235,7 @@
     ]
   },
   "uk_cameron_mills": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 338,
@@ -247,6 +270,7 @@
     ]
   },
   "uk_chuck_hayes": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -281,6 +305,7 @@
     ]
   },
   "uk_cliff_hawkins": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -315,6 +340,7 @@
     ]
   },
   "uk_cory_sears": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 359,
@@ -349,6 +375,7 @@
     ]
   },
   "uk_derrick_jasper": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -383,6 +410,7 @@
     ]
   },
   "uk_desmond_allison": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 389,
@@ -417,6 +445,7 @@
     ]
   },
   "uk_dwight_perry": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -451,6 +480,7 @@
     ]
   },
   "uk_erik_daniels": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 354,
@@ -485,6 +515,7 @@
     ]
   },
   "uk_gerald_fitch": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 367,
@@ -519,6 +550,7 @@
     ]
   },
   "uk_heshimu_evans": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 357,
@@ -553,6 +585,7 @@
     ]
   },
   "uk_jamaal_magloire": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 372,
@@ -587,6 +620,7 @@
     ]
   },
   "uk_jared_carter": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -621,6 +655,7 @@
     ]
   },
   "uk_jason_parker": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 359,
@@ -655,6 +690,7 @@
     ]
   },
   "uk_jeff_sheppard": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 292,
@@ -680,10 +716,16 @@
         "height": 427,
         "path": "/images/players/portrait/uk_jeff_sheppard-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jeff_sheppard-640w.webp",
+        "width": 640
       }
     ]
   },
   "uk_jodie_meeks": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -718,6 +760,7 @@
     ]
   },
   "uk_joe_crawford": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 363,
@@ -752,6 +795,7 @@
     ]
   },
   "uk_josh_carrier": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 101,
@@ -778,10 +822,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_josh_carrier-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_josh_carrier-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_jp_blevins": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 105,
@@ -808,10 +858,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_jp_blevins-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jp_blevins-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_jules_camara": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 105,
@@ -838,10 +894,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_jules_camara-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_jules_camara-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_keith_bogans": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 358,
@@ -876,6 +938,7 @@
     ]
   },
   "uk_kelenna_azubuike": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -910,6 +973,7 @@
     ]
   },
   "uk_lukasz_obrzut": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 97,
@@ -936,10 +1000,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_lukasz_obrzut-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_mark_coury": {
+    "fabricated": true,
     "identification": "jersey-number-42-in-2006-07-team-photograph",
     "jersey": "42",
     "native_width": 83,
@@ -960,10 +1030,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_mark_coury-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_mark_coury-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_marquis_estill": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 387,
@@ -998,6 +1074,7 @@
     ]
   },
   "uk_marvin_stone": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 366,
@@ -1032,6 +1109,7 @@
     ]
   },
   "uk_matt_heissenbuttel": {
+    "fabricated": true,
     "identification": "jersey-number-15-in-2002-03-team-photograph",
     "jersey": "15",
     "native_width": 87,
@@ -1052,10 +1130,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_matt_heissenbuttel-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_michael_bradley": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 392,
@@ -1090,6 +1174,7 @@
     ]
   },
   "uk_michael_porter": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 98,
@@ -1116,10 +1201,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_michael_porter-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_michael_porter-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_myron_anthony": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 357,
@@ -1154,6 +1245,7 @@
     ]
   },
   "uk_nate_knight": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 375,
@@ -1188,6 +1280,7 @@
     ]
   },
   "uk_nazr_mohammed": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 381,
@@ -1222,6 +1315,7 @@
     ]
   },
   "uk_patrick_sparks": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1256,6 +1350,7 @@
     ]
   },
   "uk_perry_stevenson": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 357,
@@ -1290,6 +1385,7 @@
     ]
   },
   "uk_preston_lemaster": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1324,6 +1420,7 @@
     ]
   },
   "uk_rajon_rondo": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 363,
@@ -1358,6 +1455,7 @@
     ]
   },
   "uk_ramel_bradley": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 363,
@@ -1392,6 +1490,7 @@
     ]
   },
   "uk_ramon_harris": {
+    "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
     "native_width": 100,
@@ -1418,10 +1517,16 @@
         "height": 213,
         "path": "/images/players/portrait/uk_ramon_harris-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_ramon_harris-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_randolph_morris": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1456,6 +1561,7 @@
     ]
   },
   "uk_rashaad_carruth": {
+    "fabricated": true,
     "identification": "jersey-number-2-in-2001-02-team-photograph",
     "jersey": "2",
     "native_width": 67,
@@ -1473,13 +1579,14 @@
     },
     "variants": [
       {
-        "height": 179,
-        "path": "/images/players/portrait/uk_rashaad_carruth-134w.webp",
-        "width": 134
+        "height": 213,
+        "path": "/images/players/portrait/uk_rashaad_carruth-160w.webp",
+        "width": 160
       }
     ]
   },
   "uk_ravi_moss": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1514,6 +1621,7 @@
     ]
   },
   "uk_rekalin_sims": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1548,6 +1656,7 @@
     ]
   },
   "uk_ryan_hogan": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 375,
@@ -1582,6 +1691,7 @@
     ]
   },
   "uk_saul_smith": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 362,
@@ -1616,6 +1726,7 @@
     ]
   },
   "uk_scott_padgett": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 374,
@@ -1650,6 +1761,7 @@
     ]
   },
   "uk_shagari_alleyne": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1684,6 +1796,7 @@
     ]
   },
   "uk_sheray_thomas": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 356,
@@ -1718,6 +1831,7 @@
     ]
   },
   "uk_steve_masiello": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 372,
@@ -1752,6 +1866,7 @@
     ]
   },
   "uk_tayshaun_prince": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 360,
@@ -1786,6 +1901,7 @@
     ]
   },
   "uk_todd_tackett": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 396,
@@ -1820,6 +1936,7 @@
     ]
   },
   "uk_wayne_turner": {
+    "fabricated": false,
     "identification": "face-detected",
     "jersey": null,
     "native_width": 381,

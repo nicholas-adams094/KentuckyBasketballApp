@@ -4,10 +4,12 @@
   "project": "Kentucky Wildcats — Tubby Smith Era Archive",
   "notes": [
     "Original means the image extracted from the last stable monolithic archive, not necessarily the highest-resolution historical source.",
-    "Portrait variants are re-derived from the originals by scripts/derive-portraits.py: a face-centred 3:4 crop, resampled with Lanczos and sharpened at output size. No detail is generated or interpolated beyond 2x the native crop, so no portrait claims more resolution than its source actually holds.",
-    "Crops from the team photographs additionally get a 3x3 median at native size to remove the halftone dot pattern left by photographing a printed page. That deletes an artefact of reproduction; no detail is added, and no denoiser that reconstructs skin texture is used on a real person's face.",
-    "Nine portraits are crops of a season team photograph rather than individual headshots. Each subject is the player wearing the jersey number this archive records for that player in that season, and each is labelled as a team-photograph crop wherever it appears.",
-    "Two players are shown as a labelled jersey card rather than a photograph. Eric Allen has no verified image at all. The photograph filed under Ramon Harris shows a player in a #5 jersey, but this archive records Harris as #22 in 2006-07 and #5 that season as Derrick Jasper, so the identification cannot be verified from this archive's data and is not asserted."
+    "Portrait variants are re-derived from the originals by scripts/derive-portraits.py: a face-centred 3:4 crop, upscaled with Real-ESRGAN x4plus (RRDBNet, 23 blocks), then resampled to each output width with Lanczos.",
+    "The upscaler is generative. Real-ESRGAN synthesises detail consistent with its training data rather than recovering detail the camera recorded, so fine texture — skin, hair, fabric — in every portrait here was computed rather than photographed. Round-tripping each result back to source resolution puts the drift at 7-10.5 RMSE against 1.0 for a reconstructive model, which is the measure of how much is invented. Every portrait is labelled as a reconstruction where it renders.",
+    "4 portraits are fabrications rather than reconstructions: uk_antwain_barbour, uk_mark_coury, uk_matt_heissenbuttel, uk_rashaad_carruth. Their crops are under 90px wide, which leaves the model nothing to reconstruct from, and the faces it returns are invented. They are published at the archive owner's explicit request, and each is marked as a fabrication in this manifest and on every surface that renders it.",
+    "Crops from the team photographs additionally get a 3x3 median at native size, before the upscale, to remove the halftone dot pattern left by photographing a printed page — otherwise the upscaler reads the rosette as texture and reconstructs a magnified dot grid across the face.",
+    "4 portraits are crops of a season team photograph rather than individual headshots. Each subject is the player wearing the jersey number this archive records for that player in that season, and each is labelled as a team-photograph crop wherever it appears.",
+    "1 player is shown as a labelled jersey card rather than a photograph: Eric Allen, for whom no verified UK-uniform image was located."
   ],
   "items": [
     {
@@ -20,21 +22,21 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_adam_chiles.webp",
-      "processed_path": "/images/players/portrait/uk_adam_chiles-320w.webp",
+      "processed_path": "/images/players/portrait/uk_adam_chiles-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -49,6 +51,11 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_adam_chiles-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_adam_chiles-640w.webp"
           }
         ],
         "source_crop": {
@@ -58,7 +65,13 @@
           "h": 394
         },
         "native_width": 296,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -81,11 +94,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -114,7 +127,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -127,21 +146,21 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_allen_edwards.webp",
-      "processed_path": "/images/players/portrait/uk_allen_edwards-320w.webp",
+      "processed_path": "/images/players/portrait/uk_allen_edwards-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -156,6 +175,11 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_allen_edwards-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_allen_edwards-640w.webp"
           }
         ],
         "source_crop": {
@@ -165,7 +189,13 @@
           "h": 394
         },
         "native_width": 296,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -179,30 +209,30 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_antwain_barbour.webp",
-      "processed_path": "/images/players/portrait/uk_antwain_barbour-146w.webp",
+      "processed_path": "/images/players/portrait/uk_antwain_barbour-160w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 146,
-        "height": 195
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "team-photograph-crop",
-      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #33, the number this archive records for Antwain Barbour that season. This is a crop of a group photograph, not an individual archival headshot.",
+      "photo_type": "ai-fabricated-face",
+      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #33, the number this archive records for Antwain Barbour that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 73px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
           {
-            "width": 146,
-            "height": 195,
-            "path": "/images/players/portrait/uk_antwain_barbour-146w.webp"
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_antwain_barbour-160w.webp"
           }
         ],
         "source_crop": {
@@ -212,7 +242,13 @@
           "h": 98
         },
         "native_width": 73,
-        "derivation": "jersey-number-33-in-2002-03-team-photograph"
+        "derivation": "jersey-number-33-in-2002-03-team-photograph",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "fabricated"
+        }
       },
       "identified_by": "jersey-number",
       "jersey_number": "33",
@@ -229,21 +265,21 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_bernard_cote.webp",
-      "processed_path": "/images/players/portrait/uk_bernard_cote-320w.webp",
+      "processed_path": "/images/players/portrait/uk_bernard_cote-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -258,6 +294,11 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_bernard_cote-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_bernard_cote-640w.webp"
           }
         ],
         "source_crop": {
@@ -267,7 +308,13 @@
           "h": 394
         },
         "native_width": 296,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -293,11 +340,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -326,7 +373,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -352,11 +405,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -385,7 +438,13 @@
           "h": 513
         },
         "native_width": 385,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -408,11 +467,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -441,7 +500,13 @@
           "h": 450
         },
         "native_width": 338,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -467,11 +532,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -500,7 +565,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -526,11 +597,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -559,7 +630,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -583,11 +660,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -616,7 +693,13 @@
           "h": 479
         },
         "native_width": 359,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -639,11 +722,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -672,7 +755,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -696,11 +785,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -729,7 +818,13 @@
           "h": 519
         },
         "native_width": 389,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -752,11 +847,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -785,7 +880,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -840,11 +941,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -873,7 +974,13 @@
           "h": 472
         },
         "native_width": 354,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -899,11 +1006,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -932,7 +1039,13 @@
           "h": 489
         },
         "native_width": 367,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -956,11 +1069,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -989,7 +1102,13 @@
           "h": 476
         },
         "native_width": 357,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1005,21 +1124,21 @@
         "2001-02"
       ],
       "original_path": "/images/players/resourced/uk_jp_blevins.jpg",
-      "processed_path": "/images/players/portrait/uk_jp_blevins-160w.webp",
+      "processed_path": "/images/players/portrait/uk_jp_blevins-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 145
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people.",
+      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20000918111842im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jpblevins_mug.jpg",
       "source_reference": "https://web.archive.org/web/20000822110609/http://www.ukathletics.com/bko/bkc/jpblevinsbio.html",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -1029,6 +1148,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_jp_blevins-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jp_blevins-320w.webp"
           }
         ],
         "source_crop": {
@@ -1038,7 +1162,13 @@
           "h": 140
         },
         "native_width": 105,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication"
     },
@@ -1064,11 +1194,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1097,7 +1227,13 @@
           "h": 496
         },
         "native_width": 372,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1121,11 +1257,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1154,7 +1290,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1178,11 +1320,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1211,7 +1353,13 @@
           "h": 479
         },
         "native_width": 359,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1224,21 +1372,21 @@
         "1997-98"
       ],
       "original_path": "/images/players/original/uk_jeff_sheppard.webp",
-      "processed_path": "/images/players/portrait/uk_jeff_sheppard-320w.webp",
+      "processed_path": "/images/players/portrait/uk_jeff_sheppard-640w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1253,6 +1401,11 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_jeff_sheppard-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jeff_sheppard-640w.webp"
           }
         ],
         "source_crop": {
@@ -1262,7 +1415,13 @@
           "h": 390
         },
         "native_width": 292,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1285,11 +1444,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1318,7 +1477,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1343,11 +1508,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1376,7 +1541,13 @@
           "h": 484
         },
         "native_width": 363,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1392,21 +1563,21 @@
         "2004-05"
       ],
       "original_path": "/images/players/resourced/uk_josh_carrier.jpg",
-      "processed_path": "/images/players/portrait/uk_josh_carrier-160w.webp",
+      "processed_path": "/images/players/portrait/uk_josh_carrier-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 158
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people.",
+      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20040626143657im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
       "source_reference": "https://web.archive.org/web/20040626143657/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-carrier_josh.jpg",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -1416,6 +1587,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_josh_carrier-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_josh_carrier-320w.webp"
           }
         ],
         "source_crop": {
@@ -1425,7 +1601,13 @@
           "h": 135
         },
         "native_width": 101,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication"
     },
@@ -1442,21 +1624,21 @@
         "2002-03"
       ],
       "original_path": "/images/players/resourced/uk_jules_camara.jpg",
-      "processed_path": "/images/players/portrait/uk_jules_camara-160w.webp",
+      "processed_path": "/images/players/portrait/uk_jules_camara-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 145
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people.",
+      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
       "source_reference": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -1466,6 +1648,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_jules_camara-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_jules_camara-320w.webp"
           }
         ],
         "source_crop": {
@@ -1475,7 +1662,13 @@
           "h": 140
         },
         "native_width": 105,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication"
     },
@@ -1502,11 +1695,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1535,7 +1728,13 @@
           "h": 477
         },
         "native_width": 358,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1560,11 +1759,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1593,7 +1792,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1609,21 +1814,21 @@
         "2006-07"
       ],
       "original_path": "/images/players/resourced/uk_lukasz_obrzut.jpg",
-      "processed_path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp",
+      "processed_path": "/images/players/portrait/uk_lukasz_obrzut-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 158
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people.",
+      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from an Internet Archive capture of ukathletics.com and filename in the official University of Kentucky men's basketball headshot directory. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20040626155948im_/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
       "source_reference": "https://web.archive.org/web/20040626155948/http://www.ukathletics.com/photos/sports/m-baskbl/auto_headshot/p-obrzut_lukasz.jpg",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -1633,6 +1838,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_lukasz_obrzut-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_lukasz_obrzut-320w.webp"
           }
         ],
         "source_crop": {
@@ -1642,7 +1852,13 @@
           "h": 129
         },
         "native_width": 97,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication"
     },
@@ -1656,21 +1872,21 @@
         "2006-07"
       ],
       "original_path": "/images/players/original/uk_mark_coury.webp",
-      "processed_path": "/images/players/portrait/uk_mark_coury-160w.webp",
+      "processed_path": "/images/players/portrait/uk_mark_coury-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
-      "photo_type": "team-photograph-crop",
-      "photo_note": "Cropped from the 2006-07 Kentucky team photograph. The subject is the player wearing jersey #42, the number this archive records for Mark Coury that season. This is a crop of a group photograph, not an individual archival headshot.",
+      "photo_type": "ai-fabricated-face",
+      "photo_note": "Cropped from the 2006-07 Kentucky team photograph. The subject is the player wearing jersey #42, the number this archive records for Mark Coury that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 83px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1680,6 +1896,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_mark_coury-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_mark_coury-320w.webp"
           }
         ],
         "source_crop": {
@@ -1689,7 +1910,13 @@
           "h": 111
         },
         "native_width": 83,
-        "derivation": "jersey-number-42-in-2006-07-team-photograph"
+        "derivation": "jersey-number-42-in-2006-07-team-photograph",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "fabricated"
+        }
       },
       "identified_by": "jersey-number",
       "jersey_number": "42",
@@ -1718,11 +1945,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1751,7 +1978,13 @@
           "h": 516
         },
         "native_width": 387,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1776,11 +2009,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1809,7 +2042,13 @@
           "h": 488
         },
         "native_width": 366,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1825,21 +2064,21 @@
         "2003-04"
       ],
       "original_path": "/images/players/original/uk_matt_heissenbuttel.webp",
-      "processed_path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp",
+      "processed_path": "/images/players/portrait/uk_matt_heissenbuttel-320w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
-      "photo_type": "team-photograph-crop",
-      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #15, the number this archive records for Matt Heissenbuttel that season. This is a crop of a group photograph, not an individual archival headshot.",
+      "photo_type": "ai-fabricated-face",
+      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #15, the number this archive records for Matt Heissenbuttel that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 87px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1849,6 +2088,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_matt_heissenbuttel-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_matt_heissenbuttel-320w.webp"
           }
         ],
         "source_crop": {
@@ -1858,7 +2102,13 @@
           "h": 116
         },
         "native_width": 87,
-        "derivation": "jersey-number-15-in-2002-03-team-photograph"
+        "derivation": "jersey-number-15-in-2002-03-team-photograph",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "fabricated"
+        }
       },
       "identified_by": "jersey-number",
       "jersey_number": "15",
@@ -1885,11 +2135,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -1918,7 +2168,13 @@
           "h": 523
         },
         "native_width": 392,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -1931,21 +2187,21 @@
         "2006-07"
       ],
       "original_path": "/images/players/resourced/uk_michael_porter.jpg",
-      "processed_path": "/images/players/portrait/uk_michael_porter-160w.webp",
+      "processed_path": "/images/players/portrait/uk_michael_porter-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 145
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none.",
+      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20081004063233im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327559.jpeg",
       "source_reference": "https://web.archive.org/web/20081004063233/http://www.ukathletics.com/sports/m-baskbl/mtt/porter_michael00.html",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -1955,6 +2211,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_michael_porter-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_michael_porter-320w.webp"
           }
         ],
         "source_crop": {
@@ -1964,7 +2225,13 @@
           "h": 130
         },
         "native_width": 98,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication",
       "photo_season_note": "portrait dates from 2008-09"
@@ -1990,11 +2257,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2023,7 +2290,13 @@
           "h": 476
         },
         "native_width": 357,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2046,11 +2319,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2079,7 +2352,13 @@
           "h": 500
         },
         "native_width": 375,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2102,11 +2381,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2135,7 +2414,13 @@
           "h": 508
         },
         "native_width": 381,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2160,11 +2445,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2193,7 +2478,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2216,11 +2507,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2249,7 +2540,13 @@
           "h": 476
         },
         "native_width": 357,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2275,11 +2572,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2308,7 +2605,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2332,11 +2635,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2365,7 +2668,13 @@
           "h": 484
         },
         "native_width": 363,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2390,11 +2699,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2423,7 +2732,13 @@
           "h": 484
         },
         "native_width": 363,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2436,21 +2751,21 @@
         "2006-07"
       ],
       "original_path": "/images/players/resourced/uk_ramon_harris.jpg",
-      "processed_path": "/images/players/portrait/uk_ramon_harris-160w.webp",
+      "processed_path": "/images/players/portrait/uk_ramon_harris-320w.webp",
       "original_dimensions": {
         "width": 105,
         "height": 145
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none.",
+      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
       "source_reference": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-official-uk-headshot-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
       "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
@@ -2460,6 +2775,11 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_ramon_harris-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_ramon_harris-320w.webp"
           }
         ],
         "source_crop": {
@@ -2469,7 +2789,13 @@
           "h": 133
         },
         "native_width": 100,
-        "derivation": "official-uk-headshot"
+        "derivation": "official-uk-headshot",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       },
       "identified_by": "official-university-publication",
       "photo_season_note": "portrait dates from 2008-09"
@@ -2496,11 +2822,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2529,7 +2855,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2542,30 +2874,30 @@
         "2001-02"
       ],
       "original_path": "/images/players/original/uk_rashaad_carruth.webp",
-      "processed_path": "/images/players/portrait/uk_rashaad_carruth-134w.webp",
+      "processed_path": "/images/players/portrait/uk_rashaad_carruth-160w.webp",
       "original_dimensions": {
         "width": 420,
         "height": 560
       },
       "processed_dimensions": {
-        "width": 134,
-        "height": 179
+        "width": 160,
+        "height": 213
       },
-      "photo_type": "team-photograph-crop",
-      "photo_note": "Cropped from the 2001-02 Kentucky team photograph. The subject is the player wearing jersey #2, the number this archive records for Rashaad Carruth that season. This is a crop of a group photograph, not an individual archival headshot.",
+      "photo_type": "ai-fabricated-face",
+      "photo_note": "Cropped from the 2001-02 Kentucky team photograph. The subject is the player wearing jersey #2, the number this archive records for Rashaad Carruth that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 67px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-from-original-descreen-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
           {
-            "width": 134,
-            "height": 179,
-            "path": "/images/players/portrait/uk_rashaad_carruth-134w.webp"
+            "width": 160,
+            "height": 213,
+            "path": "/images/players/portrait/uk_rashaad_carruth-160w.webp"
           }
         ],
         "source_crop": {
@@ -2575,7 +2907,13 @@
           "h": 89
         },
         "native_width": 67,
-        "derivation": "jersey-number-2-in-2001-02-team-photograph"
+        "derivation": "jersey-number-2-in-2001-02-team-photograph",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "fabricated"
+        }
       },
       "identified_by": "jersey-number",
       "jersey_number": "2",
@@ -2604,11 +2942,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2637,7 +2975,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2660,11 +3004,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2693,7 +3037,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2717,11 +3067,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2750,7 +3100,13 @@
           "h": 500
         },
         "native_width": 375,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2776,11 +3132,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2809,7 +3165,13 @@
           "h": 483
         },
         "native_width": 362,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2833,11 +3195,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2866,7 +3228,13 @@
           "h": 499
         },
         "native_width": 374,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2891,11 +3259,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2924,7 +3292,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -2950,11 +3324,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -2983,7 +3357,13 @@
           "h": 475
         },
         "native_width": 356,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -3008,11 +3388,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -3041,7 +3421,13 @@
           "h": 496
         },
         "native_width": 372,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -3067,11 +3453,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -3100,7 +3486,13 @@
           "h": 480
         },
         "native_width": 360,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -3125,11 +3517,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -3158,7 +3550,13 @@
           "h": 528
         },
         "native_width": 396,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -3182,11 +3580,11 @@
         "height": 853
       },
       "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame.",
+      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
       "source_url": null,
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-archival",
-      "derivative_method": "face-centred-crop-from-original-lanczos-unsharp",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
@@ -3215,7 +3613,13 @@
           "h": 508
         },
         "native_width": 381,
-        "derivation": "face-detected"
+        "derivation": "face-detected",
+        "reconstruction": {
+          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+          "scale": 4,
+          "generative": true,
+          "class": "reconstructed"
+        }
       }
     },
     {
@@ -3234,18 +3638,25 @@
         "height": 767
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1725
+        "width": 2560,
+        "height": 2008
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1997-98 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1997-98 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 978
+      }
     },
     {
       "id": "team:1998-99",
@@ -3263,18 +3674,25 @@
         "height": 383
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 959
+        "width": 2560,
+        "height": 1117
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1998-99 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1998-99 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 878px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 878
+      }
     },
     {
       "id": "team:1999-00",
@@ -3292,18 +3710,25 @@
         "height": 305
       },
       "processed_dimensions": {
-        "width": 1584,
-        "height": 915
+        "width": 2112,
+        "height": 1220
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1999-00 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1999-00 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 528px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 528
+      }
     },
     {
       "id": "team:2000-01",
@@ -3321,18 +3746,25 @@
         "height": 623
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1401
+        "width": 2560,
+        "height": 1631
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2000-01 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2000-01 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 978
+      }
     },
     {
       "id": "team:2001-02",
@@ -3350,18 +3782,25 @@
         "height": 647
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1455
+        "width": 2560,
+        "height": 1694
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2001-02 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2001-02 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 978
+      }
     },
     {
       "id": "team:2002-03",
@@ -3379,18 +3818,25 @@
         "height": 659
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1482
+        "width": 2560,
+        "height": 1725
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 978
+      }
     },
     {
       "id": "team:2003-04",
@@ -3408,18 +3854,25 @@
         "height": 607
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1365
+        "width": 2560,
+        "height": 1589
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2003-04 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2003-04 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 978
+      }
     },
     {
       "id": "team:2004-05",
@@ -3437,18 +3890,25 @@
         "height": 626
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1374
+        "width": 2560,
+        "height": 1599
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2004-05 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2004-05 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1002px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 1002
+      }
     },
     {
       "id": "team:2005-06",
@@ -3466,18 +3926,25 @@
         "height": 634
       },
       "processed_dimensions": {
-        "width": 2200,
-        "height": 1392
+        "width": 2560,
+        "height": 1620
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1002px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 1002
+      }
     },
     {
       "id": "team:2006-07",
@@ -3495,18 +3962,25 @@
         "height": 993
       },
       "processed_dimensions": {
-        "width": 2550,
-        "height": 1688
+        "width": 2560,
+        "height": 1695
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2006-07 roster are derived from this image.",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2006-07 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1500px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
       "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
       "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
       "confidence": "verified-official-team-photo",
-      "derivative_method": "upscaled-and-color-corrected",
+      "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
       "visual_review_status": "required",
-      "rights_review_status": "required-before-publication"
+      "rights_review_status": "required-before-publication",
+      "reconstruction": {
+        "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
+        "scale": 4,
+        "generative": true,
+        "class": "reconstructed",
+        "native_width": 1500
+      }
     },
     {
       "id": "interface:rupp_arena",
