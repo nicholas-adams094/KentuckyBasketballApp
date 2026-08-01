@@ -24,3 +24,8 @@ yarn-error.log*
 
 # TypeScript incremental build info
 *.tsbuildinfo
+
+# Build-time caches (OpenCV cascades are fetched by scripts/derive-portraits.py)
+.cache/
+__pycache__/
+*.pyc

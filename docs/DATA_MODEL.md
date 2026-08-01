@@ -129,10 +129,15 @@ of dimensions, `photo_type`, `photo_note`, `confidence`, `derivative_method`,
 
 | Value | Count | Interface behaviour |
 | --- | --- | --- |
-| `verified-archival` | 50 | shown normally |
+| `verified-archival` | 53 | shown normally (6 are re-sourced official UK headshots) |
 | `verified-official-team-photo` | 10 | team photographs |
-| `verified-source-derived-portrait` | 9 | **flagged "Reconstruction"** wherever it appears |
-| `placeholder` | 1 | **flagged "Placeholder"**; never described as a likeness |
+| `verified-team-photograph-crop` | 4 | **flagged `Team photo · #N`** wherever it appears; the number is cross-checked against the roster |
+| `placeholder` | 1 | **flagged "No photograph"**; a jersey card is drawn instead |
+| `unverified-identification` | 0 | **flagged "Unverified — not shown"**; a jersey card is drawn instead. Currently unused — the one entry that held it was re-sourced — but the value, the audit rule and the fallback stay in place, because the guard is what caught it. |
+
+The last two carry no `portrait` block at all. That absence — not the label — is what
+makes every player-facing surface fall back to the generated jersey card, and the audit
+fails if either ever acquires portrait variants.
 
 `audit-images.mjs` additionally verifies that the recorded dimensions match the files on
 disk, so a manifest entry can never drift from the asset it claims to describe.

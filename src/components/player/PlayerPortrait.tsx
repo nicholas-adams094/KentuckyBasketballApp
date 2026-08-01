@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { getProfile, playerImageUrl, playerPhoto } from '@/lib/archive';
+import { getProfile, playerPhoto, playerPortrait } from '@/lib/archive';
 import { jerseyFallback } from '@/lib/jersey';
 import { Icon } from '@/components/ui/Icon';
 
@@ -19,7 +19,7 @@ export interface PlayerPortraitProps {
   /** Rendered as a fixed-size avatar rather than a 3:4 frame. */
   avatarSize?: PortraitSize;
   className?: string;
-  /** Show the provenance chip for reconstructions and placeholders. */
+  /** Show the provenance chip for team-photo crops and for anything not shown as a portrait. */
   showProvenance?: boolean;
   loading?: 'lazy' | 'eager';
 }
@@ -34,24 +34,40 @@ export function PlayerPortrait({
 }: PlayerPortraitProps) {
   const profile = getProfile(playerId);
   const photo = playerPhoto(playerId);
+  const portrait = playerPortrait(playerId);
   const [failed, setFailed] = useState(false);
 
-  const src = useMemo(() => {
-    if (failed) return jerseyFallback(profile?.name ?? playerId, number);
-    return playerImageUrl(playerId) ?? jerseyFallback(profile?.name ?? playerId, number);
-  }, [failed, playerId, profile?.name, number]);
+  const fallback = useMemo(
+    () => jerseyFallback(profile?.name ?? playerId, number),
+    [profile?.name, playerId, number],
+  );
+
+  const isPlaceholder = photo?.confidence === 'placeholder';
+  const isTeamCrop = photo?.confidence === 'verified-team-photograph-crop';
+  const isUnverified = photo?.confidence === 'unverified-identification';
+  const useFallback = failed || !portrait;
 
   const alt = profile
-    ? `${profile.name}, Kentucky ${profile.pos}${photo?.confidence === 'placeholder' ? ' (no verified photograph available)' : ''}`
+    ? `${profile.name}, Kentucky ${profile.pos}${
+        isPlaceholder ? ' — no verified photograph available' : ''
+      }${isUnverified ? ' — no photograph could be verified as this player' : ''}${
+        isTeamCrop ? `, cropped from the ${photo?.identified_in_season} team photograph` : ''
+      }`
     : playerId;
 
-  const isReconstruction = photo?.confidence === 'verified-source-derived-portrait';
-  const isPlaceholder = photo?.confidence === 'placeholder';
+  // Avatars render between 26px and 84px wide, cards up to ~250px, so a single
+  // `sizes` hint covers every context the component is used in.
+  const sizes = avatarSize ? '96px' : '(max-width: 640px) 45vw, 260px';
+
+  const imgProps = useFallback
+    ? { src: fallback }
+    : { src: portrait.src, srcSet: portrait.srcSet, sizes,
+        width: portrait.width, height: portrait.height };
 
   if (avatarSize) {
     return (
       <img
-        src={src}
+        {...imgProps}
         alt={alt}
         loading={loading}
         onError={() => setFailed(true)}
@@ -60,21 +76,33 @@ export function PlayerPortrait({
     );
   }
 
+  const flag = isPlaceholder
+    ? 'No photograph'
+    : isUnverified
+      ? 'Unverified — not shown'
+      : isTeamCrop
+        ? `Team photo · #${photo?.jersey_number}`
+        : photo?.photo_season_note
+          ? photo.photo_season_note
+          : null;
+
+  const showFlag = showProvenance && flag !== null;
+
   return (
-    <div className={`portrait ${className ?? ''}`}>
-      <img src={src} alt={alt} loading={loading} onError={() => setFailed(true)} />
+    <div className={`portrait ${showFlag ? 'portrait--flagged' : ''} ${className ?? ''}`}>
+      <img {...imgProps} alt={alt} loading={loading} onError={() => setFailed(true)} />
       {number ? (
         <span className="portrait__number" aria-hidden="true">
           {number}
         </span>
       ) : null}
-      {showProvenance && (isReconstruction || isPlaceholder) ? (
+      {showFlag ? (
         <span
           className="provenance-flag portrait__flag"
           title={photo?.photo_note ?? 'Provenance note'}
         >
           <Icon name="alert" size={11} />
-          {isPlaceholder ? 'Placeholder' : 'Reconstruction'}
+          {flag}
         </span>
       ) : null}
     </div>

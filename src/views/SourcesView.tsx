@@ -1,28 +1,29 @@
 import { useMemo, useState } from 'react';
-import { archive, gameCount, imageUrl, photoManifest, profileCount, rosterEntryCount, seasons } from '@/lib/archive';
+import { archive, gameCount, imageUrl, photoManifest, playerPortrait, profileCount, rosterEntryCount, seasons } from '@/lib/archive';
 import { eraDistributions, rotationSeasons } from '@/lib/analytics';
 import { Icon } from '@/components/ui/Icon';
 import { useNavigation } from '@/state/navigation';
 import type { PhotoManifestItem } from '@/types/archive';
 
 const CONFIDENCE_LABEL: Record<string, string> = {
-  'verified-archival': 'Verified archival portrait',
+  'verified-archival': 'Archival Kentucky portrait',
   'verified-official-team-photo': 'Official team photograph',
-  'verified-source-derived-portrait': 'Reconstruction from a team photograph',
+  'verified-team-photograph-crop': 'Crop of a team photograph, identified by jersey number',
   placeholder: 'Labelled placeholder — no verified image',
+  'unverified-identification': 'Subject unverified — not shown as this player',
 };
 
-const FILTERS = ['All', 'Needs review', 'Reconstructions', 'Placeholders'] as const;
+const FILTERS = ['All', 'Needs review', 'Team-photo crops', 'Not shown as a portrait'] as const;
 type Filter = (typeof FILTERS)[number];
 
 function matches(item: PhotoManifestItem, filter: Filter): boolean {
   switch (filter) {
     case 'Needs review':
       return item.needs_resourcing || item.visual_review_status !== 'complete';
-    case 'Reconstructions':
-      return item.confidence === 'verified-source-derived-portrait';
-    case 'Placeholders':
-      return item.confidence === 'placeholder';
+    case 'Team-photo crops':
+      return item.confidence === 'verified-team-photograph-crop';
+    case 'Not shown as a portrait':
+      return item.confidence === 'placeholder' || item.confidence === 'unverified-identification';
     case 'All':
     default:
       return true;
@@ -33,8 +34,9 @@ function matches(item: PhotoManifestItem, filter: Filter): boolean {
  * Sources, provenance and method.
  *
  * This view is not decoration. The archive presents historical claims and derived
- * metrics, so it has to state where each came from, which images are reconstructions,
- * and exactly how every computed number is produced.
+ * metrics, so it has to state where each came from, which images are crops of a team
+ * photograph rather than individual headshots, which could not be verified at all, and
+ * exactly how every computed number is produced.
  */
 export function SourcesView() {
   const { openPlayer } = useNavigation();
@@ -50,10 +52,12 @@ export function SourcesView() {
     [],
   );
 
-  const reconstructions = photoManifest.items.filter(
-    (item) => item.confidence === 'verified-source-derived-portrait',
+  const identifiedCrops = photoManifest.items.filter(
+    (item) => item.confidence === 'verified-team-photograph-crop',
   );
-  const placeholders = photoManifest.items.filter((item) => item.confidence === 'placeholder');
+  const notShown = photoManifest.items.filter(
+    (item) => item.confidence === 'placeholder' || item.confidence === 'unverified-identification',
+  );
 
   return (
     <div className="view">
@@ -86,7 +90,7 @@ export function SourcesView() {
           <p className="metric__label">Images</p>
           <p className="metric__value">{photoManifest.items.length}</p>
           <p className="metric__note">
-            {reconstructions.length} reconstructions · {placeholders.length} placeholder
+            {identifiedCrops.length} team-photo crops · {notShown.length} shown as jersey cards
           </p>
         </article>
         <article className="metric">
@@ -254,8 +258,10 @@ export function SourcesView() {
 
         <div className="provenance-grid">
           {items.map((item) => {
-            const src = imageUrl(item.image_key);
             const isPlayer = item.kind === 'player';
+            // Players have a responsive ladder; teams and interface art are single files.
+            const portrait = isPlayer ? playerPortrait(item.entity_id) : undefined;
+            const src = portrait?.src ?? imageUrl(item.image_key);
             return (
               <article key={item.id} className="card card--interactive provenance-tile">
                 {src ? (
@@ -268,6 +274,8 @@ export function SourcesView() {
                   >
                     <img
                       src={src}
+                      srcSet={portrait?.srcSet}
+                      sizes={portrait ? '(max-width: 640px) 45vw, 220px' : undefined}
                       alt={item.display_name}
                       loading="lazy"
                       style={{ width: '100%', aspectRatio: item.kind === 'team' ? '16 / 10' : '3 / 4', objectFit: 'cover' }}
@@ -284,7 +292,11 @@ export function SourcesView() {
                   {item.confidence !== 'verified-archival' && item.kind === 'player' ? (
                     <span className="provenance-flag" style={{ alignSelf: 'flex-start', marginTop: 4 }}>
                       <Icon name="alert" size={10} />
-                      {item.confidence === 'placeholder' ? 'Placeholder' : 'Reconstruction'}
+                      {item.confidence === 'placeholder'
+                        ? 'No photograph'
+                        : item.confidence === 'unverified-identification'
+                          ? 'Unverified — not shown as this player'
+                          : `Team photo · #${item.jersey_number}`}
                     </span>
                   ) : null}
                 </div>
@@ -296,8 +308,7 @@ export function SourcesView() {
         <div className="callout" style={{ marginTop: 'var(--space-5)' }}>
           <Icon name="info" size={16} className="callout__icon" />
           <span>
-            {photoManifest.notes.join(' ')} Reconstructions are shown with a visible flag everywhere they
-            appear in the archive, and are never described as archival headshots.
+            {photoManifest.notes.join(' ')}
           </span>
         </div>
       </section>
@@ -321,8 +332,14 @@ export function SourcesView() {
               photographs are substituted.
             </li>
             <li>
-              A reconstruction is never described as an authentic archival headshot, and where no verified
-              image exists the archive shows a labelled placeholder rather than a stand-in face.
+              A crop of a team photograph is never described as an individual archival headshot. Each
+              one names the jersey number it was identified by, and the build fails if that number is
+              not the number this archive records for that player in that season.
+            </li>
+            <li>
+              Where no image can be verified as a given player — because none exists, or because the
+              one on file contradicts the archive's own roster data — the archive draws a labelled
+              jersey card. It never substitutes a stand-in face.
             </li>
             <li>
               Extracted originals are preserved unmodified; every derivative is written separately and

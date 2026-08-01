@@ -635,6 +635,16 @@
   bottom: var(--space-2);
 }
 
+/*
+ * Both badges are pinned to the bottom of the frame, and the flag text is long enough
+ * ("Unverified — not shown") to run under the number badge in the narrow dialog portrait.
+ * When a flag is present the number moves to the top of the frame instead of fighting it.
+ */
+.portrait--flagged .portrait__number {
+  top: var(--space-3);
+  bottom: auto;
+}
+
 /* --- Player card ------------------------------------------------------------ */
 
 .player-card {

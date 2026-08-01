@@ -37,7 +37,7 @@ something broke.
 
 - All ten seasons open in all eight views.
 - Player profiles open from a card, a table row, a leaderboard row and a deep link.
-- Reconstructions and the placeholder are visibly flagged.
+- Team-photograph crops and both jersey-card entries are visibly flagged.
 - Light and dark themes both read correctly, including the top bar and season rail.
 - Mobile (390px): no horizontal scrolling on any view.
 - Print preview of Season HQ and a player profile.
@@ -50,7 +50,7 @@ Image rights are **not** cleared. Before any public deployment:
 - Review the licence or permission status of every entry in `photo-manifest.json`.
 - Preserve required attribution.
 - Remove or replace anything that cannot be used in the intended context.
-- Confirm the reconstructions cannot be mistaken for official imagery.
+- Confirm the team-photograph crops cannot be mistaken for official imagery.
 - Update `rights_review_status` in the manifest and revise
   [COPYRIGHT_AND_ATTRIBUTION.md](COPYRIGHT_AND_ATTRIBUTION.md).
 

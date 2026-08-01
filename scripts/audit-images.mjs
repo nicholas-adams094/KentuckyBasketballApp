@@ -4,8 +4,10 @@
  *
  * Fails on anything that would break the page or misrepresent an image: a missing file,
  * a duplicate key, a truncated asset, a manifest entry pointing outside `public/`, or a
- * profile image with no manifest record. Warns on the known open items — low-resolution
- * originals, reconstructions awaiting re-sourcing, and uncleared rights.
+ * profile image with no manifest record. It also re-derives every jersey-number
+ * identification from `archive.json`, so a crop can never claim a subject the archive's
+ * own roster data contradicts. Warns on the known open items — low-resolution originals,
+ * team-photograph crops awaiting re-sourcing, and uncleared rights.
  *
  * Dimensions are read from the file headers directly so the audit needs no image
  * library and stays fast and dependency-free.
@@ -80,8 +82,11 @@ const seenPaths = new Set();
 const stats = {
   files: 0,
   bytes: 0,
-  reconstructions: 0,
+  portraitVariants: 0,
+  identifiedCrops: 0,
   placeholders: 0,
+  unverified: 0,
+  supersededOriginals: 0,
   lowResOriginals: 0,
   rightsPending: 0,
 };
@@ -94,6 +99,82 @@ for (const item of manifest.items) {
 
   if (!['player', 'team', 'interface'].includes(item.kind)) {
     fail(`${where}: unknown kind "${item.kind}"`);
+  }
+
+  // Two confidence values mean "never render this as a portrait of this player". The
+  // absence of portrait variants is what enforces it at runtime, so the audit checks the
+  // absence rather than trusting the label.
+  const noPortrait = item.confidence === 'placeholder' || item.confidence === 'unverified-identification';
+  if (item.kind === 'player' && noPortrait && item.portrait) {
+    fail(
+      `${where}: confidence "${item.confidence}" must have no portrait variants, or the app would render it as this player`,
+    );
+  }
+
+  // Portrait variants are the responsive derivatives the app actually serves.
+  if (item.kind === 'player' && !noPortrait) {
+    const portrait = item.portrait;
+    if (!portrait || !Array.isArray(portrait.variants) || portrait.variants.length === 0) {
+      fail(`${where}: player has no portrait variants — run scripts/derive-portraits.py`);
+    } else {
+      for (const variant of portrait.variants) {
+        const file = path.join(publicDir, variant.path.replace(/^\//, ''));
+        if (!fs.existsSync(file)) {
+          fail(`${where}: missing portrait variant ${variant.path}`);
+          continue;
+        }
+        const actual = readDimensions(file);
+        if (actual && (actual.width !== variant.width || actual.height !== variant.height)) {
+          fail(
+            `${where}: portrait variant ${variant.path} is ${actual.width}x${actual.height} on disk but the manifest records ${variant.width}x${variant.height}`,
+          );
+        }
+        // Nothing may be upscaled beyond 2x its native crop, or the archive would be
+        // claiming resolution the source does not hold.
+        if (variant.width > portrait.native_width * 2) {
+          fail(
+            `${where}: portrait variant ${variant.width}w exceeds 2x the ${portrait.native_width}px native crop`,
+          );
+        }
+        stats.portraitVariants += 1;
+        seenPaths.add(variant.path);
+      }
+      if (!portrait.derivation) fail(`${where}: portrait has no recorded derivation`);
+    }
+
+    // A crop of a group photograph must name the jersey number that identifies the
+    // subject, and that number must be the one the archive records for that player in
+    // that season. Anything else is the archive asserting an identity its own data
+    // contradicts — which is exactly how the Ramon Harris entry was caught.
+    if (item.confidence === 'verified-team-photograph-crop') {
+      stats.identifiedCrops += 1;
+      if (!item.jersey_number) {
+        fail(`${where}: ${item.confidence} with no jersey_number recorded`);
+      }
+      if (item.identified_by !== 'jersey-number') {
+        fail(`${where}: ${item.confidence} must record identified_by "jersey-number"`);
+      }
+      const season = archive.seasons.find((s) => s.id === item.identified_in_season);
+      if (!season) {
+        fail(`${where}: identified_in_season "${item.identified_in_season}" is not a season in the archive`);
+      } else {
+        const line = season.roster.find((entry) => entry.id === item.entity_id);
+        if (!line) {
+          fail(`${where}: ${item.entity_id} is not on the ${season.id} roster`);
+        } else if (line.number !== item.jersey_number) {
+          fail(
+            `${where}: identified by jersey #${item.jersey_number} but the archive records #${line.number} for ${item.entity_id} in ${season.id}`,
+          );
+        }
+        // The number must also be unique that season, or it identifies two people.
+        const sharing = season.roster.filter((entry) => entry.number === item.jersey_number);
+        if (sharing.length > 1) {
+          fail(
+            `${where}: #${item.jersey_number} is worn by ${sharing.length} players in ${season.id} — the crop identifies no one`,
+          );
+        }
+      }
+    }
   }
 
   for (const field of ['original_path', 'processed_path']) {
@@ -136,7 +217,9 @@ for (const item of manifest.items) {
       warn(`${where}: could not read dimensions from ${declared}`);
     }
 
-    if (seenPaths.has(declared)) {
+    // `processed_path` aliases the largest portrait variant for players, so only a
+    // genuine cross-entry collision is an error.
+    if (seenPaths.has(declared) && !declared.startsWith('/images/players/portrait/')) {
       fail(`${where}: ${declared} is referenced by more than one manifest entry`);
     }
     seenPaths.add(declared);
@@ -156,9 +239,14 @@ for (const item of manifest.items) {
     stats.placeholders += 1;
     warn(`${where}: labelled placeholder — no verified image located`);
   }
-  if (item.confidence === 'verified-source-derived-portrait') {
-    stats.reconstructions += 1;
-    warn(`${where}: reconstruction from a team photograph — replace with a verified headshot when found`);
+  if (item.confidence === 'verified-team-photograph-crop') {
+    warn(
+      `${where}: crop of a team photograph (identified by jersey #${item.jersey_number}) — replace with an individual headshot when one is located`,
+    );
+  }
+  if (item.confidence === 'unverified-identification') {
+    stats.unverified += 1;
+    warn(`${where}: subject cannot be verified from archive data — shown as a jersey card, not as a portrait`);
   }
   if (item.rights_review_status !== 'approved') {
     stats.rightsPending += 1;
@@ -202,10 +290,26 @@ function walk(dir) {
   return out;
 }
 
+// An original that a re-sourced headshot superseded stays on disk on purpose, so the
+// substitution can be audited against what it replaced. Those are not orphans.
+const superseded = new Set(
+  fs.existsSync(path.join(publicDir, 'images/players/resourced'))
+    ? fs
+        .readdirSync(path.join(publicDir, 'images/players/resourced'))
+        .filter((f) => f.endsWith('.jpg'))
+        .map((f) => `/images/players/original/${f.replace(/\.jpg$/, '.webp')}`)
+    : [],
+);
+
 if (fs.existsSync(imageRoot)) {
   for (const file of walk(imageRoot)) {
     const rel = `/${path.relative(publicDir, file).split(path.sep).join('/')}`;
-    if (!seenPaths.has(rel)) warn(`Unreferenced image file on disk: ${rel}`);
+    if (seenPaths.has(rel)) continue;
+    if (superseded.has(rel)) {
+      stats.supersededOriginals += 1;
+      continue;
+    }
+    warn(`Unreferenced image file on disk: ${rel}`);
   }
 }
 
@@ -224,8 +328,11 @@ console.log(
     'Image audit passed.',
     `  manifest entries      ${manifest.items.length}`,
     `  files verified        ${stats.files} (${(stats.bytes / 1024 / 1024).toFixed(1)} MB)`,
-    `  reconstructions       ${stats.reconstructions}`,
+    `  portrait variants     ${stats.portraitVariants}`,
+    `  team-photo crops      ${stats.identifiedCrops}`,
     `  placeholders          ${stats.placeholders}`,
+    `  unverified subjects   ${stats.unverified}`,
+    `  re-sourced headshots  ${stats.supersededOriginals}`,
     `  low-res originals     ${stats.lowResOriginals}`,
     `  rights review pending ${stats.rightsPending}`,
     `  review warnings       ${warnings.length}`,

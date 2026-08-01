@@ -32,11 +32,27 @@ per-game rates — no shooting splits, no possessions — so never present or im
 possession-based efficiency metric.
 
 **Images and identity.** Kentucky uniforms only; never substitute a professional,
-high-school or unrelated photograph. `public/images/**/original/` is immutable; write
-derivatives elsewhere and record them in the manifest. Never describe an AI or
-crop-derived reconstruction as an authentic archival headshot — the nine reconstructions
-and the one placeholder must stay visibly flagged. Where no verified image exists, show
-the generated jersey card, never a stand-in face.
+high-school or unrelated photograph. `public/images/**/original/` is immutable — every
+portrait is regenerated from it by `scripts/derive-portraits.py`, which owns both the
+files under `public/images/players/portrait/` and the provenance in the manifest. Do not
+hand-edit either; change the script and re-run it.
+
+**Re-sourcing beats processing.** When a portrait looks bad, the fix is almost always a
+better source, not a better filter. Official UK headshots recovered from Internet Archive
+captures of `ukathletics.com` replaced six team-photo crops outright. New sources go in
+`public/images/players/resourced/` with their URL and retrieval date in `SOURCES.json`;
+never delete what they supersede. Check first that the new source is actually better —
+era-official UK headshots are only 105px wide, so for the 420×560 studio portraits they
+would be a downgrade.
+
+Never describe a crop of a team photograph as an authentic archival headshot. The nine
+crops must stay visibly flagged, and each must name the jersey number that identifies its
+subject — the audit and the unit tests re-derive that number from `archive.json`, so an
+identification the roster contradicts fails the build. Where no image can be verified as a
+given player, show the generated jersey card, never a stand-in face; that fallback is
+driven by the *absence* of portrait variants, so never add variants to an entry marked
+`placeholder` or `unverified-identification`. No portrait may exceed 2× its native crop,
+and no generative upscaler or face-restoration model may touch a real person's face.
 
 **Rights.** Image rights are not cleared. Keep `robots.txt` and the `noindex` meta in
 place, and do not deploy publicly until `docs/COPYRIGHT_AND_ATTRIBUTION.md` says the

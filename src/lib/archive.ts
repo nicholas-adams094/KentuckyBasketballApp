@@ -183,6 +183,35 @@ export function playerImageUrl(playerId: string): string | undefined {
   return imageUrl(profiles[playerId]?.image);
 }
 
+/** A responsive image source: the largest variant plus a `srcset` of all of them. */
+export interface ResponsiveImage {
+  src: string;
+  srcSet: string;
+  width: number;
+  height: number;
+}
+
+/**
+ * Responsive portrait sources for a player.
+ *
+ * Variants are only generated up to 2x a portrait's native crop, so this returns
+ * whatever widths genuinely exist rather than a fixed ladder — the browser then picks
+ * the smallest adequate file. Returns undefined for the one player with no photograph,
+ * whose card is drawn rather than loaded.
+ */
+export function playerPortrait(playerId: string): ResponsiveImage | undefined {
+  const variants = playerPhoto(playerId)?.portrait?.variants;
+  if (!variants || variants.length === 0) return undefined;
+
+  const largest = variants.reduce((a, b) => (b.width > a.width ? b : a));
+  return {
+    src: resolveAssetPath(largest.path),
+    srcSet: variants.map((v) => `${resolveAssetPath(v.path)} ${v.width}w`).join(', '),
+    width: largest.width,
+    height: largest.height,
+  };
+}
+
 export function teamImageUrl(season: Season): string | undefined {
   return imageUrl(season.teamImage);
 }

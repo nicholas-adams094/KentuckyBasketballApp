@@ -74,9 +74,9 @@ Added on top:
 - Decade-wide opponent head-to-head panels
 - Light/dark themes and a compact density mode
 - CSV export for rosters and schedules
-- Visible provenance flags on reconstructions and the placeholder, everywhere
+- Visible provenance flags on team-photograph crops and both jersey-card entries, everywhere
 - A Sources view that states the method behind every derived number
-- Two build-gating validators, 86 unit tests and 38 e2e tests across two viewports
+- Two build-gating validators, 97 unit tests and 42 e2e tests across two viewports
 
 ## Milestone status
 
