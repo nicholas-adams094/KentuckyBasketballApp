@@ -1,0 +1,238 @@
+/**
+ * Design tokens.
+ *
+ * One palette, two themes. Every colour the interface uses is defined here and
+ * referenced semantically (`--surface`, `--text-muted`) rather than literally, so the
+ * light and dark themes stay in lockstep and a single edit re-skins the archive.
+ *
+ * The palette is anchored on Kentucky blue (#0033a0). Light mode reads as a printed
+ * media guide on warm paper; dark mode as a late-night film-room screen.
+ */
+
+:root {
+  /* --- Brand ------------------------------------------------------------- */
+  --uk-blue: #0033a0;
+  --uk-blue-bright: #1a5cf0;
+  --uk-blue-soft: #6ea3ff;
+  --uk-sky: #b7d5ff;
+  --uk-gold: #f3b93f;
+
+  /* --- Typography -------------------------------------------------------- */
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Roboto Mono', Menlo, Consolas, monospace;
+
+  /* Fluid type scale — clamps keep headings readable from 360px to 1600px. */
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 0.6vw + 1.1rem, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2vw + 1.2rem, 2rem);
+  --text-3xl: clamp(1.9rem, 2vw + 1.3rem, 2.75rem);
+  --text-4xl: clamp(2.4rem, 4vw + 1.2rem, 4.25rem);
+  --text-5xl: clamp(3rem, 6vw + 1rem, 5.5rem);
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.28;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.68;
+
+  --tracking-tight: -0.025em;
+  --tracking-tighter: -0.04em;
+  --tracking-wide: 0.06em;
+  --tracking-widest: 0.18em;
+
+  /* --- Space ------------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* --- Shape ------------------------------------------------------------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  --border-width: 1px;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --shell-max: 1520px;
+  --shell-gutter: clamp(1rem, 3vw, 2.5rem);
+  --topbar-height: 60px;
+  --nav-height: 56px;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 130ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+
+  --z-nav: 40;
+  --z-topbar: 50;
+  --z-overlay: 90;
+  --z-modal: 100;
+  --z-toast: 110;
+}
+
+/* --------------------------------------------------------------------------
+   Always-dark chrome
+   --------------------------------------------------------------------------
+   The top bar, season rail, footer and editorial cover panels are dark in BOTH
+   themes — they are the archive's masthead furniture, not page surfaces. These
+   tokens exist so that chrome never inherits `--surface-inverse`, which by
+   definition flips with the theme and would leave light text on a light bar.
+   -------------------------------------------------------------------------- */
+
+:root {
+  --ink-panel: #0a1428;
+  --ink-panel-deep: #060d1c;
+  --ink-panel-text: #eaf1fd;
+  --ink-panel-muted: #a3b6d3;
+  --ink-panel-subtle: #8398ba;
+  --ink-panel-border: rgba(255, 255, 255, 0.11);
+  --ink-panel-hover: rgba(255, 255, 255, 0.09);
+  --ink-panel-active: rgba(255, 255, 255, 0.14);
+}
+
+:root[data-theme='dark'] {
+  --ink-panel: #080f1e;
+  --ink-panel-deep: #040913;
+}
+
+/* --------------------------------------------------------------------------
+   Light theme — the default
+   -------------------------------------------------------------------------- */
+
+:root,
+:root[data-theme='light'] {
+  --canvas: #f2f5fa;
+  --canvas-deep: #e6ecf6;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f6f8fc;
+  --surface-inverse: #0a1428;
+  --surface-accent: #eef4ff;
+
+  --text: #0b1524;
+  --text-strong: #060d18;
+  --text-muted: #4c5a6e;
+  /* #7c8a9e measured 3.5:1 on white — this tier carries 10–12px labels, so it is
+     darkened to clear AA on both --surface and --canvas rather than left close. */
+  --text-subtle: #5e6c81;
+  --text-inverse: #f4f8ff;
+  --text-on-accent: #ffffff;
+
+  --border: #d8e1ee;
+  --border-strong: #bccbdf;
+  --border-subtle: #e7edf6;
+
+  --accent: var(--uk-blue);
+  --accent-hover: #002a85;
+  --accent-soft: #dfe9ff;
+  --accent-text: var(--uk-blue);
+
+  --win: #0f6b47;
+  --win-soft: #dcf4ea;
+  --loss: #b3302f;
+  --loss-soft: #fbe4e4;
+  /* Gold text on --gold-soft needs to be this dark to clear AA; --uk-gold stays
+     bright for use on the dark chrome, where it has plenty of contrast. */
+  --gold: #7d5806;
+  --gold-soft: #fdf1d6;
+
+  /* Solid fills that carry white text (result dots, filled result chips). */
+  --win-solid: #15794f;
+  --loss-solid: #b3312e;
+
+  --chart-grid: #e3eaf4;
+  --chart-axis: #94a3b8;
+
+  --shadow-sm: 0 1px 2px rgba(11, 21, 36, 0.05), 0 1px 3px rgba(11, 21, 36, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(11, 21, 36, 0.06), 0 10px 20px -6px rgba(11, 21, 36, 0.08);
+  --shadow-lg: 0 12px 24px -8px rgba(11, 21, 36, 0.12), 0 24px 48px -16px rgba(11, 21, 36, 0.14);
+  --shadow-xl: 0 32px 64px -20px rgba(11, 21, 36, 0.22);
+
+  --scrim: rgba(8, 16, 30, 0.55);
+  --hero-scrim: linear-gradient(104deg, rgba(0, 20, 66, 0.96) 0%, rgba(0, 41, 128, 0.9) 44%, rgba(0, 51, 160, 0.5) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Dark theme
+   -------------------------------------------------------------------------- */
+
+:root[data-theme='dark'] {
+  --canvas: #060a14;
+  --canvas-deep: #03060d;
+  --surface: #0d1424;
+  --surface-raised: #131c30;
+  --surface-sunken: #090f1c;
+  --surface-inverse: #f2f6fd;
+  --surface-accent: #12213f;
+
+  --text: #dfe8f7;
+  --text-strong: #ffffff;
+  --text-muted: #9fb0c9;
+  /* #6d7d97 measured 4.4:1 on --surface — just under AA for the 10–12px labels
+     this tier is used for, so it is lightened rather than left "close enough". */
+  --text-subtle: #8b9db8;
+  --text-inverse: #08101f;
+  /* The dark-theme accent is bright, so filled controls take dark ink (7.4:1)
+     instead of white (3.5:1). */
+  --text-on-accent: #051025;
+
+  --border: #1e2a42;
+  --border-strong: #2c3a56;
+  --border-subtle: #161f33;
+
+  --accent: #4d84ff;
+  --accent-hover: #6b99ff;
+  --accent-soft: #16264a;
+  --accent-text: #8fb4ff;
+
+  --win: #35c98d;
+  --win-soft: #0e2b21;
+  --loss: #ff7a74;
+  --loss-soft: #331414;
+  --gold: #f3b93f;
+  --gold-soft: #322511;
+
+  /* Solid fills that carry white text — kept deep enough for AA even though the
+     theme's --win/--loss accents are bright. */
+  --win-solid: #147a52;
+  --loss-solid: #b8352f;
+
+  --chart-grid: #1c2740;
+  --chart-axis: #52627e;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 32px 72px rgba(0, 0, 0, 0.65);
+
+  --scrim: rgba(2, 5, 12, 0.75);
+  --hero-scrim: linear-gradient(104deg, rgba(2, 8, 22, 0.97) 0%, rgba(3, 20, 62, 0.92) 46%, rgba(6, 34, 96, 0.62) 100%);
+}
+
+/* Compact density tightens vertical rhythm for stat-heavy screens. */
+:root[data-density='compact'] {
+  --space-4: 0.75rem;
+  --space-5: 0.9rem;
+  --space-6: 1.1rem;
+  --space-8: 1.5rem;
+  --space-10: 1.85rem;
+  --space-12: 2.15rem;
+}

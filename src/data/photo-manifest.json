@@ -1,0 +1,2125 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-01T02:22:29.502369+00:00",
+  "project": "Kentucky Wildcats — Tubby Smith Era Archive",
+  "notes": [
+    "Original means the image extracted from the last stable monolithic archive, not necessarily the highest-resolution historical source.",
+    "Processed means the current enhanced derivative. Codex should re-source higher-resolution originals rather than repeatedly upscale derivatives.",
+    "Nine player portraits are source-derived reconstructions from official team photographs; Eric Allen remains a placeholder."
+  ],
+  "items": [
+    {
+      "id": "player:adam-chiles",
+      "kind": "player",
+      "entity_id": "adam-chiles",
+      "display_name": "Adam Chiles",
+      "image_key": "uk_adam_chiles",
+      "seasons": [
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_adam_chiles.webp",
+      "processed_path": "/images/players/processed/uk_adam_chiles.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:adam-williams",
+      "kind": "player",
+      "entity_id": "adam-williams",
+      "display_name": "Adam Williams",
+      "image_key": "uk_adam_williams",
+      "seasons": [
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_adam_williams.webp",
+      "processed_path": "/images/players/processed/uk_adam_williams.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:allen-edwards",
+      "kind": "player",
+      "entity_id": "allen-edwards",
+      "display_name": "Allen Edwards",
+      "image_key": "uk_allen_edwards",
+      "seasons": [
+        "1997-98"
+      ],
+      "original_path": "/images/players/original/uk_allen_edwards.webp",
+      "processed_path": "/images/players/processed/uk_allen_edwards.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:antwain-barbour",
+      "kind": "player",
+      "entity_id": "antwain-barbour",
+      "display_name": "Antwain Barbour",
+      "image_key": "uk_antwain_barbour",
+      "seasons": [
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_antwain_barbour.webp",
+      "processed_path": "/images/players/processed/uk_antwain_barbour.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:bernard-cote",
+      "kind": "player",
+      "entity_id": "bernard-cote",
+      "display_name": "Bernard Cote",
+      "image_key": "uk_bernard_cote",
+      "seasons": [
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_bernard_cote.webp",
+      "processed_path": "/images/players/processed/uk_bernard_cote.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:bobby-perry",
+      "kind": "player",
+      "entity_id": "bobby-perry",
+      "display_name": "Bobby Perry",
+      "image_key": "uk_bobby_perry",
+      "seasons": [
+        "2003-04",
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_bobby_perry.webp",
+      "processed_path": "/images/players/processed/uk_bobby_perry.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:brandon-stockton",
+      "kind": "player",
+      "entity_id": "brandon-stockton",
+      "display_name": "Brandon Stockton",
+      "image_key": "uk_brandon_stockton",
+      "seasons": [
+        "2002-03",
+        "2003-04",
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_brandon_stockton.webp",
+      "processed_path": "/images/players/processed/uk_brandon_stockton.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:cameron-mills",
+      "kind": "player",
+      "entity_id": "cameron-mills",
+      "display_name": "Cameron Mills",
+      "image_key": "uk_cameron_mills",
+      "seasons": [
+        "1997-98"
+      ],
+      "original_path": "/images/players/original/uk_cameron_mills.webp",
+      "processed_path": "/images/players/processed/uk_cameron_mills.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:chuck-hayes",
+      "kind": "player",
+      "entity_id": "chuck-hayes",
+      "display_name": "Chuck Hayes",
+      "image_key": "uk_chuck_hayes",
+      "seasons": [
+        "2001-02",
+        "2002-03",
+        "2003-04",
+        "2004-05"
+      ],
+      "original_path": "/images/players/original/uk_chuck_hayes.webp",
+      "processed_path": "/images/players/processed/uk_chuck_hayes.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:cliff-hawkins",
+      "kind": "player",
+      "entity_id": "cliff-hawkins",
+      "display_name": "Cliff Hawkins",
+      "image_key": "uk_cliff_hawkins",
+      "seasons": [
+        "2000-01",
+        "2001-02",
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_cliff_hawkins.webp",
+      "processed_path": "/images/players/processed/uk_cliff_hawkins.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:cory-sears",
+      "kind": "player",
+      "entity_id": "cory-sears",
+      "display_name": "Cory Sears",
+      "image_key": "uk_cory_sears",
+      "seasons": [
+        "2000-01",
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_cory_sears.webp",
+      "processed_path": "/images/players/processed/uk_cory_sears.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:derrick-jasper",
+      "kind": "player",
+      "entity_id": "derrick-jasper",
+      "display_name": "Derrick Jasper",
+      "image_key": "uk_derrick_jasper",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_derrick_jasper.webp",
+      "processed_path": "/images/players/processed/uk_derrick_jasper.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:desmond-allison",
+      "kind": "player",
+      "entity_id": "desmond-allison",
+      "display_name": "Desmond Allison",
+      "image_key": "uk_desmond_allison",
+      "seasons": [
+        "1998-99",
+        "1999-00"
+      ],
+      "original_path": "/images/players/original/uk_desmond_allison.webp",
+      "processed_path": "/images/players/processed/uk_desmond_allison.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:dwight-perry",
+      "kind": "player",
+      "entity_id": "dwight-perry",
+      "display_name": "Dwight Perry",
+      "image_key": "uk_dwight_perry",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_dwight_perry.webp",
+      "processed_path": "/images/players/processed/uk_dwight_perry.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:eric-allen",
+      "kind": "player",
+      "entity_id": "eric-allen",
+      "display_name": "Eric Allen",
+      "image_key": "uk_eric_allen",
+      "seasons": [
+        "2004-05"
+      ],
+      "original_path": "/images/players/original/uk_eric_allen.webp",
+      "processed_path": "/images/players/processed/uk_eric_allen.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "labeled-placeholder",
+      "photo_note": "Enhanced Kentucky-themed archival placeholder; no verified UK-uniform portrait was located.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "placeholder",
+      "derivative_method": "designed placeholder; replacement required",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:erik-daniels",
+      "kind": "player",
+      "entity_id": "erik-daniels",
+      "display_name": "Erik Daniels",
+      "image_key": "uk_erik_daniels",
+      "seasons": [
+        "2000-01",
+        "2001-02",
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_erik_daniels.webp",
+      "processed_path": "/images/players/processed/uk_erik_daniels.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:gerald-fitch",
+      "kind": "player",
+      "entity_id": "gerald-fitch",
+      "display_name": "Gerald Fitch",
+      "image_key": "uk_gerald_fitch",
+      "seasons": [
+        "2000-01",
+        "2001-02",
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_gerald_fitch.webp",
+      "processed_path": "/images/players/processed/uk_gerald_fitch.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:heshimu-evans",
+      "kind": "player",
+      "entity_id": "heshimu-evans",
+      "display_name": "Heshimu Evans",
+      "image_key": "uk_heshimu_evans",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_heshimu_evans.webp",
+      "processed_path": "/images/players/processed/uk_heshimu_evans.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jp-blevins",
+      "kind": "player",
+      "entity_id": "jp-blevins",
+      "display_name": "J.P. Blevins",
+      "image_key": "uk_jp_blevins",
+      "seasons": [
+        "1998-99",
+        "1999-00",
+        "2000-01",
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_jp_blevins.webp",
+      "processed_path": "/images/players/processed/uk_jp_blevins.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jamaal-magloire",
+      "kind": "player",
+      "entity_id": "jamaal-magloire",
+      "display_name": "Jamaal Magloire",
+      "image_key": "uk_jamaal_magloire",
+      "seasons": [
+        "1997-98",
+        "1998-99",
+        "1999-00"
+      ],
+      "original_path": "/images/players/original/uk_jamaal_magloire.webp",
+      "processed_path": "/images/players/processed/uk_jamaal_magloire.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jared-carter",
+      "kind": "player",
+      "entity_id": "jared-carter",
+      "display_name": "Jared Carter",
+      "image_key": "uk_jared_carter",
+      "seasons": [
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_jared_carter.webp",
+      "processed_path": "/images/players/processed/uk_jared_carter.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jason-parker",
+      "kind": "player",
+      "entity_id": "jason-parker",
+      "display_name": "Jason Parker",
+      "image_key": "uk_jason_parker",
+      "seasons": [
+        "2000-01",
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_jason_parker.webp",
+      "processed_path": "/images/players/processed/uk_jason_parker.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jeff-sheppard",
+      "kind": "player",
+      "entity_id": "jeff-sheppard",
+      "display_name": "Jeff Sheppard",
+      "image_key": "uk_jeff_sheppard",
+      "seasons": [
+        "1997-98"
+      ],
+      "original_path": "/images/players/original/uk_jeff_sheppard.webp",
+      "processed_path": "/images/players/processed/uk_jeff_sheppard.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jodie-meeks",
+      "kind": "player",
+      "entity_id": "jodie-meeks",
+      "display_name": "Jodie Meeks",
+      "image_key": "uk_jodie_meeks",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_jodie_meeks.webp",
+      "processed_path": "/images/players/processed/uk_jodie_meeks.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:joe-crawford",
+      "kind": "player",
+      "entity_id": "joe-crawford",
+      "display_name": "Joe Crawford",
+      "image_key": "uk_joe_crawford",
+      "seasons": [
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_joe_crawford.webp",
+      "processed_path": "/images/players/processed/uk_joe_crawford.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:josh-carrier",
+      "kind": "player",
+      "entity_id": "josh-carrier",
+      "display_name": "Josh Carrier",
+      "image_key": "uk_josh_carrier",
+      "seasons": [
+        "2001-02",
+        "2002-03",
+        "2003-04",
+        "2004-05"
+      ],
+      "original_path": "/images/players/original/uk_josh_carrier.webp",
+      "processed_path": "/images/players/processed/uk_josh_carrier.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:jules-camara",
+      "kind": "player",
+      "entity_id": "jules-camara",
+      "display_name": "Jules Camara",
+      "image_key": "uk_jules_camara",
+      "seasons": [
+        "1998-99",
+        "1999-00",
+        "2001-02",
+        "2002-03"
+      ],
+      "original_path": "/images/players/original/uk_jules_camara.webp",
+      "processed_path": "/images/players/processed/uk_jules_camara.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:keith-bogans",
+      "kind": "player",
+      "entity_id": "keith-bogans",
+      "display_name": "Keith Bogans",
+      "image_key": "uk_keith_bogans",
+      "seasons": [
+        "1999-00",
+        "2000-01",
+        "2001-02",
+        "2002-03"
+      ],
+      "original_path": "/images/players/original/uk_keith_bogans.webp",
+      "processed_path": "/images/players/processed/uk_keith_bogans.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:kelenna-azubuike",
+      "kind": "player",
+      "entity_id": "kelenna-azubuike",
+      "display_name": "Kelenna Azubuike",
+      "image_key": "uk_kelenna_azubuike",
+      "seasons": [
+        "2002-03",
+        "2003-04",
+        "2004-05"
+      ],
+      "original_path": "/images/players/original/uk_kelenna_azubuike.webp",
+      "processed_path": "/images/players/processed/uk_kelenna_azubuike.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:lukasz-obrzut",
+      "kind": "player",
+      "entity_id": "lukasz-obrzut",
+      "display_name": "Lukasz Obrzut",
+      "image_key": "uk_lukasz_obrzut",
+      "seasons": [
+        "2003-04",
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_lukasz_obrzut.webp",
+      "processed_path": "/images/players/processed/uk_lukasz_obrzut.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:mark-coury",
+      "kind": "player",
+      "entity_id": "mark-coury",
+      "display_name": "Mark Coury",
+      "image_key": "uk_mark_coury",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_mark_coury.webp",
+      "processed_path": "/images/players/processed/uk_mark_coury.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:marquis-estill",
+      "kind": "player",
+      "entity_id": "marquis-estill",
+      "display_name": "Marquis Estill",
+      "image_key": "uk_marquis_estill",
+      "seasons": [
+        "1999-00",
+        "2000-01",
+        "2001-02",
+        "2002-03"
+      ],
+      "original_path": "/images/players/original/uk_marquis_estill.webp",
+      "processed_path": "/images/players/processed/uk_marquis_estill.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:marvin-stone",
+      "kind": "player",
+      "entity_id": "marvin-stone",
+      "display_name": "Marvin Stone",
+      "image_key": "uk_marvin_stone",
+      "seasons": [
+        "1999-00",
+        "2000-01",
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_marvin_stone.webp",
+      "processed_path": "/images/players/processed/uk_marvin_stone.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:matt-heissenbuttel",
+      "kind": "player",
+      "entity_id": "matt-heissenbuttel",
+      "display_name": "Matt Heissenbuttel",
+      "image_key": "uk_matt_heissenbuttel",
+      "seasons": [
+        "2000-01",
+        "2001-02",
+        "2002-03",
+        "2003-04"
+      ],
+      "original_path": "/images/players/original/uk_matt_heissenbuttel.webp",
+      "processed_path": "/images/players/processed/uk_matt_heissenbuttel.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:michael-bradley",
+      "kind": "player",
+      "entity_id": "michael-bradley",
+      "display_name": "Michael Bradley",
+      "image_key": "uk_michael_bradley",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_michael_bradley.webp",
+      "processed_path": "/images/players/processed/uk_michael_bradley.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:michael-porter",
+      "kind": "player",
+      "entity_id": "michael-porter",
+      "display_name": "Michael Porter",
+      "image_key": "uk_michael_porter",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_michael_porter.webp",
+      "processed_path": "/images/players/processed/uk_michael_porter.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:myron-anthony",
+      "kind": "player",
+      "entity_id": "myron-anthony",
+      "display_name": "Myron Anthony",
+      "image_key": "uk_myron_anthony",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_myron_anthony.webp",
+      "processed_path": "/images/players/processed/uk_myron_anthony.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:nate-knight",
+      "kind": "player",
+      "entity_id": "nate-knight",
+      "display_name": "Nate Knight",
+      "image_key": "uk_nate_knight",
+      "seasons": [
+        "1999-00"
+      ],
+      "original_path": "/images/players/original/uk_nate_knight.webp",
+      "processed_path": "/images/players/processed/uk_nate_knight.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:nazr-mohammed",
+      "kind": "player",
+      "entity_id": "nazr-mohammed",
+      "display_name": "Nazr Mohammed",
+      "image_key": "uk_nazr_mohammed",
+      "seasons": [
+        "1997-98"
+      ],
+      "original_path": "/images/players/original/uk_nazr_mohammed.webp",
+      "processed_path": "/images/players/processed/uk_nazr_mohammed.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:patrick-sparks",
+      "kind": "player",
+      "entity_id": "patrick-sparks",
+      "display_name": "Patrick Sparks",
+      "image_key": "uk_patrick_sparks",
+      "seasons": [
+        "2003-04",
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_patrick_sparks.webp",
+      "processed_path": "/images/players/processed/uk_patrick_sparks.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:perry-stevenson",
+      "kind": "player",
+      "entity_id": "perry-stevenson",
+      "display_name": "Perry Stevenson",
+      "image_key": "uk_perry_stevenson",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_perry_stevenson.webp",
+      "processed_path": "/images/players/processed/uk_perry_stevenson.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:preston-lemaster",
+      "kind": "player",
+      "entity_id": "preston-lemaster",
+      "display_name": "Preston LeMaster",
+      "image_key": "uk_preston_lemaster",
+      "seasons": [
+        "2002-03",
+        "2003-04",
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_preston_lemaster.webp",
+      "processed_path": "/images/players/processed/uk_preston_lemaster.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:rajon-rondo",
+      "kind": "player",
+      "entity_id": "rajon-rondo",
+      "display_name": "Rajon Rondo",
+      "image_key": "uk_rajon_rondo",
+      "seasons": [
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_rajon_rondo.webp",
+      "processed_path": "/images/players/processed/uk_rajon_rondo.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:ramel-bradley",
+      "kind": "player",
+      "entity_id": "ramel-bradley",
+      "display_name": "Ramel Bradley",
+      "image_key": "uk_ramel_bradley",
+      "seasons": [
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_ramel_bradley.webp",
+      "processed_path": "/images/players/processed/uk_ramel_bradley.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:ramon-harris",
+      "kind": "player",
+      "entity_id": "ramon-harris",
+      "display_name": "Ramon Harris",
+      "image_key": "uk_ramon_harris",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_ramon_harris.webp",
+      "processed_path": "/images/players/processed/uk_ramon_harris.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:randolph-morris",
+      "kind": "player",
+      "entity_id": "randolph-morris",
+      "display_name": "Randolph Morris",
+      "image_key": "uk_randolph_morris",
+      "seasons": [
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_randolph_morris.webp",
+      "processed_path": "/images/players/processed/uk_randolph_morris.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:rashaad-carruth",
+      "kind": "player",
+      "entity_id": "rashaad-carruth",
+      "display_name": "Rashaad Carruth",
+      "image_key": "uk_rashaad_carruth",
+      "seasons": [
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_rashaad_carruth.webp",
+      "processed_path": "/images/players/processed/uk_rashaad_carruth.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "enhanced-team-photo-portrait",
+      "photo_note": "Enhanced Kentucky-uniform portrait rebuilt from the official team photograph.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-source-derived-portrait",
+      "derivative_method": "AI-assisted reconstruction from official team-photo crop; replace when a true headshot is found",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:ravi-moss",
+      "kind": "player",
+      "entity_id": "ravi-moss",
+      "display_name": "Ravi Moss",
+      "image_key": "uk_ravi_moss",
+      "seasons": [
+        "2002-03",
+        "2003-04",
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_ravi_moss.webp",
+      "processed_path": "/images/players/processed/uk_ravi_moss.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:rekalin-sims",
+      "kind": "player",
+      "entity_id": "rekalin-sims",
+      "display_name": "Rekalin Sims",
+      "image_key": "uk_rekalin_sims",
+      "seasons": [
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_rekalin_sims.webp",
+      "processed_path": "/images/players/processed/uk_rekalin_sims.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:ryan-hogan",
+      "kind": "player",
+      "entity_id": "ryan-hogan",
+      "display_name": "Ryan Hogan",
+      "image_key": "uk_ryan_hogan",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_ryan_hogan.webp",
+      "processed_path": "/images/players/processed/uk_ryan_hogan.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:saul-smith",
+      "kind": "player",
+      "entity_id": "saul-smith",
+      "display_name": "Saul Smith",
+      "image_key": "uk_saul_smith",
+      "seasons": [
+        "1997-98",
+        "1998-99",
+        "1999-00",
+        "2000-01"
+      ],
+      "original_path": "/images/players/original/uk_saul_smith.webp",
+      "processed_path": "/images/players/processed/uk_saul_smith.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:scott-padgett",
+      "kind": "player",
+      "entity_id": "scott-padgett",
+      "display_name": "Scott Padgett",
+      "image_key": "uk_scott_padgett",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_scott_padgett.webp",
+      "processed_path": "/images/players/processed/uk_scott_padgett.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:shagari-alleyne",
+      "kind": "player",
+      "entity_id": "shagari-alleyne",
+      "display_name": "Shagari Alleyne",
+      "image_key": "uk_shagari_alleyne",
+      "seasons": [
+        "2003-04",
+        "2004-05",
+        "2005-06"
+      ],
+      "original_path": "/images/players/original/uk_shagari_alleyne.webp",
+      "processed_path": "/images/players/processed/uk_shagari_alleyne.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:sheray-thomas",
+      "kind": "player",
+      "entity_id": "sheray-thomas",
+      "display_name": "Sheray Thomas",
+      "image_key": "uk_sheray_thomas",
+      "seasons": [
+        "2003-04",
+        "2004-05",
+        "2005-06",
+        "2006-07"
+      ],
+      "original_path": "/images/players/original/uk_sheray_thomas.webp",
+      "processed_path": "/images/players/processed/uk_sheray_thomas.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:steve-masiello",
+      "kind": "player",
+      "entity_id": "steve-masiello",
+      "display_name": "Steve Masiello",
+      "image_key": "uk_steve_masiello",
+      "seasons": [
+        "1997-98",
+        "1998-99",
+        "1999-00"
+      ],
+      "original_path": "/images/players/original/uk_steve_masiello.webp",
+      "processed_path": "/images/players/processed/uk_steve_masiello.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:tayshaun-prince",
+      "kind": "player",
+      "entity_id": "tayshaun-prince",
+      "display_name": "Tayshaun Prince",
+      "image_key": "uk_tayshaun_prince",
+      "seasons": [
+        "1998-99",
+        "1999-00",
+        "2000-01",
+        "2001-02"
+      ],
+      "original_path": "/images/players/original/uk_tayshaun_prince.webp",
+      "processed_path": "/images/players/processed/uk_tayshaun_prince.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:todd-tackett",
+      "kind": "player",
+      "entity_id": "todd-tackett",
+      "display_name": "Todd Tackett",
+      "image_key": "uk_todd_tackett",
+      "seasons": [
+        "1998-99",
+        "1999-00",
+        "2000-01"
+      ],
+      "original_path": "/images/players/original/uk_todd_tackett.webp",
+      "processed_path": "/images/players/processed/uk_todd_tackett.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "player:wayne-turner",
+      "kind": "player",
+      "entity_id": "wayne-turner",
+      "display_name": "Wayne Turner",
+      "image_key": "uk_wayne_turner",
+      "seasons": [
+        "1997-98",
+        "1998-99"
+      ],
+      "original_path": "/images/players/original/uk_wayne_turner.webp",
+      "processed_path": "/images/players/processed/uk_wayne_turner.webp",
+      "original_dimensions": {
+        "width": 420,
+        "height": 560
+      },
+      "processed_dimensions": {
+        "width": 1260,
+        "height": 1680
+      },
+      "photo_type": "archival-kentucky-portrait",
+      "photo_note": "Upscaled Kentucky-uniform archival headshot.",
+      "source_url": null,
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:1997-98",
+      "kind": "team",
+      "entity_id": "1997-98",
+      "display_name": "1997-98 Kentucky Wildcats team",
+      "image_key": "team_1997_98",
+      "seasons": [
+        "1997-98"
+      ],
+      "original_path": "/images/teams/original/team_1997_98.webp",
+      "processed_path": "/images/teams/processed/team_1997_98.webp",
+      "original_dimensions": {
+        "width": 978,
+        "height": 767
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1725
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1997-98 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:1998-99",
+      "kind": "team",
+      "entity_id": "1998-99",
+      "display_name": "1998-99 Kentucky Wildcats team",
+      "image_key": "team_1998_99",
+      "seasons": [
+        "1998-99"
+      ],
+      "original_path": "/images/teams/original/team_1998_99.webp",
+      "processed_path": "/images/teams/processed/team_1998_99.webp",
+      "original_dimensions": {
+        "width": 878,
+        "height": 383
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 959
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1998-99 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:1999-00",
+      "kind": "team",
+      "entity_id": "1999-00",
+      "display_name": "1999-00 Kentucky Wildcats team",
+      "image_key": "team_1999_00",
+      "seasons": [
+        "1999-00"
+      ],
+      "original_path": "/images/teams/original/team_1999_00.webp",
+      "processed_path": "/images/teams/processed/team_1999_00.webp",
+      "original_dimensions": {
+        "width": 528,
+        "height": 305
+      },
+      "processed_dimensions": {
+        "width": 1584,
+        "height": 915
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1999-00 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2000-01",
+      "kind": "team",
+      "entity_id": "2000-01",
+      "display_name": "2000-01 Kentucky Wildcats team",
+      "image_key": "team_2000_01",
+      "seasons": [
+        "2000-01"
+      ],
+      "original_path": "/images/teams/original/team_2000_01.webp",
+      "processed_path": "/images/teams/processed/team_2000_01.webp",
+      "original_dimensions": {
+        "width": 978,
+        "height": 623
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1401
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2000-01 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2001-02",
+      "kind": "team",
+      "entity_id": "2001-02",
+      "display_name": "2001-02 Kentucky Wildcats team",
+      "image_key": "team_2001_02",
+      "seasons": [
+        "2001-02"
+      ],
+      "original_path": "/images/teams/original/team_2001_02.webp",
+      "processed_path": "/images/teams/processed/team_2001_02.webp",
+      "original_dimensions": {
+        "width": 978,
+        "height": 647
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1455
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2001-02 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2002-03",
+      "kind": "team",
+      "entity_id": "2002-03",
+      "display_name": "2002-03 Kentucky Wildcats team",
+      "image_key": "team_2002_03",
+      "seasons": [
+        "2002-03"
+      ],
+      "original_path": "/images/teams/original/team_2002_03.webp",
+      "processed_path": "/images/teams/processed/team_2002_03.webp",
+      "original_dimensions": {
+        "width": 978,
+        "height": 659
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1482
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2003-04",
+      "kind": "team",
+      "entity_id": "2003-04",
+      "display_name": "2003-04 Kentucky Wildcats team",
+      "image_key": "team_2003_04",
+      "seasons": [
+        "2003-04"
+      ],
+      "original_path": "/images/teams/original/team_2003_04.webp",
+      "processed_path": "/images/teams/processed/team_2003_04.webp",
+      "original_dimensions": {
+        "width": 978,
+        "height": 607
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1365
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2003-04 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2004-05",
+      "kind": "team",
+      "entity_id": "2004-05",
+      "display_name": "2004-05 Kentucky Wildcats team",
+      "image_key": "team_2004_05",
+      "seasons": [
+        "2004-05"
+      ],
+      "original_path": "/images/teams/original/team_2004_05.webp",
+      "processed_path": "/images/teams/processed/team_2004_05.webp",
+      "original_dimensions": {
+        "width": 1002,
+        "height": 626
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1374
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2004-05 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2005-06",
+      "kind": "team",
+      "entity_id": "2005-06",
+      "display_name": "2005-06 Kentucky Wildcats team",
+      "image_key": "team_2005_06",
+      "seasons": [
+        "2005-06"
+      ],
+      "original_path": "/images/teams/original/team_2005_06.webp",
+      "processed_path": "/images/teams/processed/team_2005_06.webp",
+      "original_dimensions": {
+        "width": 1002,
+        "height": 634
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1392
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "team:2006-07",
+      "kind": "team",
+      "entity_id": "2006-07",
+      "display_name": "2006-07 Kentucky Wildcats team",
+      "image_key": "team_2006_07",
+      "seasons": [
+        "2006-07"
+      ],
+      "original_path": "/images/teams/original/team_2006_07.webp",
+      "processed_path": "/images/teams/processed/team_2006_07.webp",
+      "original_dimensions": {
+        "width": 1500,
+        "height": 993
+      },
+      "processed_dimensions": {
+        "width": 2550,
+        "height": 1688
+      },
+      "photo_type": "official-team-photo",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2006-07 roster are derived from this image.",
+      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-official-team-photo",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": true,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "interface:rupp_arena",
+      "kind": "interface",
+      "entity_id": "rupp_arena",
+      "display_name": "Rupp Arena view from Triangle Park",
+      "image_key": "rupp_arena",
+      "seasons": [],
+      "original_path": "/images/interface/original/rupp_arena.jpg",
+      "processed_path": "/images/interface/processed/rupp_arena.webp",
+      "original_dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "processed_dimensions": {
+        "width": 1800,
+        "height": 1200
+      },
+      "photo_type": "interface-archival",
+      "photo_note": "Wikimedia Commons archival image.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rupp_Arena_view_from_Triangle_Park.jpg",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": false,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    },
+    {
+      "id": "interface:tubby_smith",
+      "kind": "interface",
+      "entity_id": "tubby_smith",
+      "display_name": "Tubby Smith (2014)",
+      "image_key": "tubby_smith",
+      "seasons": [],
+      "original_path": "/images/interface/original/tubby_smith.jpg",
+      "processed_path": "/images/interface/processed/tubby_smith.webp",
+      "original_dimensions": {
+        "width": 1095,
+        "height": 1200
+      },
+      "processed_dimensions": {
+        "width": 1642,
+        "height": 1800
+      },
+      "photo_type": "interface-archival",
+      "photo_note": "Wikimedia Commons archival portrait.",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Tubby_Smith_140507-D-HU462-310_(cropped).jpg",
+      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "confidence": "verified-archival",
+      "derivative_method": "upscaled-and-color-corrected",
+      "needs_resourcing": false,
+      "visual_review_status": "required",
+      "rights_review_status": "required-before-publication"
+    }
+  ]
+}

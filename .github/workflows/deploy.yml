@@ -1,0 +1,82 @@
+name: Deploy to GitHub Pages
+
+# The archive is a static bundle with `base: './'` and hash routing, so it runs from the
+# `/KentuckyBasketballApp/` subpath GitHub Pages serves it from with no rewrite rules.
+#
+# Note on branches: the `github-pages` environment carries a deployment branch policy
+# that, by default, only permits the repository's default branch. Deploying from the
+# feature branch additionally requires that branch to be allowed under
+# Settings → Environments → github-pages → Deployment branches and tags.
+on:
+  push:
+    branches:
+      - main
+      - 'claude/codex-project-recreation-6y3fqf'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a deploy midway; queue instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Verify and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # The integrity gates run before every deploy. Publishing data that fails
+      # validation, or a manifest that no longer matches its image files, would put a
+      # historical error in front of readers.
+      - name: Validate historical data
+        run: npm run validate:data
+
+      - name: Audit images and provenance
+        run: npm run audit:images
+
+      - run: npm run build
+
+      # Guards against the safeguards being removed by accident rather than on purpose.
+      # Image rights are not cleared; see docs/COPYRIGHT_AND_ATTRIBUTION.md. Delete this
+      # step deliberately, in the same commit that lifts noindex, once review passes.
+      - name: Confirm crawl safeguards are present
+        run: |
+          set -e
+          grep -q 'Disallow: /' dist/robots.txt \
+            || { echo "::error::dist/robots.txt no longer disallows crawling"; exit 1; }
+          grep -q 'name="robots" content="noindex' dist/index.html \
+            || { echo "::error::dist/index.html no longer carries the noindex meta"; exit 1; }
+          echo "robots.txt disallow and noindex meta both present."
+
+      - uses: actions/configure-pages@v5
+        with:
+          # Turns Pages on for the repository if it is not already enabled.
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
