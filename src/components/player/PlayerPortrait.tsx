@@ -45,6 +45,8 @@ export function PlayerPortrait({
   const isPlaceholder = photo?.confidence === 'placeholder';
   const isTeamCrop = photo?.confidence === 'verified-team-photograph-crop';
   const isUnverified = photo?.confidence === 'unverified-identification';
+  const isFabricated = photo?.photo_type === 'ai-fabricated-face';
+  const isReconstructed = photo?.portrait?.reconstruction?.class === 'reconstructed';
   const useFallback = failed || !portrait;
 
   const alt = profile
@@ -52,6 +54,14 @@ export function PlayerPortrait({
         isPlaceholder ? ' — no verified photograph available' : ''
       }${isUnverified ? ' — no photograph could be verified as this player' : ''}${
         isTeamCrop ? `, cropped from the ${photo?.identified_in_season} team photograph` : ''
+      }${
+        // The alt text carries this too: a screen-reader user is otherwise given no way to
+        // know the face being described was generated rather than photographed.
+        isFabricated
+          ? ' — AI-generated face, not a photograph of this player'
+          : isReconstructed && !useFallback
+            ? ' — AI-reconstructed from a low-resolution photograph'
+            : ''
       }`
     : playerId;
 
@@ -76,17 +86,23 @@ export function PlayerPortrait({
     );
   }
 
-  const flag = isPlaceholder
-    ? 'No photograph'
-    : isUnverified
-      ? 'Unverified — not shown'
-      : isTeamCrop
-        ? `Team photo · #${photo?.jersey_number}`
-        : photo?.photo_season_note
-          ? photo.photo_season_note
-          : null;
+  // A fabricated face outranks every other flag: whatever else is true of the image, the
+  // first thing a reader needs to know is that it is not this player's face.
+  const flag = isFabricated
+    ? 'AI-generated face — not a photograph'
+    : isPlaceholder
+      ? 'No photograph'
+      : isUnverified
+        ? 'Unverified — not shown'
+        : isTeamCrop
+          ? `Team photo · #${photo?.jersey_number}`
+          : photo?.photo_season_note
+            ? photo.photo_season_note
+            : null;
 
-  const showFlag = showProvenance && flag !== null;
+  // Every other flag is provenance detail a reader can opt into. This one is a correction
+  // to what the picture appears to assert, so it shows wherever the image shows.
+  const showFlag = flag !== null && (showProvenance || isFabricated);
 
   return (
     <div className={`portrait ${showFlag ? 'portrait--flagged' : ''} ${className ?? ''}`}>

@@ -87,6 +87,7 @@ const stats = {
   placeholders: 0,
   unverified: 0,
   supersededOriginals: 0,
+  fabricated: 0,
   lowResOriginals: 0,
   rightsPending: 0,
 };
@@ -129,17 +130,58 @@ for (const item of manifest.items) {
             `${where}: portrait variant ${variant.path} is ${actual.width}x${actual.height} on disk but the manifest records ${variant.width}x${variant.height}`,
           );
         }
-        // Nothing may be upscaled beyond 2x its native crop, or the archive would be
-        // claiming resolution the source does not hold.
-        if (variant.width > portrait.native_width * 2) {
+        // Portraits pass through a ×4 generative upscaler, so the ceiling is the model's
+        // own scale factor. Past that even synthesised detail is just resampling, and the
+        // file would be claiming resolution nothing in the chain ever produced.
+        const ceiling = portrait.reconstruction ? portrait.reconstruction.scale : 2;
+        if (variant.width > portrait.native_width * ceiling) {
           fail(
-            `${where}: portrait variant ${variant.width}w exceeds 2x the ${portrait.native_width}px native crop`,
+            `${where}: portrait variant ${variant.width}w exceeds ${ceiling}x the ${portrait.native_width}px native crop`,
           );
         }
         stats.portraitVariants += 1;
         seenPaths.add(variant.path);
       }
       if (!portrait.derivation) fail(`${where}: portrait has no recorded derivation`);
+
+      // Every portrait is now produced by a generative model, so every portrait must say
+      // so. An image that went through Real-ESRGAN without this record would read as an
+      // archival photograph in the manifest, in the dialog and in the sources view.
+      const recon = portrait.reconstruction;
+      if (!recon) {
+        fail(`${where}: portrait has no reconstruction record — run scripts/derive-portraits.py`);
+      } else {
+        if (!recon.model?.trim()) fail(`${where}: reconstruction names no model`);
+        if (!['reconstructed', 'fabricated'].includes(recon.class)) {
+          fail(`${where}: reconstruction class must be "reconstructed" or "fabricated" (got "${recon.class}")`);
+        }
+        // A fabrication is not a likeness of the player. It has to be declared as one in
+        // the photo_type too, because that is what the interface reads to flag it.
+        if (recon.class === 'fabricated') {
+          stats.fabricated += 1;
+          if (item.photo_type !== 'ai-fabricated-face') {
+            fail(
+              `${where}: reconstruction class "fabricated" requires photo_type "ai-fabricated-face" (got "${item.photo_type}") — the interface flags on photo_type`,
+            );
+          }
+          if (!/NOT a photograph of this player/i.test(item.photo_note ?? '')) {
+            fail(`${where}: a fabricated face must say so plainly in its photo_note`);
+          }
+        }
+        // The threshold that separates the two is the whole basis for the distinction, so
+        // it is re-derived here rather than trusted from the generating script.
+        const tooSmall = portrait.native_width < 90;
+        if (tooSmall && recon.class !== 'fabricated') {
+          fail(
+            `${where}: ${portrait.native_width}px native crop is below the 90px reconstruction floor but is not marked fabricated`,
+          );
+        }
+        if (!tooSmall && recon.class === 'fabricated') {
+          fail(
+            `${where}: marked fabricated but its ${portrait.native_width}px native crop is above the 90px floor`,
+          );
+        }
+      }
     }
 
     // A crop of a group photograph must name the jersey number that identifies the
@@ -252,6 +294,13 @@ for (const item of manifest.items) {
     stats.rightsPending += 1;
   }
 
+  if (item.kind === 'team' && !item.reconstruction) {
+    fail(`${where}: team photograph has no reconstruction record — run scripts/derive-team-photos.py`);
+  }
+  if (item.reconstruction?.class === 'fabricated' && item.kind !== 'player') {
+    fail(`${where}: only player portraits may be marked fabricated`);
+  }
+
   if (!item.photo_note?.trim()) {
     fail(`${where}: no provenance note — every image must describe its origin`);
   }
@@ -330,6 +379,7 @@ console.log(
     `  files verified        ${stats.files} (${(stats.bytes / 1024 / 1024).toFixed(1)} MB)`,
     `  portrait variants     ${stats.portraitVariants}`,
     `  team-photo crops      ${stats.identifiedCrops}`,
+    `  FABRICATED faces      ${stats.fabricated}`,
     `  placeholders          ${stats.placeholders}`,
     `  unverified subjects   ${stats.unverified}`,
     `  re-sourced headshots  ${stats.supersededOriginals}`,

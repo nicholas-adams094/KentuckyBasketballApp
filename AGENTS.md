@@ -45,14 +45,31 @@ never delete what they supersede. Check first that the new source is actually be
 era-official UK headshots are only 105px wide, so for the 420×560 studio portraits they
 would be a downgrade.
 
-Never describe a crop of a team photograph as an authentic archival headshot. The nine
+Never describe a crop of a team photograph as an authentic archival headshot. The four
 crops must stay visibly flagged, and each must name the jersey number that identifies its
 subject — the audit and the unit tests re-derive that number from `archive.json`, so an
 identification the roster contradicts fails the build. Where no image can be verified as a
 given player, show the generated jersey card, never a stand-in face; that fallback is
 driven by the *absence* of portrait variants, so never add variants to an entry marked
-`placeholder` or `unverified-identification`. No portrait may exceed 2× its native crop,
-and no generative upscaler or face-restoration model may touch a real person's face.
+`placeholder` or `unverified-identification`.
+
+**Every displayed image is AI-upscaled.** On 2026-08-01 the owner directed that the whole
+image set be run through Real-ESRGAN ×4 — a generative model — after reviewing
+side-by-side comparisons at display size and at 3× zoom. This supersedes the former rule
+that no generative upscaler may touch a real person's face. What it does *not* supersede,
+and what the build enforces:
+
+- Nothing upscaled may be presented as an unmodified archival photograph. Every portrait
+  carries a `reconstruction` record naming the model, and the audit fails without one.
+- No variant may exceed the model's own scale factor (×4) over its native crop.
+- Below a 90px native crop the model invents a face rather than reconstructing one. Those
+  entries are `class: "fabricated"`, carry `photo_type: "ai-fabricated-face"`, and are
+  flagged on the card, in the dialog, in the alt text and on the sources page — that flag
+  shows whether or not provenance display is requested. Four portraits are in this state.
+- The originals under `public/images/**/original/` remain immutable and untouched; every
+  derived file is reproducible by re-running the two derivation scripts.
+
+Re-sourcing a better original still beats upscaling a worse one, and always will.
 
 **Rights.** Image rights are not cleared. Keep `robots.txt` and the `noindex` meta in
 place, and do not deploy publicly until `docs/COPYRIGHT_AND_ATTRIBUTION.md` says the
