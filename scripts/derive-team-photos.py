@@ -41,8 +41,24 @@ import upscale  # noqa: E402  (needs the path insert above)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGINAL_DIR = os.path.join(ROOT, "public/images/teams/original")
+RESOURCED_DIR = os.path.join(ROOT, "public/images/teams/resourced")
 OUTPUT_DIR = os.path.join(ROOT, "public/images/teams/processed")
 MANIFEST_PATH = os.path.join(ROOT, "src/data/photo-manifest.json")
+
+
+def load_resourced() -> dict[str, dict]:
+    """
+    Higher-resolution team photographs found after the originals were extracted.
+
+    Same rule as the player headshots: a better source beats any amount of processing, so
+    where one exists it wins over the inherited original. Nothing under original/ is
+    deleted — both files stay on disk so the substitution can be audited.
+    """
+    path = os.path.join(RESOURCED_DIR, "SOURCES.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as fh:
+        return json.load(fh)["items"]
 
 UPSCALE_MODEL = "esrgan"
 UPSCALE_LABEL = "Real-ESRGAN x4plus (RRDBNet, 23 blocks)"
@@ -72,7 +88,7 @@ def derive(path: str) -> tuple[Image.Image, int]:
     return ImageOps.autocontrast(big, cutoff=(0.4, 0.4), preserve_tone=True), native
 
 
-def update_manifest(report: dict[str, dict]) -> None:
+def update_manifest(report: dict[str, dict], resourced: dict[str, dict]) -> None:
     with open(MANIFEST_PATH) as fh:
         manifest = json.load(fh)
 
@@ -82,6 +98,20 @@ def update_manifest(report: dict[str, dict]) -> None:
         entry = report.get(item["image_key"])
         if entry is None:
             continue
+
+        src = resourced.get(item["image_key"])
+        if src is not None:
+            # The manifest must describe the file the derivative actually came from.
+            item["original_path"] = f"/images/teams/resourced/{item['image_key']}.jpg"
+            item["original_dimensions"] = dict(src["dimensions"])
+            item["source_url"] = src["image_url"]
+            item["source_reference"] = src["page_url"]
+            item["resourced_from"] = {
+                "site": src["site"],
+                "retrieved": src["retrieved"],
+                "supersedes": src["supersedes"],
+                "verification": src["verification"],
+            }
 
         item["processed_path"] = entry["path"]
         item["processed_dimensions"] = {"width": entry["width"], "height": entry["height"]}
@@ -121,11 +151,14 @@ def main() -> int:
 
     report: dict[str, dict] = {}
     written: list[str] = []
+    resourced = load_resourced()
 
     for filename in sorted(os.listdir(ORIGINAL_DIR)):
         if not filename.endswith(".webp"):
             continue
         key = filename[:-5]
+        source = (os.path.join(RESOURCED_DIR, f"{key}.jpg") if key in resourced
+                  else os.path.join(ORIGINAL_DIR, filename))
         out_path = os.path.join(OUTPUT_DIR, filename)
         rel = f"/images/teams/processed/{filename}"
 
@@ -134,19 +167,18 @@ def main() -> int:
             # Report the file that is already there so a manifest-only pass stays accurate.
             if os.path.exists(out_path):
                 done = Image.open(out_path)
-                src = Image.open(os.path.join(ORIGINAL_DIR, filename))
                 report[key] = {"path": rel, "width": done.width, "height": done.height,
-                               "native_width": src.width}
+                               "native_width": Image.open(source).width}
             continue
 
-        finished, native = derive(os.path.join(ORIGINAL_DIR, filename))
+        finished, native = derive(source)
         finished.save(out_path, "WEBP", quality=82, method=6)
         written.append(key)
         report[key] = {"path": rel, "width": finished.width, "height": finished.height,
                        "native_width": native}
 
     if not args.check and shard is None:
-        update_manifest(report)
+        update_manifest(report, resourced)
 
     print(f"team photographs       {len(report)}")
     print(f"  reconstructed here   {len(written)}{' (shard)' if shard else ''}")

@@ -1,0 +1,15 @@
+{
+  "note": "Higher-resolution team photographs located after the originals were extracted from the previous build. A file here supersedes the same key under teams/original/, which is never deleted, so the substitution stays auditable. scripts/derive-team-photos.py prefers these automatically.",
+  "items": {
+    "team_1997_98": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1998.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": { "width": 2790, "height": 2202 },
+      "supersedes": { "path": "/images/teams/original/team_1997_98.webp", "width": 978, "height": 767 },
+      "verification": "All thirteen jersey numbers legible in the photograph (3, 4, 5, 11, 13, 14, 15, 21, 22, 25, 33, 34, 42) match the thirteen-player 1997-98 roster in archive.json exactly, with none missing and none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    }
+  }
+}

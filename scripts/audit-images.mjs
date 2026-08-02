@@ -341,14 +341,18 @@ function walk(dir) {
 
 // An original that a re-sourced headshot superseded stays on disk on purpose, so the
 // substitution can be audited against what it replaced. Those are not orphans.
-const superseded = new Set(
-  fs.existsSync(path.join(publicDir, 'images/players/resourced'))
+const supersededIn = (dir, originalDir) =>
+  fs.existsSync(path.join(publicDir, dir))
     ? fs
-        .readdirSync(path.join(publicDir, 'images/players/resourced'))
+        .readdirSync(path.join(publicDir, dir))
         .filter((f) => f.endsWith('.jpg'))
-        .map((f) => `/images/players/original/${f.replace(/\.jpg$/, '.webp')}`)
-    : [],
-);
+        .map((f) => `${originalDir}/${f.replace(/\.jpg$/, '.webp')}`)
+    : [];
+
+const superseded = new Set([
+  ...supersededIn('images/players/resourced', '/images/players/original'),
+  ...supersededIn('images/teams/resourced', '/images/teams/original'),
+]);
 
 if (fs.existsSync(imageRoot)) {
   for (const file of walk(imageRoot)) {
