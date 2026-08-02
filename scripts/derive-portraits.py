@@ -396,8 +396,12 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
         # The canonical display derivative is now the largest portrait variant.
         item["processed_path"] = largest["path"]
         item["processed_dimensions"] = {"width": largest["width"], "height": largest["height"]}
+        # Name what actually ran. A "native" portrait never went near the upscaler, and
+        # this string is displayed in the profile dialog as the method of record.
         item["derivative_method"] = (
-            "face-centred-crop-descreen-realesrgan-x4-lanczos"
+            "face-centred-crop-lanczos"
+            if not entry["upscaled"]
+            else "face-centred-crop-descreen-realesrgan-x4-lanczos"
             if basis.startswith("jersey-number")
             else "face-centred-crop-realesrgan-x4-lanczos"
         )
