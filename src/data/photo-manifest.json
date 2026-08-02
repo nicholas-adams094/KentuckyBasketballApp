@@ -3705,7 +3705,7 @@
           "width": 978,
           "height": 767
         },
-        "verification": "All thirteen jersey numbers legible in the photograph (3, 4, 5, 11, 13, 14, 15, 21, 22, 25, 33, 34, 42) match the thirteen-player 1997-98 roster in archive.json exactly, with none missing and none extra."
+        "verification": "Exact: all 13 numbers in frame (3,4,5,11,13,14,15,21,22,25,33,34,42) match the 13-player roster, none missing, none extra."
       }
     },
     {
@@ -3717,20 +3717,20 @@
       "seasons": [
         "1998-99"
       ],
-      "original_path": "/images/teams/original/team_1998_99.webp",
+      "original_path": "/images/teams/resourced/team_1998_99.jpg",
       "processed_path": "/images/teams/processed/team_1998_99.webp",
       "original_dimensions": {
-        "width": 878,
-        "height": 383
+        "width": 900,
+        "height": 405
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1117
+        "height": 1152
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1998-99 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 878px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1998-99 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 900px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1998-991.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1998-1999-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3741,7 +3741,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 878
+        "native_width": 900
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_1998_99.webp",
+          "width": 878,
+          "height": 383
+        },
+        "verification": "Consistent: 13 legible numbers all appear on the 14-player roster; #22 is obscured in the frame. No number appears that the roster does not record."
       }
     },
     {
@@ -3753,20 +3763,20 @@
       "seasons": [
         "1999-00"
       ],
-      "original_path": "/images/teams/original/team_1999_00.webp",
+      "original_path": "/images/teams/resourced/team_1999_00.jpg",
       "processed_path": "/images/teams/processed/team_1999_00.webp",
       "original_dimensions": {
-        "width": 528,
-        "height": 305
+        "width": 550,
+        "height": 327
       },
       "processed_dimensions": {
-        "width": 2112,
-        "height": 1220
+        "width": 2200,
+        "height": 1308
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1999-00 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 528px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1999-00 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 550px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1999-001.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1999-2000-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3777,7 +3787,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 528
+        "native_width": 550
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_1999_00.webp",
+          "width": 528,
+          "height": 305
+        },
+        "verification": "Exact: all 12 numbers in frame (3,4,5,10,11,12,21,24,32,40,42,50) match the 12-player roster, none missing, none extra."
       }
     },
     {
@@ -3789,20 +3809,20 @@
       "seasons": [
         "2000-01"
       ],
-      "original_path": "/images/teams/original/team_2000_01.webp",
+      "original_path": "/images/teams/resourced/team_2000_01.jpg",
       "processed_path": "/images/teams/processed/team_2000_01.webp",
       "original_dimensions": {
-        "width": 978,
-        "height": 623
+        "width": 1440,
+        "height": 928
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1631
+        "height": 1650
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2000-01 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2000-01 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1440px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-4-e1604500531276.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2000-2001-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3813,7 +3833,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 978
+        "native_width": 1440
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2000_01.webp",
+          "width": 978,
+          "height": 623
+        },
+        "verification": "Discrepancy: 12 of 13 match. The frame shows a #40, which this archive does not record for 2000-01, and does not show the #42 (Jason Parker) that it does. Jules Camara wore #40 in 1999-00 and 2001-02 but is absent from this archive's 2000-01 roster. Identification rests on the season roster page that publishes it, not on the jersey set."
       }
     },
     {
@@ -3825,20 +3855,20 @@
       "seasons": [
         "2001-02"
       ],
-      "original_path": "/images/teams/original/team_2001_02.webp",
+      "original_path": "/images/teams/resourced/team_2001_02.jpg",
       "processed_path": "/images/teams/processed/team_2001_02.webp",
       "original_dimensions": {
-        "width": 978,
-        "height": 647
+        "width": 1436,
+        "height": 960
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1694
+        "height": 1711
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2001-02 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2001-02 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1436px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-3-e1604498095502.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3849,7 +3879,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 978
+        "native_width": 1436
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2001_02.webp",
+          "width": 978,
+          "height": 647
+        },
+        "verification": "Discrepancy: contains a #00 that appears on no roster in the covered era; 2001-02's #22 and #33 are not legible in the frame. Identification rests on the season roster page that publishes it."
       }
     },
     {
@@ -3869,7 +3909,7 @@
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1725
+        "height": 1743
       },
       "photo_type": "official-team-photo",
       "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1416px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
@@ -3895,7 +3935,7 @@
           "width": 978,
           "height": 659
         },
-        "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 5, 10, 11, 12, 14, 15, 24, 33, 40, 44, 50) match the fifteen-player 2002-03 roster in archive.json exactly, with none missing and none extra."
+        "verification": "Exact: all 15 numbers in frame (1,2,3,4,5,10,11,12,14,15,24,33,40,44,50) match the 15-player roster, none missing, none extra."
       }
     },
     {
@@ -3907,20 +3947,20 @@
       "seasons": [
         "2003-04"
       ],
-      "original_path": "/images/teams/original/team_2003_04.webp",
+      "original_path": "/images/teams/resourced/team_2003_04.jpg",
       "processed_path": "/images/teams/processed/team_2003_04.webp",
       "original_dimensions": {
-        "width": 978,
-        "height": 607
+        "width": 1380,
+        "height": 868
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1589
+        "height": 1610
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2003-04 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2003-04 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1380px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-1-e1604418732827.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2003-2004-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3931,7 +3971,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 978
+        "native_width": 1380
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2003_04.webp",
+          "width": 978,
+          "height": 607
+        },
+        "verification": "Exact: all 17 numbers in frame (1,2,3,4,5,10,11,12,13,14,15,21,22,23,24,33,44) match the 17-player roster, none missing, none extra."
       }
     },
     {
@@ -3943,20 +3993,20 @@
       "seasons": [
         "2004-05"
       ],
-      "original_path": "/images/teams/original/team_2004_05.webp",
+      "original_path": "/images/teams/resourced/team_2004_05.jpg",
       "processed_path": "/images/teams/processed/team_2004_05.webp",
       "original_dimensions": {
-        "width": 1002,
-        "height": 626
+        "width": 1384,
+        "height": 876
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1599
+        "height": 1620
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2004-05 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1002px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2004-05 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1384px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-e1604333823685.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2004-2005-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3967,7 +4017,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 1002
+        "native_width": 1384
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2004_05.webp",
+          "width": 1002,
+          "height": 626
+        },
+        "verification": "Consistent: 15 of the 16 roster numbers appear; #11 is not in the frame. No number appears that the roster does not record."
       }
     },
     {
@@ -3987,7 +4047,7 @@
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 1620
+        "height": 1641
       },
       "photo_type": "official-team-photo",
       "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1379px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
@@ -4013,7 +4073,7 @@
           "width": 1002,
           "height": 634
         },
-        "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 10, 12, 13, 21, 22, 23, 25, 32, 33, 42, 43) match the fifteen-player 2005-06 roster in archive.json exactly, with none missing and none extra."
+        "verification": "Exact: all 15 numbers in frame (1,2,3,4,10,12,13,21,22,23,25,32,33,42,43) match the 15-player roster, none missing, none extra."
       }
     },
     {
