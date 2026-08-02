@@ -6,10 +6,58 @@
       "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
       "site": "Walter's Wildcat World",
       "retrieved": "2026-08-02",
-      "dimensions": { "width": 2790, "height": 2202 },
-      "supersedes": { "path": "/images/teams/original/team_1997_98.webp", "width": 978, "height": 767 },
+      "dimensions": {
+        "width": 2790,
+        "height": 2202
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_1997_98.webp",
+        "width": 978,
+        "height": 767
+      },
       "verification": "All thirteen jersey numbers legible in the photograph (3, 4, 5, 11, 13, 14, 15, 21, 22, 25, 33, 34, 42) match the thirteen-player 1997-98 roster in archive.json exactly, with none missing and none extra.",
       "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2002_03": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-2-e1604425095495.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1416,
+        "height": 964
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2002_03.webp",
+        "width": 978,
+        "height": 659
+      },
+      "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 5, 10, 11, 12, 14, 15, 24, 33, 40, 44, 50) match the fifteen-player 2002-03 roster in archive.json exactly, with none missing and none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2005_06": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/08/2005_2006.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2005-2006-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1379,
+        "height": 884
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2005_06.webp",
+        "width": 1002,
+        "height": 634
+      },
+      "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 10, 12, 13, 21, 22, 23, 25, 32, 33, 42, 43) match the fifteen-player 2005-06 roster in archive.json exactly, with none missing and none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
     }
+  },
+  "not_taken": {
+    "_comment": "Team photographs found at the same source but not installed, and why. Recorded so the search is not repeated and the reasoning stays auditable.",
+    "team_2000_01": "1440x928. Shows a #40 where archive.json records #42 (Jason Parker) for 2000-01 and lists no #40; Jules Camara wore #40 in 1999-00 and 2001-02 but is absent from the 2000-01 roster. Twelve of thirteen numbers match. Not installed: the season cannot be asserted from the archive's own data.",
+    "team_2001_02": "1436x960. Contains a #00 that appears on no roster in the covered era, and 2001-02's #22 and #33 are unaccounted for. Not installed pending identification.",
+    "team_2004_05": "1384x876. Fifteen of the sixteen 2004-05 numbers present; #11 does not appear in the frame. Not installed pending confirmation that the player was simply absent from the sitting.",
+    "team_2006_07": "1380x868, which is smaller than the 1500x993 original already held. No gain."
   }
 }

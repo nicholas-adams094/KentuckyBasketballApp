@@ -14,14 +14,21 @@
     "and shown in the interface, because the archive must not imply a portrait is",
     "contemporary with the seasons it is displayed beside."
   ],
-  "retrieved": "2026-08-01",
+  "retrieved": "2026-08-02",
   "items": {
     "uk_jules_camara": {
-      "image_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
-      "page_url": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html",
-      "identified_by": "published on this player's own official University of Kentucky biography page",
-      "era": "1999-2000",
-      "in_covered_era": true
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1979/07/jules_camara.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2001-02",
+      "in_covered_era": true,
+      "uniform": true
     },
     "uk_jp_blevins": {
       "image_url": "https://web.archive.org/web/20000918111842im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jpblevins_mug.jpg",
@@ -52,11 +59,147 @@
       "in_covered_era": false
     },
     "uk_ramon_harris": {
-      "image_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
-      "page_url": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html",
-      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1988/05/Harris_Ramon_09_101.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 300,
+        "height": 450
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
       "era": "2008-09",
-      "in_covered_era": false
+      "in_covered_era": false,
+      "uniform": true
+    },
+    "uk_mark_coury": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1986/08/mark_coury_featured.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1214,
+        "height": 1003
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2006-07",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_allen_edwards": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1975/12/allen_edwards_profile.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "1997-98",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_bernard_cote": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2026/07/bernard_cote.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1999-2000-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "1999-00",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_jason_parker": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1980/08/jason_parker_featured.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2000-2001-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2000-01",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_shagari_alleyne": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1984/01/shagari_alleyne_featured.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2004-2005-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2004-05",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_matt_heissenbuttel": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1981/09/matt_heissenbuttel1.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 116,
+        "height": 174
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2002-03",
+      "in_covered_era": true,
+      "uniform": true
+    },
+    "uk_antwain_barbour": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/06/antwain_barbour1.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2003-2004-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 105,
+        "height": 158
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2003-04",
+      "in_covered_era": true,
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
+    },
+    "uk_rashaad_carruth": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/03/rashaad_carruth1.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 105,
+        "height": 157
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2002-03",
+      "in_covered_era": true,
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
+    },
+    "uk_adam_chiles": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/12/adam_chiles.webp",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "identified_by": "published on this player's row of the official season roster listing",
+      "era": "2001-02",
+      "in_covered_era": true,
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
     }
   }
 }

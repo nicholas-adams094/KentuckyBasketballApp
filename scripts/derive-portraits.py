@@ -133,12 +133,16 @@ class ManualCrop:
 # 2026-08-01 when official individual UK headshots were recovered for them (see
 # load_resourced); no jersey-number inference is needed once the university has published
 # the portrait on the player's own page.
-MANUAL: dict[str, ManualCrop] = {
-    "uk_antwain_barbour":      ManualCrop(174, 121, 44, "33", "2002-03"),
-    "uk_mark_coury":           ManualCrop(282, 130, 50, "42", "2006-07"),
-    "uk_matt_heissenbuttel":   ManualCrop(176,  76, 52, "15", "2002-03"),
-    "uk_rashaad_carruth":      ManualCrop(172,  53, 40, "2", "2001-02"),
-}
+# Emptied on 2026-08-02. The last four team-photograph crops — Barbour, Coury,
+# Heissenbuttel and Carruth — were retired when official individual UK headshots were
+# located for all of them (see load_resourced). Those four were also the archive's four
+# AI-fabricated faces: their crops were 67-87px, below the width at which the upscaler
+# reconstructs a face rather than inventing one. Re-sourcing removed the fabrications
+# outright, which no amount of processing could have done.
+#
+# The type is kept, and the machinery with it, because a future source may need the same
+# jersey-number identification this once carried.
+MANUAL: dict[str, ManualCrop] = {}
 
 
 def load_resourced() -> dict[str, dict]:
@@ -410,14 +414,36 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
                     "photograph is better than none."
                 )
             )
-            item["photo_note"] = (
-                f"Official University of Kentucky headshot ({src['era']}), recovered from "
-                f"an Internet Archive capture of ukathletics.com and {src['identified_by']}. "
-                "It replaces a crop of a season team photograph that contained several "
-                f"people.{era_note}"
+            # Where the file came from varies now: the first six were Internet Archive
+            # captures of ukathletics.com, the rest come from a fan archive's roster pages.
+            # The note has to say which, or it misdescribes the provenance it exists to record.
+            where = (
+                f"recovered from {src['site']}"
+                if src.get("site")
+                else "recovered from an Internet Archive capture of ukathletics.com"
             )
+            # Kentucky uniforms only is the standing rule. Three portraits depart from it —
+            # official UK portraits in jacket and tie — and say so rather than passing
+            # silently as uniformed photographs.
+            uniform_note = (
+                ""
+                if src.get("uniform", True)
+                else (
+                    " He is photographed in jacket and tie rather than in uniform: this is "
+                    "an official University of Kentucky portrait, but not a Kentucky-uniform "
+                    "one. It is published in preference to the AI-fabricated face it replaces."
+                )
+            )
+            item["photo_note"] = (
+                f"Official University of Kentucky headshot ({src['era']}), {where} and "
+                f"{src['identified_by']}. It replaces a crop of a season team photograph "
+                f"that contained several people.{era_note}{uniform_note}"
+            )
+            item["in_kentucky_uniform"] = bool(src.get("uniform", True))
             if not src["in_covered_era"]:
                 item["photo_season_note"] = f"portrait dates from {src['era']}"
+            elif not src.get("uniform", True):
+                item["photo_season_note"] = "not in uniform"
 
         elif basis.startswith("jersey-number"):
             item["photo_type"] = "team-photograph-crop"
@@ -445,13 +471,26 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
         if item["portrait"]["reconstruction"]["class"] == "fabricated":
             item["photo_type"] = "ai-fabricated-face"
             item["visual_review_status"] = "required"
-            item["photo_note"] += (
-                " This image is NOT a photograph of this player. The underlying crop is "
-                f"only {entry['native_width']}px wide — far too little for the upscaler to "
-                "reconstruct a face from — so what it renders was synthesised by "
-                f"{UPSCALE_LABEL}. It is published at the archive owner's request and is "
-                "labelled a fabrication everywhere it appears."
-            )
+            # Two different things can put an entry here, and conflating them would state
+            # something false. A crop of a group photograph is not a photograph of this
+            # player at all. A verified individual portrait that is merely tiny *is* him —
+            # what is invented is the detail, not the identity.
+            if basis == "official-uk-headshot":
+                item["photo_note"] += (
+                    " The face it renders was synthesised, not photographed. The source is "
+                    "a verified official portrait of this player, but the usable crop is "
+                    f"only {entry['native_width']}px wide, below what the upscaler needs to "
+                    "reconstruct rather than invent, so most of the detail shown was "
+                    "computed. Treat it as an impression, not as a likeness."
+                )
+            else:
+                item["photo_note"] += (
+                    " This image is NOT a photograph of this player. The underlying crop is "
+                    f"only {entry['native_width']}px wide — far too little for the upscaler "
+                    "to reconstruct a face from — so what it renders was synthesised by "
+                    f"{UPSCALE_LABEL}. It is published at the archive owner's request and is "
+                    "labelled a fabrication everywhere it appears."
+                )
         else:
             item["photo_note"] += (
                 f" Reconstructed with {UPSCALE_LABEL}, a generative model that synthesises "

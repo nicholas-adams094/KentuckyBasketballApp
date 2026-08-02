@@ -164,7 +164,13 @@ for (const item of manifest.items) {
               `${where}: reconstruction class "fabricated" requires photo_type "ai-fabricated-face" (got "${item.photo_type}") — the interface flags on photo_type`,
             );
           }
-          if (!/NOT a photograph of this player/i.test(item.photo_note ?? '')) {
+          // Either statement is acceptable and they mean different things: a group crop
+          // is not this player at all, whereas a verified individual portrait too small to
+          // reconstruct is him with invented detail. What is not acceptable is silence.
+          const declared =
+            /NOT a photograph of this player/i.test(item.photo_note ?? '') ||
+            /synthesised, not photographed/i.test(item.photo_note ?? '');
+          if (!declared) {
             fail(`${where}: a fabricated face must say so plainly in its photo_note`);
           }
         }
