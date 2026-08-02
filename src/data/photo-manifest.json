@@ -6,9 +6,9 @@
     "Original means the image extracted from the last stable monolithic archive, not necessarily the highest-resolution historical source.",
     "Portrait variants are re-derived from the originals by scripts/derive-portraits.py: a face-centred 3:4 crop, upscaled with Real-ESRGAN x4plus (RRDBNet, 23 blocks), then resampled to each output width with Lanczos.",
     "The upscaler is generative. Real-ESRGAN synthesises detail consistent with its training data rather than recovering detail the camera recorded, so fine texture — skin, hair, fabric — in every portrait here was computed rather than photographed. Round-tripping each result back to source resolution puts the drift at 7-10.5 RMSE against 1.0 for a reconstructive model, which is the measure of how much is invented. Every portrait is labelled as a reconstruction where it renders.",
-    "4 portraits are fabrications rather than reconstructions: uk_antwain_barbour, uk_mark_coury, uk_matt_heissenbuttel, uk_rashaad_carruth. Their crops are under 90px wide, which leaves the model nothing to reconstruct from, and the faces it returns are invented. They are published at the archive owner's explicit request, and each is marked as a fabrication in this manifest and on every surface that renders it.",
+    "1 portraits are fabrications rather than reconstructions: uk_rashaad_carruth. Their crops are under 90px wide, which leaves the model nothing to reconstruct from, and the faces it returns are invented. They are published at the archive owner's explicit request, and each is marked as a fabrication in this manifest and on every surface that renders it.",
     "Crops from the team photographs additionally get a 3x3 median at native size, before the upscale, to remove the halftone dot pattern left by photographing a printed page — otherwise the upscaler reads the rosette as texture and reconstructs a magnified dot grid across the face.",
-    "4 portraits are crops of a season team photograph rather than individual headshots. Each subject is the player wearing the jersey number this archive records for that player in that season, and each is labelled as a team-photograph crop wherever it appears.",
+    "0 portraits are crops of a season team photograph rather than individual headshots. Each subject is the player wearing the jersey number this archive records for that player in that season, and each is labelled as a team-photograph crop wherever it appears.",
     "1 player is shown as a labelled jersey card rather than a photograph: Eric Allen, for whom no verified UK-uniform image was located."
   ],
   "items": [
@@ -21,24 +21,24 @@
       "seasons": [
         "2001-02"
       ],
-      "original_path": "/images/players/original/uk_adam_chiles.webp",
+      "original_path": "/images/players/resourced/uk_adam_chiles.jpg",
       "processed_path": "/images/players/portrait/uk_adam_chiles-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
         "width": 640,
         "height": 853
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2001-02), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. He is photographed in jacket and tie rather than in uniform: this is an official University of Kentucky portrait, but not a Kentucky-uniform one. It is published in preference to the AI-fabricated face it replaces. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1982/12/adam_chiles.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -59,20 +59,23 @@
           }
         ],
         "source_crop": {
-          "x": 42,
-          "y": 83,
-          "w": 296,
-          "h": 394
+          "x": 367,
+          "y": 33,
+          "w": 737,
+          "h": 983
         },
-        "native_width": 296,
-        "derivation": "face-detected",
+        "native_width": 737,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
-      }
+      },
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": false,
+      "photo_uniform_note": "not in uniform"
     },
     {
       "id": "player:adam-williams",
@@ -145,24 +148,24 @@
       "seasons": [
         "1997-98"
       ],
-      "original_path": "/images/players/original/uk_allen_edwards.webp",
+      "original_path": "/images/players/resourced/uk_allen_edwards.jpg",
       "processed_path": "/images/players/portrait/uk_allen_edwards-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
         "width": 640,
         "height": 853
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (1997-98), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1975/12/allen_edwards_profile.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -183,20 +186,22 @@
           }
         ],
         "source_crop": {
-          "x": 62,
-          "y": 83,
-          "w": 296,
-          "h": 394
+          "x": 148,
+          "y": 0,
+          "w": 940,
+          "h": 1254
         },
-        "native_width": 296,
-        "derivation": "face-detected",
+        "native_width": 940,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
-      }
+      },
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:antwain-barbour",
@@ -208,24 +213,24 @@
         "2002-03",
         "2003-04"
       ],
-      "original_path": "/images/players/original/uk_antwain_barbour.webp",
-      "processed_path": "/images/players/portrait/uk_antwain_barbour-160w.webp",
+      "original_path": "/images/players/resourced/uk_antwain_barbour.jpg",
+      "processed_path": "/images/players/portrait/uk_antwain_barbour-320w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 158
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
-      "photo_type": "ai-fabricated-face",
-      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #33, the number this archive records for Antwain Barbour that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 73px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2003-04), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. He is photographed in jacket and tie rather than in uniform: this is an official University of Kentucky portrait, but not a Kentucky-uniform one. It is published in preference to the AI-fabricated face it replaces. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1982/06/antwain_barbour1.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2003-2004-kentucky-basketball-roster/",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -233,26 +238,31 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_antwain_barbour-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_antwain_barbour-320w.webp"
           }
         ],
         "source_crop": {
-          "x": 137,
-          "y": 82,
-          "w": 73,
-          "h": 98
+          "x": 0,
+          "y": 0,
+          "w": 105,
+          "h": 140
         },
-        "native_width": 73,
-        "derivation": "jersey-number-33-in-2002-03-team-photograph",
+        "native_width": 105,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
           "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
           "scale": 4,
           "generative": true,
-          "class": "fabricated"
+          "class": "reconstructed"
         }
       },
-      "identified_by": "jersey-number",
-      "jersey_number": "33",
-      "identified_in_season": "2002-03"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": false,
+      "photo_uniform_note": "not in uniform"
     },
     {
       "id": "player:bernard-cote",
@@ -264,24 +274,24 @@
         "2002-03",
         "2003-04"
       ],
-      "original_path": "/images/players/original/uk_bernard_cote.webp",
+      "original_path": "/images/players/resourced/uk_bernard_cote.jpg",
       "processed_path": "/images/players/portrait/uk_bernard_cote-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
         "width": 640,
         "height": 853
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (1999-00), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2026/07/bernard_cote.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1999-2000-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -302,20 +312,22 @@
           }
         ],
         "source_crop": {
-          "x": 59,
-          "y": 83,
-          "w": 296,
-          "h": 394
+          "x": 161,
+          "y": 47,
+          "w": 905,
+          "h": 1207
         },
-        "native_width": 296,
-        "derivation": "face-detected",
+        "native_width": 905,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
-      }
+      },
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:bobby-perry",
@@ -1170,7 +1182,8 @@
           "class": "reconstructed"
         }
       },
-      "identified_by": "official-university-publication"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:jamaal-magloire",
@@ -1309,24 +1322,24 @@
         "2000-01",
         "2001-02"
       ],
-      "original_path": "/images/players/original/uk_jason_parker.webp",
+      "original_path": "/images/players/resourced/uk_jason_parker.jpg",
       "processed_path": "/images/players/portrait/uk_jason_parker-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
         "width": 640,
         "height": 853
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2000-01), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1980/08/jason_parker_featured.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2000-2001-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -1347,20 +1360,22 @@
           }
         ],
         "source_crop": {
-          "x": 30,
-          "y": 14,
-          "w": 359,
-          "h": 479
+          "x": 86,
+          "y": 0,
+          "w": 940,
+          "h": 1254
         },
-        "native_width": 359,
-        "derivation": "face-detected",
+        "native_width": 940,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
-      }
+      },
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:jeff-sheppard",
@@ -1609,7 +1624,8 @@
           "class": "reconstructed"
         }
       },
-      "identified_by": "official-university-publication"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:jules-camara",
@@ -1624,19 +1640,19 @@
         "2002-03"
       ],
       "original_path": "/images/players/resourced/uk_jules_camara.jpg",
-      "processed_path": "/images/players/portrait/uk_jules_camara-320w.webp",
+      "processed_path": "/images/players/portrait/uk_jules_camara-640w.webp",
       "original_dimensions": {
-        "width": 105,
-        "height": 145
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (1999-2000), recovered from an Internet Archive capture of ukathletics.com and published on this player's own official University of Kentucky biography page. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
-      "source_reference": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html",
+      "photo_note": "Official University of Kentucky headshot (2001-02), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1979/07/jules_camara.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
@@ -1653,24 +1669,30 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_jules_camara-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_jules_camara-640w.webp"
           }
         ],
         "source_crop": {
-          "x": 0,
-          "y": 0,
-          "w": 105,
-          "h": 140
+          "x": 239,
+          "y": 55,
+          "w": 899,
+          "h": 1199
         },
-        "native_width": 105,
+        "native_width": 899,
         "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
       },
-      "identified_by": "official-university-publication"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:keith-bogans",
@@ -1860,7 +1882,8 @@
           "class": "reconstructed"
         }
       },
-      "identified_by": "official-university-publication"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:mark-coury",
@@ -1871,24 +1894,24 @@
       "seasons": [
         "2006-07"
       ],
-      "original_path": "/images/players/original/uk_mark_coury.webp",
-      "processed_path": "/images/players/portrait/uk_mark_coury-320w.webp",
+      "original_path": "/images/players/resourced/uk_mark_coury.jpg",
+      "processed_path": "/images/players/portrait/uk_mark_coury-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1214,
+        "height": 1003
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
-      "photo_type": "ai-fabricated-face",
-      "photo_note": "Cropped from the 2006-07 Kentucky team photograph. The subject is the player wearing jersey #42, the number this archive records for Mark Coury that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 83px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2006-07), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1986/08/mark_coury_featured.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -1901,26 +1924,30 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_mark_coury-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_mark_coury-640w.webp"
           }
         ],
         "source_crop": {
-          "x": 239,
-          "y": 86,
-          "w": 83,
-          "h": 111
+          "x": 208,
+          "y": 7,
+          "w": 747,
+          "h": 996
         },
-        "native_width": 83,
-        "derivation": "jersey-number-42-in-2006-07-team-photograph",
+        "native_width": 747,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "fabricated"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
       },
-      "identified_by": "jersey-number",
-      "jersey_number": "42",
-      "identified_in_season": "2006-07"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:marquis-estill",
@@ -2063,24 +2090,24 @@
         "2002-03",
         "2003-04"
       ],
-      "original_path": "/images/players/original/uk_matt_heissenbuttel.webp",
+      "original_path": "/images/players/resourced/uk_matt_heissenbuttel.jpg",
       "processed_path": "/images/players/portrait/uk_matt_heissenbuttel-320w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 116,
+        "height": 174
       },
       "processed_dimensions": {
         "width": 320,
         "height": 427
       },
-      "photo_type": "ai-fabricated-face",
-      "photo_note": "Cropped from the 2002-03 Kentucky team photograph. The subject is the player wearing jersey #15, the number this archive records for Matt Heissenbuttel that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 87px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2002-03), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1981/09/matt_heissenbuttel1.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -2096,23 +2123,22 @@
           }
         ],
         "source_crop": {
-          "x": 133,
-          "y": 30,
-          "w": 87,
-          "h": 116
+          "x": 6,
+          "y": 42,
+          "w": 99,
+          "h": 132
         },
-        "native_width": 87,
-        "derivation": "jersey-number-15-in-2002-03-team-photograph",
+        "native_width": 99,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
           "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
           "scale": 4,
           "generative": true,
-          "class": "fabricated"
+          "class": "reconstructed"
         }
       },
-      "identified_by": "jersey-number",
-      "jersey_number": "15",
-      "identified_in_season": "2002-03"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:michael-bradley",
@@ -2234,7 +2260,8 @@
         }
       },
       "identified_by": "official-university-publication",
-      "photo_season_note": "portrait dates from 2008-09"
+      "photo_season_note": "portrait dates from 2008-09",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:myron-anthony",
@@ -2751,19 +2778,19 @@
         "2006-07"
       ],
       "original_path": "/images/players/resourced/uk_ramon_harris.jpg",
-      "processed_path": "/images/players/portrait/uk_ramon_harris-320w.webp",
+      "processed_path": "/images/players/portrait/uk_ramon_harris-640w.webp",
       "original_dimensions": {
-        "width": 105,
-        "height": 145
+        "width": 300,
+        "height": 450
       },
       "processed_dimensions": {
-        "width": 320,
-        "height": 427
+        "width": 640,
+        "height": 853
       },
       "photo_type": "official-uk-headshot",
-      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from an Internet Archive capture of ukathletics.com and headshot embedded in this player's own official University of Kentucky roster page. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
-      "source_reference": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html",
+      "photo_note": "Official University of Kentucky headshot (2008-09), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. This headshot dates from 2008-09, after the Tubby Smith era this archive covers — it is the earliest official Kentucky portrait of him that survives, and it is shown because a real, identified photograph is better than none. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1988/05/Harris_Ramon_09_101.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
       "needs_resourcing": false,
@@ -2780,15 +2807,20 @@
             "width": 320,
             "height": 427,
             "path": "/images/players/portrait/uk_ramon_harris-320w.webp"
+          },
+          {
+            "width": 640,
+            "height": 853,
+            "path": "/images/players/portrait/uk_ramon_harris-640w.webp"
           }
         ],
         "source_crop": {
-          "x": 0,
-          "y": 12,
-          "w": 100,
-          "h": 133
+          "x": 53,
+          "y": 31,
+          "w": 247,
+          "h": 329
         },
-        "native_width": 100,
+        "native_width": 247,
         "derivation": "official-uk-headshot",
         "reconstruction": {
           "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
@@ -2798,7 +2830,8 @@
         }
       },
       "identified_by": "official-university-publication",
-      "photo_season_note": "portrait dates from 2008-09"
+      "photo_season_note": "portrait dates from 2008-09",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:randolph-morris",
@@ -2873,23 +2906,23 @@
       "seasons": [
         "2001-02"
       ],
-      "original_path": "/images/players/original/uk_rashaad_carruth.webp",
-      "processed_path": "/images/players/portrait/uk_rashaad_carruth-160w.webp",
+      "original_path": "/images/players/resourced/uk_rashaad_carruth.jpg",
+      "processed_path": "/images/players/portrait/uk_rashaad_carruth-320w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 105,
+        "height": 157
       },
       "processed_dimensions": {
-        "width": 160,
-        "height": 213
+        "width": 320,
+        "height": 427
       },
       "photo_type": "ai-fabricated-face",
-      "photo_note": "Cropped from the 2001-02 Kentucky team photograph. The subject is the player wearing jersey #2, the number this archive records for Rashaad Carruth that season. This is a crop of a group photograph, not an individual archival headshot. This image is NOT a photograph of this player. The underlying crop is only 67px wide — far too little for the upscaler to reconstruct a face from — so what it renders was synthesised by Real-ESRGAN x4plus (RRDBNet, 23 blocks). It is published at the archive owner's request and is labelled a fabrication everywhere it appears.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
-      "confidence": "verified-team-photograph-crop",
-      "derivative_method": "face-centred-crop-descreen-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
+      "photo_note": "Official University of Kentucky headshot (2002-03), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. He is photographed in jacket and tie rather than in uniform: this is an official University of Kentucky portrait, but not a Kentucky-uniform one. It is published in preference to the AI-fabricated face it replaces. The face it renders was synthesised, not photographed. The source is a verified official portrait of this player, but the usable crop is only 80px wide, below what the upscaler needs to reconstruct rather than invent, so most of the detail shown was computed. Treat it as an impression, not as a likeness.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1982/03/rashaad_carruth1.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "confidence": "verified-archival",
+      "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
+      "needs_resourcing": false,
       "visual_review_status": "required",
       "rights_review_status": "required-before-publication",
       "portrait": {
@@ -2898,16 +2931,21 @@
             "width": 160,
             "height": 213,
             "path": "/images/players/portrait/uk_rashaad_carruth-160w.webp"
+          },
+          {
+            "width": 320,
+            "height": 427,
+            "path": "/images/players/portrait/uk_rashaad_carruth-320w.webp"
           }
         ],
         "source_crop": {
-          "x": 139,
-          "y": 17,
-          "w": 67,
-          "h": 89
+          "x": 22,
+          "y": 32,
+          "w": 80,
+          "h": 107
         },
-        "native_width": 67,
-        "derivation": "jersey-number-2-in-2001-02-team-photograph",
+        "native_width": 80,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
           "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
           "scale": 4,
@@ -2915,9 +2953,9 @@
           "class": "fabricated"
         }
       },
-      "identified_by": "jersey-number",
-      "jersey_number": "2",
-      "identified_in_season": "2001-02"
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": false,
+      "photo_uniform_note": "not in uniform"
     },
     {
       "id": "player:ravi-moss",
@@ -3248,24 +3286,24 @@
         "2004-05",
         "2005-06"
       ],
-      "original_path": "/images/players/original/uk_shagari_alleyne.webp",
+      "original_path": "/images/players/resourced/uk_shagari_alleyne.jpg",
       "processed_path": "/images/players/portrait/uk_shagari_alleyne-640w.webp",
       "original_dimensions": {
-        "width": 420,
-        "height": 560
+        "width": 1254,
+        "height": 1254
       },
       "processed_dimensions": {
         "width": 640,
         "height": 853
       },
-      "photo_type": "archival-kentucky-portrait",
-      "photo_note": "Kentucky-uniform archival portrait, re-cropped from the extracted original to a consistent 3:4 head-and-shoulders frame. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks), a generative model that synthesises plausible detail rather than recovering what was recorded: fine texture in this image was computed, not photographed.",
-      "source_url": null,
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_type": "official-uk-headshot",
+      "photo_note": "Official University of Kentucky headshot (2004-05), recovered from Walter's Wildcat World and published on this player's row of the official season roster listing. It replaces a crop of a season team photograph that contained several people. No upscaler was used: the source photograph is larger than every size this archive serves, so each variant is a straight downsample of detail the camera recorded.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/1984/01/shagari_alleyne_featured.webp",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2004-2005-kentucky-basketball-roster/",
       "confidence": "verified-archival",
       "derivative_method": "face-centred-crop-realesrgan-x4-lanczos",
-      "needs_resourcing": true,
-      "visual_review_status": "required",
+      "needs_resourcing": false,
+      "visual_review_status": "complete",
       "rights_review_status": "required-before-publication",
       "portrait": {
         "variants": [
@@ -3286,20 +3324,22 @@
           }
         ],
         "source_crop": {
-          "x": 32,
-          "y": 14,
-          "w": 356,
-          "h": 475
+          "x": 292,
+          "y": 32,
+          "w": 916,
+          "h": 1222
         },
-        "native_width": 356,
-        "derivation": "face-detected",
+        "native_width": 916,
+        "derivation": "official-uk-headshot",
         "reconstruction": {
-          "model": "Real-ESRGAN x4plus (RRDBNet, 23 blocks)",
-          "scale": 4,
-          "generative": true,
-          "class": "reconstructed"
+          "model": "none — source exceeded every output width",
+          "scale": 1,
+          "generative": false,
+          "class": "native"
         }
-      }
+      },
+      "identified_by": "official-university-publication",
+      "in_kentucky_uniform": true
     },
     {
       "id": "player:sheray-thomas",
@@ -3631,20 +3671,20 @@
       "seasons": [
         "1997-98"
       ],
-      "original_path": "/images/teams/original/team_1997_98.webp",
+      "original_path": "/images/teams/resourced/team_1997_98.jpg",
       "processed_path": "/images/teams/processed/team_1997_98.webp",
       "original_dimensions": {
-        "width": 978,
-        "height": 767
+        "width": 2790,
+        "height": 2202
       },
       "processed_dimensions": {
         "width": 2560,
-        "height": 2008
+        "height": 2020
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1997-98 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 1997-98 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 2790px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1998.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3655,7 +3695,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 978
+        "native_width": 2790
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_1997_98.webp",
+          "width": 978,
+          "height": 767
+        },
+        "verification": "All thirteen jersey numbers legible in the photograph (3, 4, 5, 11, 13, 14, 15, 21, 22, 25, 33, 34, 42) match the thirteen-player 1997-98 roster in archive.json exactly, with none missing and none extra."
       }
     },
     {
@@ -3811,20 +3861,20 @@
       "seasons": [
         "2002-03"
       ],
-      "original_path": "/images/teams/original/team_2002_03.webp",
+      "original_path": "/images/teams/resourced/team_2002_03.jpg",
       "processed_path": "/images/teams/processed/team_2002_03.webp",
       "original_dimensions": {
-        "width": 978,
-        "height": 659
+        "width": 1416,
+        "height": 964
       },
       "processed_dimensions": {
         "width": 2560,
         "height": 1725
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 978px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2002-03 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1416px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-2-e1604425095495.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3835,7 +3885,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 978
+        "native_width": 1416
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2002_03.webp",
+          "width": 978,
+          "height": 659
+        },
+        "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 5, 10, 11, 12, 14, 15, 24, 33, 40, 44, 50) match the fifteen-player 2002-03 roster in archive.json exactly, with none missing and none extra."
       }
     },
     {
@@ -3919,20 +3979,20 @@
       "seasons": [
         "2005-06"
       ],
-      "original_path": "/images/teams/original/team_2005_06.webp",
+      "original_path": "/images/teams/resourced/team_2005_06.jpg",
       "processed_path": "/images/teams/processed/team_2005_06.webp",
       "original_dimensions": {
-        "width": 1002,
-        "height": 634
+        "width": 1379,
+        "height": 884
       },
       "processed_dimensions": {
         "width": 2560,
         "height": 1620
       },
       "photo_type": "official-team-photo",
-      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1002px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
-      "source_url": "https://ukathletics.com/sports/2017/6/22/mens-basketball-media-guides.aspx",
-      "source_reference": "reference/legacy-stable.html and the embedded archive provenance data",
+      "photo_note": "Kentucky media-guide team photograph. Verified UK-uniform profile crops for the 2005-06 roster are derived from this image. Reconstructed with Real-ESRGAN x4plus (RRDBNet, 23 blocks) from the 1379px original after descreening: a generative model that synthesises plausible detail rather than recovering what was recorded, so fine texture in this image was computed, not photographed.",
+      "source_url": "https://www.wildcatworld.com/wp-content/uploads/2020/08/2005_2006.jpg",
+      "source_reference": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2005-2006-kentucky-basketball-roster/",
       "confidence": "verified-official-team-photo",
       "derivative_method": "descreen-realesrgan-x4-lanczos",
       "needs_resourcing": true,
@@ -3943,7 +4003,17 @@
         "scale": 4,
         "generative": true,
         "class": "reconstructed",
-        "native_width": 1002
+        "native_width": 1379
+      },
+      "resourced_from": {
+        "site": "Walter's Wildcat World",
+        "retrieved": "2026-08-02",
+        "supersedes": {
+          "path": "/images/teams/original/team_2005_06.webp",
+          "width": 1002,
+          "height": 634
+        },
+        "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 10, 12, 13, 21, 22, 23, 25, 32, 33, 42, 43) match the fifteen-player 2005-06 roster in archive.json exactly, with none missing and none extra."
       }
     },
     {

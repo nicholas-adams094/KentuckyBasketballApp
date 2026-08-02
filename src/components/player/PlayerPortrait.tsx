@@ -98,7 +98,9 @@ export function PlayerPortrait({
           ? `Team photo · #${photo?.jersey_number}`
           : photo?.photo_season_note
             ? photo.photo_season_note
-            : null;
+            : photo?.photo_uniform_note
+              ? photo.photo_uniform_note
+              : null;
 
   // Every other flag is provenance detail a reader can opt into. This one is a correction
   // to what the picture appears to assert, so it shows wherever the image shows.

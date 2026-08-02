@@ -133,7 +133,7 @@ for (const item of manifest.items) {
         // Portraits pass through a ×4 generative upscaler, so the ceiling is the model's
         // own scale factor. Past that even synthesised detail is just resampling, and the
         // file would be claiming resolution nothing in the chain ever produced.
-        const ceiling = portrait.reconstruction ? portrait.reconstruction.scale : 2;
+        const ceiling = portrait.reconstruction ? portrait.reconstruction.scale : 2;  // 1 when native
         if (variant.width > portrait.native_width * ceiling) {
           fail(
             `${where}: portrait variant ${variant.width}w exceeds ${ceiling}x the ${portrait.native_width}px native crop`,
@@ -152,8 +152,19 @@ for (const item of manifest.items) {
         fail(`${where}: portrait has no reconstruction record — run scripts/derive-portraits.py`);
       } else {
         if (!recon.model?.trim()) fail(`${where}: reconstruction names no model`);
-        if (!['reconstructed', 'fabricated'].includes(recon.class)) {
-          fail(`${where}: reconstruction class must be "reconstructed" or "fabricated" (got "${recon.class}")`);
+        if (!['reconstructed', 'fabricated', 'native'].includes(recon.class)) {
+          fail(`${where}: reconstruction class must be "reconstructed", "fabricated" or "native" (got "${recon.class}")`);
+        }
+        // "native" is the claim that nothing was synthesised. It only holds if the source
+        // crop really did out-resolve every variant, so it is re-derived here.
+        if (recon.class === 'native') {
+          if (recon.generative !== false) fail(`${where}: class "native" cannot be generative`);
+          const largest = Math.max(...portrait.variants.map((v) => v.width));
+          if (portrait.native_width < largest) {
+            fail(
+              `${where}: class "native" but its ${portrait.native_width}px crop is smaller than its ${largest}w variant — something must have been synthesised`,
+            );
+          }
         }
         // A fabrication is not a likeness of the player. It has to be declared as one in
         // the photo_type too, because that is what the interface reads to flag it.
@@ -177,7 +188,10 @@ for (const item of manifest.items) {
         // The threshold that separates the two is the whole basis for the distinction, so
         // it is re-derived here rather than trusted from the generating script.
         const tooSmall = portrait.native_width < 90;
-        if (tooSmall && recon.class !== 'fabricated') {
+        if (tooSmall && recon.class === 'native') {
+          fail(`${where}: a ${portrait.native_width}px crop cannot be class "native"`);
+        }
+        if (tooSmall && recon.class === 'reconstructed') {
           fail(
             `${where}: ${portrait.native_width}px native crop is below the 90px reconstruction floor but is not marked fabricated`,
           );

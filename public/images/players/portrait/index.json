@@ -1,21 +1,36 @@
 {
   "uk_adam_chiles": {
     "fabricated": false,
-    "identification": "face-detected",
+    "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 296,
-    "resourced": null,
+    "native_width": 737,
+    "resourced": {
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "2001-02",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/12/adam_chiles.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
+    },
     "season": null,
     "source_crop": {
-      "h": 394,
-      "w": 296,
-      "x": 42,
-      "y": 83
+      "h": 983,
+      "w": 737,
+      "x": 367,
+      "y": 33
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -51,6 +66,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -71,21 +87,35 @@
   },
   "uk_allen_edwards": {
     "fabricated": false,
-    "identification": "face-detected",
+    "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 296,
-    "resourced": null,
+    "native_width": 940,
+    "resourced": {
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "1997-98",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1975/12/allen_edwards_profile.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1997-1998-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
     "season": null,
     "source_crop": {
-      "h": 394,
-      "w": 296,
-      "x": 62,
-      "y": 83
+      "h": 1254,
+      "w": 940,
+      "x": 148,
+      "y": 0
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -105,47 +135,81 @@
     ]
   },
   "uk_antwain_barbour": {
-    "fabricated": true,
-    "identification": "jersey-number-33-in-2002-03-team-photograph",
-    "jersey": "33",
-    "native_width": 73,
-    "resourced": null,
-    "season": "2002-03",
+    "fabricated": false,
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 105,
+    "resourced": {
+      "dimensions": {
+        "height": 158,
+        "width": 105
+      },
+      "era": "2003-04",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/06/antwain_barbour1.jpg",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2003-2004-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
+    },
+    "season": null,
     "source_crop": {
-      "h": 98,
-      "w": 73,
-      "x": 137,
-      "y": 82
+      "h": 140,
+      "w": 105,
+      "x": 0,
+      "y": 0
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 158,
+      "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
         "path": "/images/players/portrait/uk_antwain_barbour-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_antwain_barbour-320w.webp",
+        "width": 320
       }
     ]
   },
   "uk_bernard_cote": {
     "fabricated": false,
-    "identification": "face-detected",
+    "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 296,
-    "resourced": null,
+    "native_width": 905,
+    "resourced": {
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "1999-00",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2026/07/bernard_cote.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1999-2000-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
     "season": null,
     "source_crop": {
-      "h": 394,
-      "w": 296,
-      "x": 59,
-      "y": 83
+      "h": 1207,
+      "w": 905,
+      "x": 161,
+      "y": 47
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -181,6 +245,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -216,6 +281,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -251,6 +317,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -286,6 +353,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -321,6 +389,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -356,6 +425,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -391,6 +461,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -426,6 +497,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -461,6 +533,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -496,6 +569,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -531,6 +605,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -566,6 +641,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -601,6 +677,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -636,6 +713,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -656,21 +734,35 @@
   },
   "uk_jason_parker": {
     "fabricated": false,
-    "identification": "face-detected",
+    "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 359,
-    "resourced": null,
+    "native_width": 940,
+    "resourced": {
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "2000-01",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1980/08/jason_parker_featured.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2000-2001-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
     "season": null,
     "source_crop": {
-      "h": 479,
-      "w": 359,
-      "x": 30,
-      "y": 14
+      "h": 1254,
+      "w": 940,
+      "x": 86,
+      "y": 0
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -706,6 +798,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -741,6 +834,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -776,6 +870,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -817,6 +912,7 @@
       "height": 158,
       "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -853,6 +949,7 @@
       "height": 145,
       "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -870,25 +967,33 @@
     "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 105,
+    "native_width": 899,
     "resourced": {
-      "era": "1999-2000",
-      "identified_by": "published on this player's own official University of Kentucky biography page",
-      "image_url": "https://web.archive.org/web/20000822111412im_/http://www.ukathletics.com/pix/bko/bkc/2000/07/11/jules_camara_mug.jpg",
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "2001-02",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1979/07/jules_camara.webp",
       "in_covered_era": true,
-      "page_url": "https://web.archive.org/web/20000822111412/http://www.ukathletics.com/bko/bkc/julescamarabio.html"
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
     },
     "season": null,
     "source_crop": {
-      "h": 140,
-      "w": 105,
-      "x": 0,
-      "y": 0
+      "h": 1199,
+      "w": 899,
+      "x": 239,
+      "y": 55
     },
     "source_size": {
-      "height": 145,
-      "width": 105
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -899,6 +1004,11 @@
         "height": 427,
         "path": "/images/players/portrait/uk_jules_camara-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_jules_camara-640w.webp",
+        "width": 640
       }
     ]
   },
@@ -919,6 +1029,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -954,6 +1065,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -995,6 +1107,7 @@
       "height": 158,
       "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1009,22 +1122,36 @@
     ]
   },
   "uk_mark_coury": {
-    "fabricated": true,
-    "identification": "jersey-number-42-in-2006-07-team-photograph",
-    "jersey": "42",
-    "native_width": 83,
-    "resourced": null,
-    "season": "2006-07",
+    "fabricated": false,
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 747,
+    "resourced": {
+      "dimensions": {
+        "height": 1003,
+        "width": 1214
+      },
+      "era": "2006-07",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1986/08/mark_coury_featured.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
+    "season": null,
     "source_crop": {
-      "h": 111,
-      "w": 83,
-      "x": 239,
-      "y": 86
+      "h": 996,
+      "w": 747,
+      "x": 208,
+      "y": 7
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1003,
+      "width": 1214
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -1035,6 +1162,11 @@
         "height": 427,
         "path": "/images/players/portrait/uk_mark_coury-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_mark_coury-640w.webp",
+        "width": 640
       }
     ]
   },
@@ -1055,6 +1187,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1090,6 +1223,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1109,22 +1243,36 @@
     ]
   },
   "uk_matt_heissenbuttel": {
-    "fabricated": true,
-    "identification": "jersey-number-15-in-2002-03-team-photograph",
-    "jersey": "15",
-    "native_width": 87,
-    "resourced": null,
-    "season": "2002-03",
+    "fabricated": false,
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 99,
+    "resourced": {
+      "dimensions": {
+        "height": 174,
+        "width": 116
+      },
+      "era": "2002-03",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1981/09/matt_heissenbuttel1.jpg",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
+    "season": null,
     "source_crop": {
-      "h": 116,
-      "w": 87,
-      "x": 133,
-      "y": 30
+      "h": 132,
+      "w": 99,
+      "x": 6,
+      "y": 42
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 174,
+      "width": 116
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1155,6 +1303,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1196,6 +1345,7 @@
       "height": 145,
       "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1226,6 +1376,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1261,6 +1412,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1296,6 +1448,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1331,6 +1484,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1366,6 +1520,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1401,6 +1556,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1436,6 +1592,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1471,6 +1628,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1493,25 +1651,33 @@
     "fabricated": false,
     "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 100,
+    "native_width": 247,
     "resourced": {
+      "dimensions": {
+        "height": 450,
+        "width": 300
+      },
       "era": "2008-09",
-      "identified_by": "headshot embedded in this player's own official University of Kentucky roster page",
-      "image_url": "https://web.archive.org/web/20081003054456im_/http://grfx.cstv.com/photos/schools/kty/sports/m-baskbl/auto_headshot/2327487.jpeg",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1988/05/Harris_Ramon_09_101.jpg",
       "in_covered_era": false,
-      "page_url": "https://web.archive.org/web/20081003054456/http://www.ukathletics.com/sports/m-baskbl/mtt/harris_ramon00.html"
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2006-2007-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
     },
     "season": null,
     "source_crop": {
-      "h": 133,
-      "w": 100,
-      "x": 0,
-      "y": 12
+      "h": 329,
+      "w": 247,
+      "x": 53,
+      "y": 31
     },
     "source_size": {
-      "height": 145,
-      "width": 105
+      "height": 450,
+      "width": 300
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1522,6 +1688,11 @@
         "height": 427,
         "path": "/images/players/portrait/uk_ramon_harris-320w.webp",
         "width": 320
+      },
+      {
+        "height": 853,
+        "path": "/images/players/portrait/uk_ramon_harris-640w.webp",
+        "width": 640
       }
     ]
   },
@@ -1542,6 +1713,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1562,26 +1734,46 @@
   },
   "uk_rashaad_carruth": {
     "fabricated": true,
-    "identification": "jersey-number-2-in-2001-02-team-photograph",
-    "jersey": "2",
-    "native_width": 67,
-    "resourced": null,
-    "season": "2001-02",
+    "identification": "official-uk-headshot",
+    "jersey": null,
+    "native_width": 80,
+    "resourced": {
+      "dimensions": {
+        "height": 157,
+        "width": 105
+      },
+      "era": "2002-03",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1982/03/rashaad_carruth1.jpg",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2002-2003-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": false,
+      "uniform_exception": "Official University of Kentucky portrait in suit and tie, not in uniform. Accepted by the archive owner in preference to an AI-fabricated face."
+    },
+    "season": null,
     "source_crop": {
-      "h": 89,
-      "w": 67,
-      "x": 139,
-      "y": 17
+      "h": 107,
+      "w": 80,
+      "x": 22,
+      "y": 32
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 157,
+      "width": 105
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
         "path": "/images/players/portrait/uk_rashaad_carruth-160w.webp",
         "width": 160
+      },
+      {
+        "height": 427,
+        "path": "/images/players/portrait/uk_rashaad_carruth-320w.webp",
+        "width": 320
       }
     ]
   },
@@ -1602,6 +1794,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1637,6 +1830,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1672,6 +1866,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1707,6 +1902,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1742,6 +1938,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1762,21 +1959,35 @@
   },
   "uk_shagari_alleyne": {
     "fabricated": false,
-    "identification": "face-detected",
+    "identification": "official-uk-headshot",
     "jersey": null,
-    "native_width": 356,
-    "resourced": null,
+    "native_width": 916,
+    "resourced": {
+      "dimensions": {
+        "height": 1254,
+        "width": 1254
+      },
+      "era": "2004-05",
+      "identified_by": "published on this player's row of the official season roster listing",
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/1984/01/shagari_alleyne_featured.webp",
+      "in_covered_era": true,
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2004-2005-kentucky-basketball-roster/",
+      "retrieved": "2026-08-02",
+      "site": "Walter's Wildcat World",
+      "uniform": true
+    },
     "season": null,
     "source_crop": {
-      "h": 475,
-      "w": 356,
-      "x": 32,
-      "y": 14
+      "h": 1222,
+      "w": 916,
+      "x": 292,
+      "y": 32
     },
     "source_size": {
-      "height": 560,
-      "width": 420
+      "height": 1254,
+      "width": 1254
     },
+    "upscaled": false,
     "variants": [
       {
         "height": 213,
@@ -1812,6 +2023,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1847,6 +2059,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1882,6 +2095,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1917,6 +2131,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,
@@ -1952,6 +2167,7 @@
       "height": 560,
       "width": 420
     },
+    "upscaled": true,
     "variants": [
       {
         "height": 213,

@@ -375,12 +375,23 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
             # carries the record of it. `class` separates a reconstruction — a real face
             # with synthesised texture on it — from a fabrication, where the crop was too
             # small for the model to reconstruct anything and it invented the face.
-            "reconstruction": {
-                "model": UPSCALE_LABEL,
-                "scale": UPSCALE_SCALE,
-                "generative": True,
-                "class": "fabricated" if entry["fabricated"] else "reconstructed",
-            },
+            "reconstruction": (
+                {
+                    "model": UPSCALE_LABEL,
+                    "scale": UPSCALE_SCALE,
+                    "generative": True,
+                    "class": "fabricated" if entry["fabricated"] else "reconstructed",
+                }
+                if entry["upscaled"]
+                else {
+                    # Nothing generative touched this one: the source out-resolved every
+                    # output width, so each variant is a plain downsample.
+                    "model": "none — source exceeded every output width",
+                    "scale": 1,
+                    "generative": False,
+                    "class": "native",
+                }
+            ),
         }
         # The canonical display derivative is now the largest portrait variant.
         item["processed_path"] = largest["path"]
@@ -442,8 +453,17 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
             item["in_kentucky_uniform"] = bool(src.get("uniform", True))
             if not src["in_covered_era"]:
                 item["photo_season_note"] = f"portrait dates from {src['era']}"
-            elif not src.get("uniform", True):
-                item["photo_season_note"] = "not in uniform"
+            else:
+                # Clear it, or a value written by an earlier run for a source that has
+                # since been replaced survives and describes the wrong file.
+                item.pop("photo_season_note", None)
+            # A separate field: "not in uniform" is not a statement about the season, and
+            # putting it in photo_season_note made a portrait dated 2001-02 claim its own
+            # date was "not in uniform".
+            if not src.get("uniform", True):
+                item["photo_uniform_note"] = "not in uniform"
+            else:
+                item.pop("photo_uniform_note", None)
 
         elif basis.startswith("jersey-number"):
             item["photo_type"] = "team-photograph-crop"
@@ -468,7 +488,14 @@ def update_manifest(report: dict[str, dict], skipped: dict[str, dict]) -> None:
         # Disclosure, appended whatever the image's provenance. `confidence` still records
         # how the *subject* was identified — that is a separate question from how the
         # pixels were produced, and the jersey-number audit still depends on it.
-        if item["portrait"]["reconstruction"]["class"] == "fabricated":
+        recon_class = item["portrait"]["reconstruction"]["class"]
+        if recon_class == "native":
+            item["photo_note"] += (
+                " No upscaler was used: the source photograph is larger than every size "
+                "this archive serves, so each variant is a straight downsample of detail "
+                "the camera recorded."
+            )
+        elif recon_class == "fabricated":
             item["photo_type"] = "ai-fabricated-face"
             item["visual_review_status"] = "required"
             # Two different things can put an entry here, and conflating them would state
@@ -636,11 +663,17 @@ def main() -> int:
         # everything already on disk assembles the manifest without redoing the work.
         mine = shard is None or key in shard
         done = all(os.path.exists(os.path.join(ROOT, "public" + v["path"])) for v in variants)
+        # A crop already wider than the largest output needs no upscaler: every variant is
+        # a downsample of detail the camera actually recorded. Running the model anyway
+        # would expand it to ~4x and throw the result away, replacing real photographic
+        # detail with synthesised texture — slower *and* less truthful.
+        needs_upscale = cw < max(widths)
+
         if not args.check and mine and not (done and not args.force):
             # Only the team-photograph crops are scans of a printed page, so only they get
             # the descreen; on a clean studio portrait it would soften real detail for no
-            # reason. The upscale runs once and every width is resized off that result.
-            rebuilt = reconstruct(cropped, descreen=manual is not None)
+            # reason. Where an upscale is needed it runs once, and every width comes off it.
+            rebuilt = reconstruct(cropped, descreen=manual is not None) if needs_upscale else cropped
             for variant in variants:
                 finish(rebuilt, variant["width"]).save(
                     os.path.join(ROOT, "public" + variant["path"]),
@@ -661,6 +694,9 @@ def main() -> int:
             # invents a face outright. Recorded here so the manifest, the audit and the
             # interface all treat those four differently from a reconstruction.
             "fabricated": cw < FABRICATION_WIDTH,
+            # False where the source already exceeded every output width, so nothing was
+            # synthesised and the portrait is straight photographic detail.
+            "upscaled": needs_upscale,
         }
 
     # Prune outputs from a previous run that this one no longer produces, so the derived

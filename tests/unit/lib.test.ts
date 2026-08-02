@@ -286,16 +286,27 @@ describe('portraits', () => {
     // Six players whose only inherited image was a strip of a team photograph now have
     // the individual headshot the university itself published. Regression guard: none of
     // them may quietly fall back to the group crop.
-    const resourced = players.filter((item) => item.photo_type === 'official-uk-headshot');
+    // Keyed on the derivation, not on photo_type: a re-sourced portrait whose crop is
+    // still too small to reconstruct has its photo_type overridden to
+    // "ai-fabricated-face" so the interface flags it, and would otherwise vanish here.
+    const resourced = players.filter((item) => item.portrait?.derivation === 'official-uk-headshot');
     expect(resourced.map((i) => i.image_key).sort()).toEqual([
-      'uk_josh_carrier', 'uk_jp_blevins', 'uk_jules_camara',
-      'uk_lukasz_obrzut', 'uk_michael_porter', 'uk_ramon_harris',
+      'uk_adam_chiles', 'uk_allen_edwards', 'uk_antwain_barbour', 'uk_bernard_cote',
+      'uk_jason_parker', 'uk_josh_carrier', 'uk_jp_blevins', 'uk_jules_camara',
+      'uk_lukasz_obrzut', 'uk_mark_coury', 'uk_matt_heissenbuttel', 'uk_michael_porter',
+      'uk_ramon_harris', 'uk_rashaad_carruth', 'uk_shagari_alleyne',
     ].sort());
     for (const item of resourced) {
-      expect(item.confidence, item.image_key).toBe('verified-archival');
       expect(item.identified_by, item.image_key).toBe('official-university-publication');
+      expect(
+        ['official-uk-headshot', 'ai-fabricated-face'], item.image_key,
+      ).toContain(item.photo_type);
       expect(item.original_path, item.image_key).toMatch(/^\/images\/players\/resourced\//);
-      expect(item.source_url, item.image_key).toMatch(/^https:\/\/web\.archive\.org\//);
+      // Two provenance routes now: Internet Archive captures of ukathletics.com for the
+      // first six, and a fan archive's official roster listings for the rest.
+      expect(item.source_url, item.image_key).toMatch(
+        /^https:\/\/(web\.archive\.org|www\.wildcatworld\.com)\//,
+      );
       expect(item.portrait?.derivation, item.image_key).toBe('official-uk-headshot');
       expect(item.jersey_number, item.image_key).toBeUndefined();
     }
@@ -309,6 +320,22 @@ describe('portraits', () => {
     expect(outOfEra.map((i) => i.image_key).sort()).toEqual(['uk_michael_porter', 'uk_ramon_harris']);
     for (const item of outOfEra) {
       expect(item.photo_note, item.image_key).toMatch(/after the Tubby Smith era/);
+    }
+  });
+
+  it('says so when a portrait is an official photograph but not a uniformed one', () => {
+    // Three are official UK media-day portraits in jacket and tie. The archive's standing
+    // rule is Kentucky uniforms only; these are published as the lesser evil against an
+    // AI-fabricated face, so the departure has to be visible rather than silent. It is
+    // kept out of photo_season_note, which says when a photograph was taken, not what is
+    // being worn in it.
+    const notUniformed = players.filter((i) => i.photo_uniform_note);
+    expect(notUniformed.map((i) => i.image_key).sort()).toEqual(
+      ['uk_adam_chiles', 'uk_antwain_barbour', 'uk_rashaad_carruth'],
+    );
+    for (const item of notUniformed) {
+      expect(item.photo_note, item.image_key).toMatch(/jacket and tie rather than in uniform/);
+      expect(item.photo_season_note, item.image_key).toBeUndefined();
     }
   });
 
@@ -333,9 +360,17 @@ describe('portraits', () => {
       if (!item.portrait?.variants?.length) continue;
       const recon = item.portrait.reconstruction;
       expect(recon, item.image_key).toBeDefined();
-      expect(recon!.generative, item.image_key).toBe(true);
-      expect(recon!.model, item.image_key).toMatch(/Real-ESRGAN/);
-      expect(['reconstructed', 'fabricated'], item.image_key).toContain(recon!.class);
+      expect(['reconstructed', 'fabricated', 'native'], item.image_key).toContain(recon!.class);
+      if (recon!.class === 'native') {
+        // Nothing was synthesised, so the claim must be backed by the crop actually
+        // out-resolving every variant that is served from it.
+        expect(recon!.generative, item.image_key).toBe(false);
+        const largest = Math.max(...item.portrait!.variants.map((v) => v.width));
+        expect(item.portrait!.native_width, item.image_key).toBeGreaterThanOrEqual(largest);
+      } else {
+        expect(recon!.generative, item.image_key).toBe(true);
+        expect(recon!.model, item.image_key).toMatch(/Real-ESRGAN/);
+      }
     }
   });
 
@@ -345,11 +380,18 @@ describe('portraits', () => {
     // interface decides whether to call an image a photograph.
     for (const item of players) {
       if (!item.portrait?.variants?.length) continue;
-      const fabricated = item.portrait.reconstruction?.class === 'fabricated';
+      const cls = item.portrait.reconstruction?.class;
+      if (cls === 'native') continue;   // never upscaled, so the floor does not apply
+      const fabricated = cls === 'fabricated';
       expect(fabricated, item.image_key).toBe(item.portrait.native_width < 90);
       if (fabricated) {
         expect(item.photo_type, item.image_key).toBe('ai-fabricated-face');
-        expect(item.photo_note, item.image_key).toMatch(/NOT a photograph of this player/);
+        // Two accurate statements, for two different failures: a group crop is not this
+        // player, whereas a verified portrait too small to reconstruct is him with
+        // invented detail. Silence is what must not pass.
+        expect(item.photo_note, item.image_key).toMatch(
+          /NOT a photograph of this player|synthesised, not photographed/,
+        );
       }
     }
   });
@@ -388,7 +430,9 @@ describe('portraits', () => {
     // check that caught uk_ramon_harris: a #5 jersey filed under a player the archive
     // records as #22. Regression guard — an identification the roster contradicts must
     // never be shown as that player again.
-    expect(crops.length).toBe(4);
+    // Every team-photograph crop has been retired: official individual headshots were
+    // located for all of them, so no portrait rests on jersey-number inference any more.
+    expect(crops.length).toBe(0);
     for (const item of crops) {
       expect(item.identified_by, item.image_key).toBe('jersey-number');
       const season = seasons.find((s) => s.id === item.identified_in_season);

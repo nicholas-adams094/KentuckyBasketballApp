@@ -251,10 +251,21 @@ test.describe('sources', () => {
     await expect(page.getByRole('heading', { name: 'Historical sources' })).toBeVisible();
     await expect(page.getByText('Image rights have not been cleared')).toBeVisible();
 
-    await page.getByRole('button', { name: /^Team-photo crops — 4 images$/ }).click();
-    await expect(page.locator('.provenance-tile')).toHaveCount(4);
-    // Each crop states the jersey number its identification rests on.
-    await expect(page.locator('.provenance-flag', { hasText: 'Team photo · #' })).toHaveCount(4);
+    // Every image is now AI-upscaled, and the page has to say so standing rather than
+    // only on the individual entries.
+    await expect(page.getByText('Every image here has been AI-upscaled')).toBeVisible();
+
+    // No portrait rests on jersey-number inference any longer: official individual
+    // headshots were located for all four remaining team-photograph crops.
+    await page.getByRole('button', { name: /^Team-photo crops — 0 images$/ }).click();
+    await expect(page.locator('.provenance-tile')).toHaveCount(0);
+
+    // One face is still generated rather than photographed, and must be flagged as such.
+    await page.getByRole('button', { name: /^AI-generated faces — 1 image$/ }).click();
+    await expect(page.locator('.provenance-tile')).toHaveCount(1);
+    await expect(
+      page.locator('.provenance-flag', { hasText: 'AI-generated face' }),
+    ).toBeVisible();
 
     await page.getByRole('button', { name: /^Not shown as a portrait — 1 image$/ }).click();
     await expect(page.locator('.provenance-tile')).toHaveCount(1);
