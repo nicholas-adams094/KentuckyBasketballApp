@@ -88,6 +88,7 @@ const stats = {
   unverified: 0,
   supersededOriginals: 0,
   fabricated: 0,
+  withheld: 0,
   lowResOriginals: 0,
   rightsPending: 0,
 };
@@ -239,8 +240,21 @@ for (const item of manifest.items) {
     }
   }
 
+  // A withheld image must have no derivative at all: the absence is what forces every
+  // surface to an empty frame, so the audit checks the mechanism rather than the flag.
+  if (item.withheld) {
+    if (item.processed_path) {
+      fail(`${where}: withheld from publication but still declares processed_path "${item.processed_path}"`);
+    }
+    stats.withheld += 1;
+    warn(`${where}: withheld from publication — renders as an empty frame`);
+  } else if (!item.processed_path) {
+    fail(`${where}: no processed_path and not marked withheld`);
+  }
+
   for (const field of ['original_path', 'processed_path']) {
     const declared = item[field];
+    if (field === 'processed_path' && item.withheld) continue;
     if (typeof declared !== 'string' || !declared.startsWith('/images/')) {
       fail(`${where}: ${field} must be an absolute /images/… path (got "${declared}")`);
       continue;
@@ -314,7 +328,7 @@ for (const item of manifest.items) {
     stats.rightsPending += 1;
   }
 
-  if (item.kind === 'team' && !item.reconstruction) {
+  if (item.kind === 'team' && !item.withheld && !item.reconstruction) {
     fail(`${where}: team photograph has no reconstruction record — run scripts/derive-team-photos.py`);
   }
   if (item.reconstruction?.class === 'fabricated' && item.kind !== 'player') {
@@ -404,6 +418,7 @@ console.log(
     `  portrait variants     ${stats.portraitVariants}`,
     `  team-photo crops      ${stats.identifiedCrops}`,
     `  FABRICATED faces      ${stats.fabricated}`,
+    `  withheld from publication ${stats.withheld}`,
     `  placeholders          ${stats.placeholders}`,
     `  unverified subjects   ${stats.unverified}`,
     `  re-sourced headshots  ${stats.supersededOriginals}`,

@@ -1,0 +1,17 @@
+{
+  "_comment": "Interface imagery re-sourced at higher resolution. A file here supersedes the same key under interface/original/, which is never deleted.",
+  "retrieved": "2026-08-02",
+  "items": {
+    "rupp_arena": {
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/RuppArena.JPG",
+      "page_url": "https://commons.wikimedia.org/wiki/File:RuppArena.JPG",
+      "site": "Wikimedia Commons",
+      "retrieved": "2026-08-02",
+      "dimensions": { "width": 3488, "height": 2616 },
+      "licence": "CC BY 2.5",
+      "attribution": "\"Analogue Kid\" at English Wikipedia",
+      "supersedes": { "path": "/images/interface/original/rupp_arena.jpg", "width": 1200, "height": 800 },
+      "note": "Replaces an image of Rupp Arena after its glass-atrium renovation, which post-dates the 1997-2007 era this archive covers by roughly fifteen years. This photograph shows the arena much closer to how it looked during the era."
+    }
+  }
+}

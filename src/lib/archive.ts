@@ -164,10 +164,17 @@ export function photoItem(imageKey: string | undefined): PhotoManifestItem | und
   return imageKey ? manifestByKey.get(imageKey) : undefined;
 }
 
-/** Display-ready (processed) image URL for a manifest key. */
+/**
+ * Display-ready (processed) image URL for a manifest key.
+ *
+ * Returns undefined for an entry withheld from publication. That absence is what makes
+ * every surface fall back to an empty frame, so a withheld image cannot leak back into
+ * the interface by way of a caller that forgot to check the flag.
+ */
 export function imageUrl(imageKey: string | undefined): string | undefined {
   const item = photoItem(imageKey);
-  return item ? resolveAssetPath(item.processed_path) : undefined;
+  if (!item || item.withheld || !item.processed_path) return undefined;
+  return resolveAssetPath(item.processed_path);
 }
 
 /** The immutable extracted original, for the provenance panel. */

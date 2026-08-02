@@ -234,9 +234,15 @@ export interface PhotoManifestItem {
   image_key: string;
   seasons: string[];
   original_path: string;
-  processed_path: string;
+  /** Absent exactly when the image is withheld from publication. */
+  processed_path?: string;
   original_dimensions: { width: number; height: number };
-  processed_dimensions: { width: number; height: number };
+  processed_dimensions?: { width: number; height: number };
+  /**
+   * Deliberately not published. The source stays on disk with its provenance; the
+   * interface renders an empty frame rather than a substitute image.
+   */
+  withheld?: boolean;
   photo_type: string;
   photo_note: string;
   source_url: string | null;

@@ -11,6 +11,7 @@ import {
   getSeason,
   getSeasonIndex,
   imageUrl,
+  photoItem,
   playedSeasons,
   playerImageUrl,
   playerSeason,
@@ -125,9 +126,20 @@ describe('images', () => {
     }
   });
 
-  it('resolves a URL for every team image', () => {
+  it('has a manifest entry for every team image, and no URL while it is withheld', () => {
+    // Team photographs are withheld from publication pending replacements. The entries
+    // and their sources remain; only the derivative is gone, and imageUrl returning
+    // undefined is precisely what drives the empty frame in the interface.
     for (const season of seasons) {
-      expect(imageUrl(season.teamImage), season.id).toBeTruthy();
+      const item = photoItem(season.teamImage);
+      expect(item, season.id).toBeDefined();
+      if (item!.withheld) {
+        expect(imageUrl(season.teamImage), season.id).toBeUndefined();
+        expect(item!.processed_path, season.id).toBeUndefined();
+        expect(item!.original_path, season.id).toBeTruthy();
+      } else {
+        expect(imageUrl(season.teamImage), season.id).toBeTruthy();
+      }
     }
   });
 

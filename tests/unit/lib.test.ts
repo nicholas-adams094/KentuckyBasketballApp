@@ -396,11 +396,20 @@ describe('portraits', () => {
     }
   });
 
-  it('reconstructs the team photographs too, and says so', () => {
+  it('withholds a team photograph by removing the derivative, not just by flagging it', () => {
+    // The empty frame is driven by the absence of processed_path. A withheld entry that
+    // still carried one would keep rendering the image the flag claims is unpublished.
     for (const item of photoManifest.items.filter((i) => i.kind === 'team')) {
-      expect(item.reconstruction?.generative, item.image_key).toBe(true);
-      expect(item.reconstruction?.class, item.image_key).toBe('reconstructed');
-      expect(item.photo_note, item.image_key).toMatch(/computed, not photographed/);
+      if (item.withheld) {
+        expect(item.processed_path, item.image_key).toBeUndefined();
+        expect(item.reconstruction, item.image_key).toBeUndefined();
+        expect(item.photo_note, item.image_key).toMatch(/withheld from publication/);
+        // The source is kept: withholding is a publication decision, not a deletion.
+        expect(item.original_path, item.image_key).toBeTruthy();
+      } else {
+        expect(item.reconstruction?.generative, item.image_key).toBe(true);
+        expect(item.photo_note, item.image_key).toMatch(/computed, not photographed/);
+      }
     }
   });
 

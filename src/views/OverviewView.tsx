@@ -131,32 +131,38 @@ export function OverviewView() {
         </article>
       </div>
 
-      {teamImage ? (
-        <article className="card team-photo-card" style={{ marginTop: 'var(--space-4)' }}>
-          <div className="team-photo-card__copy">
-            <div>
-              <span className="kicker" style={{ color: 'var(--uk-sky)' }}>
-                Official season portrait
-              </span>
-              <h3>{seasonLabel(season.id)} Kentucky Wildcats</h3>
-              <p>
-                The full team photograph from the Kentucky media guide. Individual profiles use verified
-                Kentucky-uniform headshots where they exist; where they do not, the archive says so.
-              </p>
-            </div>
-            <span className="badge badge--neutral" style={{ alignSelf: 'flex-start' }}>
-              {season.roster.length} roster entries
+      <article className="card team-photo-card" style={{ marginTop: 'var(--space-4)' }}>
+        <div className="team-photo-card__copy">
+          <div>
+            <span className="kicker" style={{ color: 'var(--uk-sky)' }}>
+              Official season portrait
             </span>
+            <h3>{seasonLabel(season.id)} Kentucky Wildcats</h3>
+            <p>
+              {teamImage
+                ? 'The full team photograph from the Kentucky media guide. Individual profiles use verified Kentucky-uniform headshots where they exist; where they do not, the archive says so.'
+                : 'No team photograph is currently published for this season. The frame is left empty rather than filled with a stand-in, and the archive says so.'}
+            </p>
           </div>
-          <div className="team-photo-card__frame">
+          <span className="badge badge--neutral" style={{ alignSelf: 'flex-start' }}>
+            {season.roster.length} roster entries
+          </span>
+        </div>
+        {/* The frame is rendered either way. An empty box states plainly that nothing is
+            published; substituting another image would be the one thing this archive
+            must never do. */}
+        <div className={`team-photo-card__frame${teamImage ? '' : ' team-photo-card__frame--empty'}`}>
+          {teamImage ? (
             <img
               src={teamImage}
               alt={`${seasonLabel(season.id)} Kentucky Wildcats official team photograph`}
               loading="lazy"
             />
-          </div>
-        </article>
-      ) : null}
+          ) : (
+            <span role="note">No team photograph published</span>
+          )}
+        </div>
+      </article>
 
       <section style={{ marginTop: 'var(--space-6)' }} aria-labelledby="leaders-heading">
         <div className="subhead">

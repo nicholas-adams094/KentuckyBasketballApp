@@ -1,4 +1,4 @@
-import { RUPP_ARENA_IMAGE, teamImageUrl } from '@/lib/archive';
+import { RUPP_ARENA_IMAGE } from '@/lib/archive';
 import { apRank, record, seasonLabel, signed, stat } from '@/lib/format';
 import { analyzeSeason } from '@/lib/analytics';
 import { pathFor } from '@/lib/tournament';
@@ -9,7 +9,10 @@ export function Hero() {
   const { season } = useNavigation();
   const analysis = analyzeSeason(season);
   const path = pathFor(season.id);
-  const heroImage = teamImageUrl(season) ?? RUPP_ARENA_IMAGE;
+  // Rupp Arena for every season, rather than that season's team photograph. One masthead
+  // across the decade, and it does not change under the reader as they move between
+  // seasons.
+  const heroImage = RUPP_ARENA_IMAGE;
 
   const badges: { text: string; gold?: boolean }[] = [
     { text: season.conferenceFinish, gold: path?.secTitle },

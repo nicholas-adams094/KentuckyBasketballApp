@@ -60,6 +60,22 @@ def load_resourced() -> dict[str, dict]:
     with open(path) as fh:
         return json.load(fh)["items"]
 
+# ---------------------------------------------------------------------------
+# Seasons whose team photograph is deliberately not published.
+#
+# Withheld on 2026-08-02 at the archive owner's request, pending replacement
+# photographs. The derivative is deleted and the manifest entry marked `withheld`, so
+# every surface renders an empty frame that says so rather than a stand-in image.
+#
+# The sources under teams/original/ and teams/resourced/ stay on disk untouched: this is
+# a publication decision, not a deletion of the record. Remove a key from this set and
+# re-run to publish it again.
+# ---------------------------------------------------------------------------
+WITHHELD: set[str] = {
+    "team_1997_98", "team_1998_99", "team_1999_00", "team_2000_01", "team_2001_02",
+    "team_2002_03", "team_2003_04", "team_2004_05", "team_2005_06", "team_2006_07",
+}
+
 UPSCALE_MODEL = "esrgan"
 UPSCALE_LABEL = "Real-ESRGAN x4plus (RRDBNet, 23 blocks)"
 UPSCALE_SCALE = 4
@@ -95,6 +111,26 @@ def update_manifest(report: dict[str, dict], resourced: dict[str, dict]) -> None
     for item in manifest["items"]:
         if item["kind"] != "team":
             continue
+        if item["image_key"] in WITHHELD:
+            # No processed_path at all: the absence of a derivative is what makes every
+            # surface fall back to the empty frame, so the audit checks the mechanism
+            # rather than trusting the flag.
+            item["withheld"] = True
+            item.pop("processed_path", None)
+            item.pop("processed_dimensions", None)
+            item.pop("reconstruction", None)
+            item["derivative_method"] = "none — withheld from publication"
+            item["visual_review_status"] = "required"
+            item["photo_note"] = (
+                "Team photograph withheld from publication at the archive owner's request "
+                "on 2026-08-02, pending a replacement. The source images remain on disk "
+                "under teams/original/ and teams/resourced/ with their provenance intact; "
+                "nothing has been deleted from the record. Every surface renders an empty "
+                "frame rather than a substitute image."
+            )
+            continue
+
+        item.pop("withheld", None)
         entry = report.get(item["image_key"])
         if entry is None:
             continue
@@ -157,6 +193,11 @@ def main() -> int:
         if not filename.endswith(".webp"):
             continue
         key = filename[:-5]
+        if key in WITHHELD:
+            out = os.path.join(OUTPUT_DIR, filename)
+            if os.path.exists(out) and not args.check:
+                os.remove(out)
+            continue
         source = (os.path.join(RESOURCED_DIR, f"{key}.jpg") if key in resourced
                   else os.path.join(ORIGINAL_DIR, filename))
         out_path = os.path.join(OUTPUT_DIR, filename)

@@ -104,6 +104,20 @@
   background: var(--canvas-deep);
 }
 
+/* The empty state is a real, visible frame — not a collapsed box. It has to read as
+   "nothing is published here", which an absence of layout would not. */
+.team-photo-card__frame--empty {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  border: 1px dashed var(--rule-strong);
+  /* --text-subtle lands at 4.49:1 on the light canvas, a hair under AA at this size. */
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .team-photo-card__frame img {
   width: 100%;
   height: 100%;
