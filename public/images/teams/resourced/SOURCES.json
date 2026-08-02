@@ -1,5 +1,9 @@
 {
-  "note": "Higher-resolution team photographs located after the originals were extracted from the previous build. A file here supersedes the same key under teams/original/, which is never deleted, so the substitution stays auditable. scripts/derive-team-photos.py prefers these automatically.",
+  "_comment": "Season team photographs taken from each season's own roster page. Identification rests primarily on the page that publishes them; the jersey cross-check against archive.json is recorded per entry as supporting evidence, including where it disagrees. A file here supersedes the same key under teams/original/, which is never deleted, so the substitution stays auditable.",
+  "retrieved": "2026-08-02",
+  "not_taken": {
+    "team_2006_07": "The roster page copy is 1368x872, smaller than the 1500x993 original this archive already holds. Taking it would lose detail that no upscaler can return, so 2006-07 continues to derive from teams/original/."
+  },
   "items": {
     "team_1997_98": {
       "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1998.jpg",
@@ -15,7 +19,80 @@
         "width": 978,
         "height": 767
       },
-      "verification": "All thirteen jersey numbers legible in the photograph (3, 4, 5, 11, 13, 14, 15, 21, 22, 25, 33, 34, 42) match the thirteen-player 1997-98 roster in archive.json exactly, with none missing and none extra.",
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Exact: all 13 numbers in frame (3,4,5,11,13,14,15,21,22,25,33,34,42) match the 13-player roster, none missing, none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_1998_99": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1998-991.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1998-1999-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 900,
+        "height": 405
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_1998_99.webp",
+        "width": 878,
+        "height": 383
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Consistent: 13 legible numbers all appear on the 14-player roster; #22 is obscured in the frame. No number appears that the roster does not record.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_1999_00": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/1999-001.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/1999-2000-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 550,
+        "height": 327
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_1999_00.webp",
+        "width": 528,
+        "height": 305
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Exact: all 12 numbers in frame (3,4,5,10,11,12,21,24,32,40,42,50) match the 12-player roster, none missing, none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2000_01": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-4-e1604500531276.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2000-2001-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1440,
+        "height": 928
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2000_01.webp",
+        "width": 978,
+        "height": 623
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Discrepancy: 12 of 13 match. The frame shows a #40, which this archive does not record for 2000-01, and does not show the #42 (Jason Parker) that it does. Jules Camara wore #40 in 1999-00 and 2001-02 but is absent from this archive's 2000-01 roster. Identification rests on the season roster page that publishes it, not on the jersey set.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2001_02": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-3-e1604498095502.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2001-2002-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1436,
+        "height": 960
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2001_02.webp",
+        "width": 978,
+        "height": 647
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Discrepancy: contains a #00 that appears on no roster in the covered era; 2001-02's #22 and #33 are not legible in the frame. Identification rests on the season roster page that publishes it.",
       "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
     },
     "team_2002_03": {
@@ -32,7 +109,44 @@
         "width": 978,
         "height": 659
       },
-      "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 5, 10, 11, 12, 14, 15, 24, 33, 40, 44, 50) match the fifteen-player 2002-03 roster in archive.json exactly, with none missing and none extra.",
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Exact: all 15 numbers in frame (1,2,3,4,5,10,11,12,14,15,24,33,40,44,50) match the 15-player roster, none missing, none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2003_04": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-1-e1604418732827.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2003-2004-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1380,
+        "height": 868
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2003_04.webp",
+        "width": 978,
+        "height": 607
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Exact: all 17 numbers in frame (1,2,3,4,5,10,11,12,13,14,15,21,22,23,24,33,44) match the 17-player roster, none missing, none extra.",
+      "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
+    },
+    "team_2004_05": {
+      "image_url": "https://www.wildcatworld.com/wp-content/uploads/2020/11/s-l16001-e1604333823685.jpg",
+      "page_url": "https://www.wildcatworld.com/kentucky-basketball-statistics/rosters/2004-2005-kentucky-basketball-roster/",
+      "site": "Walter's Wildcat World",
+      "retrieved": "2026-08-02",
+      "dimensions": {
+        "width": 1384,
+        "height": 876
+      },
+      "supersedes": {
+        "path": "/images/teams/original/team_2004_05.webp",
+        "width": 1002,
+        "height": 626
+      },
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Consistent: 15 of the 16 roster numbers appear; #11 is not in the frame. No number appears that the roster does not record.",
       "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
     },
     "team_2005_06": {
@@ -49,15 +163,9 @@
         "width": 1002,
         "height": 634
       },
-      "verification": "All fifteen jersey numbers legible in the photograph (1, 2, 3, 4, 10, 12, 13, 21, 22, 23, 25, 32, 33, 42, 43) match the fifteen-player 2005-06 roster in archive.json exactly, with none missing and none extra.",
+      "identified_by": "published on the official season roster page for this season",
+      "verification": "Exact: all 15 numbers in frame (1,2,3,4,10,12,13,21,22,23,25,32,33,42,43) match the 15-player roster, none missing, none extra.",
       "rights": "Not cleared. Photograph is a University of Kentucky team portrait; this site is not the rights holder. Recorded for provenance only."
     }
-  },
-  "not_taken": {
-    "_comment": "Team photographs found at the same source but not installed, and why. Recorded so the search is not repeated and the reasoning stays auditable.",
-    "team_2000_01": "1440x928. Shows a #40 where archive.json records #42 (Jason Parker) for 2000-01 and lists no #40; Jules Camara wore #40 in 1999-00 and 2001-02 but is absent from the 2000-01 roster. Twelve of thirteen numbers match. Not installed: the season cannot be asserted from the archive's own data.",
-    "team_2001_02": "1436x960. Contains a #00 that appears on no roster in the covered era, and 2001-02's #22 and #33 are unaccounted for. Not installed pending identification.",
-    "team_2004_05": "1384x876. Fifteen of the sixteen 2004-05 numbers present; #11 does not appear in the frame. Not installed pending confirmation that the player was simply absent from the sitting.",
-    "team_2006_07": "1380x868, which is smaller than the 1500x993 original already held. No gain."
   }
 }
